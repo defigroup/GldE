@@ -760,38 +760,10 @@ section.lazy-placeholder:after {
 .cid-sl2mV6l3YQ .card-title {
   text-align: left;
 }
-.cid-sl2mV8IoLi {
-  padding-top: 90px;
-  padding-bottom: 90px;
-  background-color: #ffffff;
-}
-.cid-sl2mV8IoLi h3 {
-  text-align: center;
-}
-.cid-sl2mV8IoLi .mbr-section-subtitle {
-  color: #767676;
-  font-weight: 300;
-}
-.cid-sl2mV8IoLi .mbr-content-text {
-  color: #118519;
-}
-.cid-sl2mV8IoLi .panel-item {
-  background: #ffffff;
-}
-.cid-sl2mV8IoLi .card {
-  word-wrap: break-word;
-}
-.cid-sl2mV8IoLi .mbr-iconfont {
-  font-size: 80px;
-  color: #149dcc;
-}
-.cid-sl2mV8IoLi H4 {
-  color: #c79b00;
-}
 .cid-sl2mV7L8xp {
   padding-top: 90px;
   padding-bottom: 90px;
-  background-color: #efefef;
+  background-color: #ffffff;
 }
 .cid-sl2mV7L8xp h4 {
   font-weight: 500;
@@ -858,6 +830,31 @@ section.lazy-placeholder:after {
 }
 .cid-sl2mV7L8xp .text5 {
   text-align: center;
+}
+.cid-sl2mV8IoLi {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  background-image: url("../../../assets/images/goldprod.gif");
+}
+.cid-sl2mV8IoLi h3 {
+  text-align: center;
+}
+.cid-sl2mV8IoLi .mbr-section-subtitle {
+  color: #118519;
+  font-weight: 300;
+}
+.cid-sl2mV8IoLi .mbr-content-text {
+  color: #118519;
+}
+.cid-sl2mV8IoLi .card {
+  word-wrap: break-word;
+}
+.cid-sl2mV8IoLi .mbr-iconfont {
+  font-size: 80px;
+  color: #149dcc;
+}
+.cid-sl2mV8IoLi H4 {
+  color: #c79b00;
 }
 .cid-sl2nKgDuQh {
   padding-top: 90px;
