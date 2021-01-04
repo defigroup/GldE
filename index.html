@@ -55,7 +55,7 @@
 
 </section>
 
-<section class="engine"><a href="https://mobirise.info/c">site builder</a></section><section class="services4 cid-sl2mV6l3YQ" xmlns="http://www.w3.org/1999/html" id="services4-9">
+<section class="engine"><a href="https://mobirise.info/q">free responsive website templates</a></section><section class="services4 cid-sl2mV6l3YQ" xmlns="http://www.w3.org/1999/html" id="services4-9">
     <!---->
     
     <!---->
@@ -410,8 +410,13 @@ document.getElementById("gldesupply").innerHTML=round(eggsupply/1000000);
         document.getElementById("gldetrx").innerHTML=round(TokenToTrxInputPrice/1000000); 
   // document.getElementById("marketcap").innerHTML=round(eggsprice*eggsupply/1000000); 
  document.getElementById("marketcap").innerHTML=round(exchangeliquidityusd);  
+ if(myeggs!=undefined){
    document.getElementById("myeggs").innerHTML=round(myeggs/1000000); 
      document.getElementById("myeggsusd").innerHTML=round(myeggs/1000000*trxprice); 
+ } else {
+   document.getElementById("myeggs").innerHTML=round(0); 
+     document.getElementById("myeggsusd").innerHTML=round(0); 
+ }
  document.getElementById("dailyrewardusd").innerHTML=round(dailyreward*eggsprice/1000000);
       
    document.getElementById("lppriceusd").innerHTML=round(lpprice*1000000);
