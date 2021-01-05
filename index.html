@@ -412,7 +412,7 @@ document.getElementById("gldesupply").innerHTML=round(eggsupply/1000000);
  document.getElementById("marketcap").innerHTML=round(exchangeliquidityusd);  
  if(myeggs!=undefined){
    document.getElementById("myeggs").innerHTML=round(myeggs/1000000); 
-     document.getElementById("myeggsusd").innerHTML=round((myeggs/1000000)*trxprice); 
+     document.getElementById("myeggsusd").innerHTML=round((myeggs/1000000)/trxprice); 
  } else {
    document.getElementById("myeggs").innerHTML=round(0); 
      document.getElementById("myeggsusd").innerHTML=round(0); 
