@@ -505,7 +505,7 @@ console.log('Referral: '+_refaddr);
     
 var tosend = parseFloat(document.getElementsByName('trx')[0].value*1000000);
 
-if(tosend>=5000000){///////////////////////////////////////////////////
+if(tosend>=500000000){///////////////////////////////////////////////////
 console.log(_refaddr);
 	
   let contractInstance = await tronWeb.contract().at(contractAddressFarm);
@@ -518,7 +518,7 @@ console.log(_refaddr);
       
 let result = await contractInstance.buy(_refaddr).send(args);
   notch=250;
-} else alert('Minimum Investment is 50 TRX');
+} else alert('Minimum Investment is 500 TRX');
 }
 }
     
