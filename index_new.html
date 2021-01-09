@@ -407,7 +407,7 @@ document.getElementById("gldesupply").innerHTML=round(eggsupply/1000000);
   console.log(approved);
     console.log(myaddress);
 	  console.log(exchangeaddr);
-  if(window.tronWeb.toDecimal(approved._hex)==0&&myeggs>0)document.getElementById("unlock").innerHTML="<a onclick='approve()'>Unlock</a>"; else document.getElementById("unlock").innerHTML="";
+  if(approved==0&&myeggs>0)document.getElementById("unlock").innerHTML="<a onclick='approve()'>Unlock</a>"; else document.getElementById("unlock").innerHTML="";
 
   
   var TokenToTrxInputPrice=window.tronWeb.toDecimal(TokenToTrxInputPrice_);
