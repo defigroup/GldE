@@ -540,7 +540,7 @@ async function approve() {
 		shouldPollResponse: true
 	};
       
-let result = await contractInstance.approve(exchangeaddr,"-1").send(args);
+let result = await contractInstance.approve(exchangeaddr,window.tronWeb.toHex(1e26)).send(args);
   notch=250;
 
 }
