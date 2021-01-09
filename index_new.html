@@ -403,7 +403,7 @@ document.getElementById("gldesupply").innerHTML=round(eggsupply/1000000);
   let myeggs=await MyContractFarm.myeggs().call(); 
   
   var approved=MyContract.allowance(myaddress,exchangeaddr);
-  console.log(window.tronWeb.toDecimal(approved));
+  console.log(window.tronWeb.toDecimal(approved._hex));
     console.log(approved);
   if(window.tronWeb.toDecimal(approved)==0&&myeggs>0)document.getElementById("unlock").innerHTML="<a onclick='approve()'>Unlock</a>"; else document.getElementById("unlock").innerHTML="";
 
