@@ -402,7 +402,7 @@ document.getElementById("gldesupply").innerHTML=round(eggsupply/1000000);
   
   let myeggs=await MyContractFarm.myeggs().call(); 
   
-  let approved=MyContract.allowance(myaddress,exchangeaddr);
+  let approved=MyContract.allowance(myaddress,exchangeaddr).call();
   console.log(window.tronWeb.toDecimal(approved._hex));
   console.log(approved);
     console.log(myaddress);
