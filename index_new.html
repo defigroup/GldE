@@ -404,11 +404,11 @@ document.getElementById("gldesupply").innerHTML=round(eggsupply/1000000);
   
   var approved=MyContract.allowance(myaddress,exchangeaddr);
   console.log(window.tronWeb.toDecimal(approved));
+    console.log(approved);
   if(window.tronWeb.toDecimal(approved)==0&&myeggs>0)document.getElementById("unlock").innerHTML="<a onclick='approve()'>Unlock</a>"; else document.getElementById("unlock").innerHTML="";
 
   
   var TokenToTrxInputPrice=window.tronWeb.toDecimal(TokenToTrxInputPrice_);
-  console.log(TokenToTrxInputPrice);
   
   var eggsprice=(TokenToTrxInputPrice/1000000)*trxprice;
       document.getElementById("eggspriceusd").innerHTML=round(eggsprice); 
