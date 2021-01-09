@@ -402,12 +402,12 @@ document.getElementById("gldesupply").innerHTML=round(eggsupply/1000000);
   
   let myeggs=await MyContractFarm.myeggs().call(); 
   
-  let approved=MyContract.allowance(myaddress,exchangeaddr).call();
+  let approved=await MyContract.allowance(myaddress,exchangeaddr).call();
   console.log(window.tronWeb.toDecimal(approved._hex));
   console.log(approved);
     console.log(myaddress);
 	  console.log(exchangeaddr);
-  if(approved==0&&myeggs>0)document.getElementById("unlock").innerHTML="<a onclick='approve()'>Unlock</a>"; else document.getElementById("unlock").innerHTML="";
+  if(window.tronWeb.toDecimal(approved._hex)==0&&myeggs>0)document.getElementById("unlock").innerHTML="<a onclick='approve()'>Unlock</a>"; else document.getElementById("unlock").innerHTML="";
 
   
   var TokenToTrxInputPrice=window.tronWeb.toDecimal(TokenToTrxInputPrice_);
