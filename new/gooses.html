@@ -10,7 +10,7 @@
   <meta property="og:image" content="assets/images/gooses-meta.png">
   <meta name="twitter:title" content="Golden Gooses">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-  <link rel="shortcut icon" href="assets/images/goldeggs-700x362.png" type="image/x-icon">
+  <link rel="shortcut icon" href="assets/images/logo5.png" type="image/x-icon">
   <meta name="description" content="DeFi made Easy. One Click Staking, No Impermanent Loss, Locked Liquidity Forever. ">
   
   
@@ -55,7 +55,7 @@
                 <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black display-4" href="chickens.html">
                             Chickens</a></li>
                     <li class="nav-item"><a class="nav-link link text-black display-4" href="gooses.html">Gooses</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black display-4" href="https://mobiri.se"><strong><em>Diamonds</em></strong></a>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="diamonds.html"><strong><em>Diamonds</em></strong></a>
                     </li></ul>
                 <div class="icons-menu">
                     <a class="iconfont-wrapper" href="https://t.me/goldeneggs_official" target="_blank">
@@ -280,9 +280,14 @@ function round(num) {
 var contractAddressFarm='TF9nPCv7NkTMLSbyuohaQjmCNkiCbJpLy1';
 var tokenaddr='TQXhxDPNKVsgxYbJatMnkRZsgTcTzxC5Fc';
 var exchangeaddr='TH5LBFAZQDxydmxocY3oUwCD4UaGKgNU4T';
-     
-var myaddress;
 
+   
+var diamondfarm='TD4s6KNeD9FpDhPRq8SJqfa6ZVLAgwRbVw';
+var diamondexchangeaddr='TQRJL3JLLq1PNE4sr7YvQFiuR1JYE9Zcgw'
+var diamondtoken='TQx2dDDHv8xVr5HEYRygjWizYdzDmdUHNp';
+
+
+var myaddress;
 
 
 var notch=0;
@@ -318,7 +323,8 @@ notchlight=0;
   }
 }   
 var exchangeliquidityusd, trxprice,exchangeliquiditytrx;
-     
+ var diamondexchangeliquidityusd, diamondtrxprice,diamondexchangeliquiditytrx;  
+ 
  function fetchjson() {
    
 console.log("Fetching data...");
@@ -336,6 +342,22 @@ getJSON("https://api.just.network/swap/scan/statusinfo?exchangeAddress="+exchang
 }).catch(error => {
   console.error(error);
 }); 
+
+getJSON("https://api.just.network/swap/scan/statusinfo?exchangeAddress="+diamondexchangeaddr).then(data => {
+ 
+ 
+  diamondexchangeliquidityusd=data.data.totalLiquidity;
+  diamondtrxprice=data.data.trxPrice;
+  diamondexchangeliquiditytrx=diamondexchangeliquidityusd/diamondtrxprice;
+ 
+  
+  go();
+
+   
+}).catch(error => {
+  console.error(error);
+}); 
+
 }
 
 var lpinwallet=0;
@@ -343,28 +365,28 @@ var lpinwallet=0;
      
 async function go() {
        
- 
   
 let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
+let MyContractDiamondFarm = await tronWeb.contract().at(diamondfarm); 
 let MyContract = await tronWeb.contract().at(tokenaddr);    
 
-let lptotsup= await MyContractFarm.LPtotalSupply().call(); 
+let lptotsup= await MyContractDiamondFarm.LPtotalSupply().call(); 
 var lptotalsupply=lptotsup;
-var lpprice=exchangeliquidityusd/lptotalsupply;
+var lpprice=diamondexchangeliquidityusd/lptotalsupply;
 
 
   
-let poolLPbalance= await MyContractFarm.poolLPbalance().call(); ///////////////
+let poolLPbalance= await MyContractDiamondFarm.poolLPbalance().call(); ///////////////
 var lppoolsupply=poolLPbalance;
 document.getElementById("poolstaked").innerHTML=round(lppoolsupply/1000000);
 var lppoolsupplyusd=poolLPbalance*lpprice;
 document.getElementById("poolstakedusd").innerHTML=round(lppoolsupplyusd);
 
 
-  let eggsupply= await MyContract.totalSupply().call(); 
-document.getElementById("gldesupply").innerHTML=round(eggsupply/1000000);
+ 
+
   
-  let dailyreward= await MyContractFarm.dailyreward().call(); 
+  let dailyreward= await MyContractDiamondFarm.dailyreward().call(); 
  document.getElementById("dailyreward").innerHTML=round(dailyreward/1000000);
 
   
@@ -372,18 +394,14 @@ document.getElementById("gldesupply").innerHTML=round(eggsupply/1000000);
   
   let myeggs=await MyContractFarm.myeggs().call(); 
   
-   let approved=await MyContract.allowance(myaddress,exchangeaddr).call();
-  if(window.tronWeb.toDecimal(approved._hex)<1e25&&myeggs>0)document.getElementById("unlock").innerHTML="<a onclick='approve()'>Unlock</a>"; else document.getElementById("unlock").innerHTML="";
+  
 
   
   var TokenToTrxInputPrice=window.tronWeb.toDecimal(TokenToTrxInputPrice_);
   console.log(TokenToTrxInputPrice);
   
   var eggsprice=(TokenToTrxInputPrice/1000000)*trxprice;
-      document.getElementById("eggspriceusd").innerHTML=round(eggsprice); 
-        document.getElementById("gldetrx").innerHTML=round(TokenToTrxInputPrice/1000000); 
-  // document.getElementById("marketcap").innerHTML=round(eggsprice*eggsupply/1000000); 
- document.getElementById("marketcap").innerHTML=round(exchangeliquidityusd);  
+   
  if(myeggs!=undefined){
    document.getElementById("myeggs").innerHTML=round(myeggs/1000000); 
      document.getElementById("myeggsusd").innerHTML=round((myeggs/1000000)/trxprice); 
@@ -393,9 +411,7 @@ document.getElementById("gldesupply").innerHTML=round(eggsupply/1000000);
  }
  document.getElementById("dailyrewardusd").innerHTML=round(dailyreward*eggsprice/1000000);
       
- //  document.getElementById("lppriceusd").innerHTML=round(lpprice*1000000);
- //  document.getElementById("lppricetrx").innerHTML=round(lpprice*1000000/trxprice);
-   
+
  var mytrx=await MyContractFarm.mytrx().call();
   
      document.getElementById("mytrx").innerHTML=round(mytrx/1000000); 
@@ -408,7 +424,7 @@ document.getElementById("gldesupply").innerHTML=round(eggsupply/1000000);
   var weeklyroi=dailyroi*7;
   var APY=dailyroi*365;
   
-   let staked= window.tronWeb.toDecimal((await MyContractFarm.balanceOf(myaddress).call())._hex); 
+   let staked= window.tronWeb.toDecimal((await MyContractDiamondFarm.balanceOf(myaddress).call())._hex); 
   
   var dailyprodusd=((((staked)*lpprice)*dailyroi)/100);
   var dailyprod=dailyprodusd/eggsprice;
@@ -499,24 +515,7 @@ let result = await contractInstance.buy(_refaddr).send(args);
 }
 }
          
-async function approve() {
- 
-        
-    
 
-	
-  let contractInstance = await tronWeb.contract().at(tokenaddr);
-	
-	let args = {
-		callValue: 0,
-      	feeLimit: 100000000,
-		shouldPollResponse: true
-	};
-      
-let result = await contractInstance.approve(exchangeaddr,window.tronWeb.toHex(1e26)).send(args);
-  notch=250;
-
-}
     
    
       async function harvest() {
@@ -573,7 +572,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/t" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Mobirise page builder - <a href="https://mobirise.site/o" style="color:#aaa;">More info</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/g" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/r" style="color:#aaa;">This page</a> was built with Mobirise themes</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 </body>
