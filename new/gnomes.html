@@ -357,7 +357,7 @@ var lpprice=exchangeliquidityusd/lptotalsupply;
   var TokenToTrxInputPrice=window.tronWeb.toDecimal(TokenToTrxInputPrice_);
  var eggsprice=(TokenToTrxInputPrice/1000000)*trxprice;
   
-let poolLPbalance= await dMyContractFarm.poolLPbalance().call(); ///////////////
+let poolLPbalance= await xMyContractFarm.poolLPbalance().call(); ///////////////
 var lppoolsupply=poolLPbalance;
 document.getElementById("poolstaked").innerHTML=round(lppoolsupply/1000000);
 var lppoolsupplyusd=poolLPbalance*eggsprice;
@@ -464,9 +464,7 @@ document.getElementById("poolstakedusd").innerHTML=round(lppoolsupplyusd);
     document.getElementById("prodday").innerHTML=round(dailyprod);
    document.getElementById("prodweek").innerHTML=round(weeklyprod);
      document.getElementById("prodyear").innerHTML=round(APYprod);
-    document.getElementById("reflink").innerHTML="https://goldeneggs.finance/?r="+myaddress;
   } else {
-  document.getElementById("reflink").innerHTML="Get chickens to activate your Referral Link";
   document.getElementById("mychickens").innerHTML=0;
   document.getElementById("mychickensusd").innerHTML=0;
   document.getElementById("proddayusd").innerHTML=0;
@@ -558,28 +556,7 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
        notch=250;
   } 
     
-  function copypromo() {
-  var elm = document.getElementById("reflink");
-  // for Internet Explorer
-
-  if(document.body.createTextRange) {
-    var range = document.body.createTextRange();
-    range.moveToElementText(elm);
-    range.select();
-    document.execCommand("Copy");
-  }
-  else if(window.getSelection) {
-    // other browsers
-
-    var selection = window.getSelection();
-    var range = document.createRange();
-    range.selectNodeContents(elm);
-    selection.removeAllRanges();
-    selection.addRange(range);
-    document.execCommand("Copy");
-  }
-}   
-     
+  
 accountInterval2 = setInterval(function () {
   if(myaddress==false&&tronWeb.defaultAddress.base58 != false) location.reload();
     
@@ -600,7 +577,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/f" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Designed with Mobirise - <a href="https://mobirise.site/l" style="color:#aaa;">Click now</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/c" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Start a free website - <a href="https://mobirise.site/v" style="color:#aaa;">Check this</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 </body>
