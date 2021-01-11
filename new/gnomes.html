@@ -342,44 +342,58 @@ async function go() {
  
   
 let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
+let dMyContractFarm = await tronWeb.contract().at(dcontractAddressFarm); 
 let xMyContractFarm = await tronWeb.contract().at(xcontractAddressFarm); 
 
 let MyContract = await tronWeb.contract().at(tokenaddr);    
+let dMyContract = await tronWeb.contract().at(dtokenaddr); 
 
 let lptotsup= await MyContractFarm.LPtotalSupply().call(); 
 var lptotalsupply=lptotsup;
 var lpprice=exchangeliquidityusd/lptotalsupply;
 
-
+ let TokenToTrxInputPrice_=await MyContractFarm.TokenToTrxInputPrice(1000000).call();
+  var TokenToTrxInputPrice=window.tronWeb.toDecimal(TokenToTrxInputPrice_);
+ var eggsprice=(TokenToTrxInputPrice/1000000)*trxprice;
   
-let poolLPbalance= await MyContractFarm.poolLPbalance().call(); ///////////////
+let poolLPbalance= await dMyContractFarm.poolLPbalance().call(); ///////////////
 var lppoolsupply=poolLPbalance;
 document.getElementById("poolstaked").innerHTML=round(lppoolsupply/1000000);
-var lppoolsupplyusd=poolLPbalance*lpprice;
+var lppoolsupplyusd=poolLPbalance*eggsprice;
 document.getElementById("poolstakedusd").innerHTML=round(lppoolsupplyusd);
 
 
   let eggsupply= await MyContract.totalSupply().call(); 
 document.getElementById("gldesupply").innerHTML=round(eggsupply/1000000);
   
-  let dailyreward= await MyContractFarm.dailyreward().call(); 
+  let dailyreward= await xMyContractFarm.dailyreward().call(); 
  document.getElementById("dailyreward").innerHTML=round(dailyreward/1000000);
 
   
-  let TokenToTrxInputPrice_=await MyContractFarm.TokenToTrxInputPrice(1000000).call();
+ 
+   
+  let dTokenToTrxInputPrice_=await dMyContractFarm.TokenToTrxInputPrice(1000000).call();
   
   let myeggs=await MyContractFarm.myeggs().call(); 
   
   let dmyeggs=await dMyContractFarm.myeggs().call(); 
   
-   let approved=await MyContract.allowance(myaddress,exchangeaddr).call();
+   let approved=await MyContract.allowance(myaddress,xcontractAddressFarm).call();
   if(window.tronWeb.toDecimal(approved._hex)<1e25&&myeggs>0)document.getElementById("unlock").innerHTML="<a onclick='approve()'>Unlock</a>"; else document.getElementById("unlock").innerHTML="";
 
+
   
-  var TokenToTrxInputPrice=window.tronWeb.toDecimal(TokenToTrxInputPrice_);
+ 
+  
+  
+  
+  
+  var dTokenToTrxInputPrice=window.tronWeb.toDecimal(dTokenToTrxInputPrice_);
   console.log(TokenToTrxInputPrice);
   
-  var eggsprice=(TokenToTrxInputPrice/1000000)*trxprice;
+  var deggsprice=(dTokenToTrxInputPrice/1000000)*trxprice;
+  
+  
    
  if(myeggs!=undefined){
    document.getElementById("myeggs").innerHTML=round(myeggs/1000000); 
@@ -389,8 +403,16 @@ document.getElementById("gldesupply").innerHTML=round(eggsupply/1000000);
      document.getElementById("myeggsusd").innerHTML=round(0); 
  }
  
+ if(dmyeggs!=undefined){
+   document.getElementById("dmyeggs").innerHTML=round(dmyeggs/1000000); 
+     document.getElementById("dmyeggsusd").innerHTML=round((dmyeggs/1000000)/trxprice); 
+ } else {
+   document.getElementById("dmyeggs").innerHTML=round(0); 
+     document.getElementById("dmyeggsusd").innerHTML=round(0); 
+ }
  
- document.getElementById("dailyrewardusd").innerHTML=round(dailyreward*eggsprice/1000000);
+ 
+ document.getElementById("dailyrewardusd").innerHTML=round(dailyreward*deggsprice/1000000);
       
 
    
@@ -399,7 +421,7 @@ document.getElementById("gldesupply").innerHTML=round(eggsupply/1000000);
      document.getElementById("mytrx").innerHTML=round(mytrx/1000000); 
      document.getElementById("myusd").innerHTML=round(mytrx/1000000*trxprice); 
 
-  var dailyusdreward=(dailyreward/1000000)*eggsprice;
+  var dailyusdreward=(dailyreward/1000000)*deggsprice;
   
   var dailyroi=dailyusdreward/(lppoolsupplyusd/100);
   var hourlyroi=dailyroi/24;
@@ -511,7 +533,7 @@ async function approve() {
 		shouldPollResponse: true
 	};
       
-let result = await contractInstance.approve(exchangeaddr,window.tronWeb.toHex(1e26)).send(args);
+let result = await contractInstance.approve(xcontractAddressFarm,window.tronWeb.toHex(1e26)).send(args);
   notch=250;
 
 }
@@ -571,7 +593,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/c" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/t" style="color:#aaa;">Built</a> with Mobirise html website template</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/b" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/r" style="color:#aaa;">This website</a> was started with Mobirise template</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 </body>
