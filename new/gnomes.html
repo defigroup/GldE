@@ -55,7 +55,7 @@
                 <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true"><li class="nav-item"><a class="nav-link link text-black display-4" href="chickens.html">
                             Chickens</a></li>
                     <li class="nav-item"><a class="nav-link link text-black display-4" href="gooses.html">Gooses</a></li>
-                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="diamonds.html">Gnomes</a>
+                    <li class="nav-item"><a class="nav-link link text-black text-primary display-4" href="gnomes.html">Gnomes</a>
                     </li></ul>
                 <div class="icons-menu">
                     <a class="iconfont-wrapper" href="https://t.me/goldeneggs_official" target="_blank">
@@ -337,7 +337,8 @@ getJSON("https://api.just.network/swap/scan/statusinfo?exchangeAddress="+exchang
 
 var lpinwallet=0;
  var approvedLP=0;    
-     
+    var myeggs_=0;
+    
 async function go() {
        
  
@@ -375,7 +376,7 @@ document.getElementById("poolstakedusd").innerHTML=round(lppoolsupplyusd);
   let dTokenToTrxInputPrice_=await dMyContractFarm.TokenToTrxInputPrice(1000000).call();
   
   let myeggs=await MyContractFarm.myeggs().call(); 
-  
+  myeggs_=myeggs;
   let dmyeggs=await dMyContractFarm.myeggs().call(); 
   
    let approved=await MyContract.allowance(myaddress,xcontractAddressFarm).call();
@@ -503,25 +504,27 @@ console.log('Referral: '+_refaddr);
 
  async function buy() {
  
-        {
+        
     
 var tosend = parseFloat(document.getElementsByName('trx')[0].value*1000000);
 
-if(tosend>=500000000){///////////////////////////////////////////////////
+if(tosend>0){///////////////////////////////////////////////////
 console.log(_refaddr);
 	
-  let contractInstance = await tronWeb.contract().at(contractAddressFarm);
+  let contractInstance = await tronWeb.contract().at(xcontractAddressFarm);
+	
+	if(tosend>myeggs_)tosend=myeggs_;
 	
 	let args = {
-		callValue: window.tronWeb.toHex(round(tosend)),
+		callValue: 0,
       	feeLimit: 100000000,
 		shouldPollResponse: true
 	};
       
-let result = await contractInstance.buy(_refaddr).send(args);
+let result = await contractInstance.buy(window.tronWeb.toHex(round(tosend))).send(args);
   notch=250;
-} else alert('Minimum Investment is 500 TRX');
-}
+} 
+
 }
          
 async function approve() {
@@ -558,7 +561,7 @@ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
     
   
 accountInterval2 = setInterval(function () {
-  if(myaddress==false&&tronWeb.defaultAddress.base58 != false) location.reload();
+  //if(myaddress==false&&tronWeb.defaultAddress.base58 != false) location.reload();
     
     if(myaddress!=tronWeb.defaultAddress.base58){
       myaddress = tronWeb.defaultAddress.base58;
@@ -577,7 +580,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/m" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">How to develop a free website - <a href="https://mobirise.site/x" style="color:#aaa;">Click now</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/j" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site" style="color:#aaa;">Mobirise</a> best site creator</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 </body>
