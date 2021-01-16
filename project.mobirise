@@ -57,7 +57,9 @@
     "htmltag": "<html>",
     "uniqCompNum": 52,
     "versionPublish": "5.2.0",
-    "screenshot": "screenshot.png"
+    "screenshot": "screenshot.png",
+    "publishType": "local",
+    "publishPath": "@PROJECT_PATH@/"
   },
   "pages": {
     "chickens.html": {
