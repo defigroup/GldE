@@ -1,0 +1,27 @@
+{
+   "name": "Goldeneggs.finance", #List name
+   "logoURI": "https://coin.top/production/upload/logo/TQXhxDPNKVsgxYbJatMnkRZsgTcTzxC5Fc.png", #List logo uri
+   "timestamp": 1610339529000, #Update time in millisecond
+   "tokens": [{
+           "chainId": 1, #ChainId, which is currently 1
+           "address": "TQXhxDPNKVsgxYbJatMnkRZsgTcTzxC5Fc", #Token address
+           "name": "GoldenEggs", #Token name
+           "symbol": "GLDE", #Token symbol
+           "decimals": 6, #Token decimals
+           "logoURI": "https://coin.top/production/upload/logo/TQXhxDPNKVsgxYbJatMnkRZsgTcTzxC5Fc.png" #Token logo uri
+       },
+       {
+           "chainId": 1,
+           "address": "TQx2dDDHv8xVr5HEYRygjWizYdzDmdUHNp",
+           "name": "GoldenDiamonds",
+           "symbol": "GLDI",
+           "decimals": 6,
+           "logoURI": "https://coin.top/production/upload/logo/TQx2dDDHv8xVr5HEYRygjWizYdzDmdUHNp.png"
+       }
+   ],
+   "version": { #Version info
+       "major": 1, #Major version
+       "minor": 0, #Minor version
+       "patch": 0  #Patch version
+   }
+}
