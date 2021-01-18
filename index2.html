@@ -554,7 +554,7 @@ let xMyContractFarm = await tronWeb.contract().at(xcontractAddressFarm);
 
 
 let GGpoolLPbalance= await xMyContractFarm.poolLPbalance().call(); 
-var GGlppoolsupplyusd=GGpoolLPbalance*eggprice;
+var GGlppoolsupplyusd=GGpoolLPbalance*eggsprice;
 let GGdailyreward= await xMyContractFarm.dailyreward().call();
 var GGdailyusdreward=(GGdailyreward/1000000)*deggsprice;
 var GGdailyroi=GGdailyusdreward/(GGlppoolsupplyusd/100);
