@@ -484,7 +484,7 @@ var dlpprice=dexchangeliquidityusd/dlptotalsupply;
   
 
   let eggsupply= await MyContract.totalSupply().call(); 
-    let eggburned= await dMyContract.balanceOf(gnomesaddr).call(); 
+    let eggburned= await MyContract.balanceOf(gnomesaddr).call(); 
 document.getElementById("gldesupply").innerHTML=round((eggsupply-eggburned)/1000000);
   
  let deggsupply= await dMyContract.totalSupply().call(); 
