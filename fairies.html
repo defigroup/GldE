@@ -389,16 +389,16 @@ var lpprice=deggsprice;
   
 
    
-
+  let dmyeggs=await dMyContract.balanceOf(myaddress).call(); 
   
   let myeggs=await MyContractFarm.myeggs().call(); 
   myeggs_=myeggs;
-   if(updated==0)document.getElementsByName('trx')[0].value=myeggs/1000000;
+   if(updated==0)document.getElementsByName('trx')[0].value=dmyeggs/1000000;
    updated=1;
-  let dmyeggs=await dMyContract.balanceOf(myaddress).call(); 
+
   
    let approved=await dMyContract.allowance(myaddress,xcontractAddressFarm).call();
-  if(window.tronWeb.toDecimal(approved._hex)<1e25&&myeggs>0){
+  if(window.tronWeb.toDecimal(approved._hex)<1e25&&dmyeggs>0){
       document.getElementById("unlock").innerHTML="<a onclick='approve()'>Unlock</a>"; 
        document.getElementById("approvedyes").style.display = "none";
   }   else {
@@ -460,11 +460,15 @@ var lpprice=deggsprice;
    let earned= await xMyContractFarm.earned(myaddress).call();
   
   if(earned>0){
-   document.getElementById("myreward").innerHTML=round(earned/1000000);
-   document.getElementById("myrewardusd").innerHTML=round((earned/1000000)*deggsprice);
+   document.getElementById("myreward1").innerHTML=round(earned/1000000);
+   document.getElementById("myrewardusd1").innerHTML=round((earned/1000000)*eggsprice);
+      document.getElementById("myreward2").innerHTML=round(earned/1000000);
+   document.getElementById("myrewardusd2").innerHTML=round((earned/1000000)*deggsprice);
   }else{
-      document.getElementById("myreward").innerHTML=0;
-   document.getElementById("myrewardusd").innerHTML=0;
+      document.getElementById("myreward1").innerHTML=0;
+   document.getElementById("myrewardusd1").innerHTML=0;
+         document.getElementById("myreward2").innerHTML=0;
+   document.getElementById("myrewardusd2").innerHTML=0;
   }
   if(Number(staked)>0){
   document.getElementById("mychickens").innerHTML=round(staked/1000000);
@@ -597,7 +601,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/y" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Created with Mobirise - <a href="https://mobirise.site/k" style="color:#aaa;">See it</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/i" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/r" style="color:#aaa;">This site</a> was made with Mobirise themes</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
