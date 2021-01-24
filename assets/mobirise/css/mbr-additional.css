@@ -4861,8 +4861,13 @@ section.lazy-placeholder:after {
   padding-bottom: 90px;
   background-color: #ffffff;
 }
+.cid-sn1kSfg1XZ .row {
+  margin-left: 0;
+  margin-right: 0;
+}
 .cid-sn1kSfg1XZ .item {
-  padding-bottom: 2rem;
+  padding-left: 0;
+  padding-right: 0;
 }
 .cid-sn1kSfg1XZ .item-wrapper {
   height: 100%;
