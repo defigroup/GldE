@@ -523,6 +523,11 @@ function round(num) {
   if(num>0)return +(Math.floor(num + "e+4") + "e-4");
 }
 
+
+function roundz(num) {
+  if(num>1000)return +(Math.floor(num + "e+0") + "e-0");
+  if(num>0)return +(Math.floor(num + "e+2") + "e-2");
+}
   
 
 var contractAddressFarm='TF9nPCv7NkTMLSbyuohaQjmCNkiCbJpLy1';
@@ -693,10 +698,10 @@ let Cdailyreward= await MyContractFarm.dailyreward().call();
 var Cdailyusdreward=(Cdailyreward/1000000)*eggsprice;
 var Cdailyroi=Cdailyusdreward/(Clppoolsupplyusd/100);
 var CAPY=Cdailyroi*365;
-document.getElementById("chickensprofit").innerHTML=round(CAPY); 
-document.getElementById("chickensyearlyroi").innerHTML=round(CAPY); 
-document.getElementById("chickensdailyroi").innerHTML=round(Cdailyroi);
-document.getElementById("chickensweeklyroi").innerHTML=round(Cdailyroi*7);
+document.getElementById("chickensprofit").innerHTML=roundz(CAPY); 
+document.getElementById("chickensyearlyroi").innerHTML=roundz(CAPY); 
+document.getElementById("chickensdailyroi").innerHTML=roundz(Cdailyroi);
+document.getElementById("chickensweeklyroi").innerHTML=roundz(Cdailyroi*7);
 let staked= window.tronWeb.toDecimal((await MyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("chickens").innerHTML=round(CpoolLPbalance/1000000);
 document.getElementById("chickensusd").innerHTML=round(Clppoolsupplyusd);
@@ -721,10 +726,10 @@ let Gdailyreward= await dMyContractFarm.dailyreward().call();
 var Gdailyusdreward=(Gdailyreward/1000000)*eggsprice;
 var Gdailyroi=Gdailyusdreward/(Glppoolsupplyusd/100);
 var GAPY=Gdailyroi*365;
-document.getElementById("goosesprofit").innerHTML=round(GAPY); 
-document.getElementById("goosesyearlyroi").innerHTML=round(GAPY); 
-document.getElementById("goosesdailyroi").innerHTML=round(Gdailyroi);
-document.getElementById("goosesweeklyroi").innerHTML=round(Gdailyroi*7);
+document.getElementById("goosesprofit").innerHTML=roundz(GAPY); 
+document.getElementById("goosesyearlyroi").innerHTML=roundz(GAPY); 
+document.getElementById("goosesdailyroi").innerHTML=roundz(Gdailyroi);
+document.getElementById("goosesweeklyroi").innerHTML=roundz(Gdailyroi*7);
 let Gstaked= window.tronWeb.toDecimal((await dMyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("gooses").innerHTML=round(GpoolLPbalance/1000000);
 document.getElementById("goosesusd").innerHTML=round(Glppoolsupplyusd);
@@ -751,10 +756,10 @@ let Zdailyreward= await zMyContractFarm.dailyreward().call();
 var Zdailyusdreward=(Zdailyreward/1000000)*deggsprice;
 var Zdailyroi=Zdailyusdreward/(Zlppoolsupplyusd/100);
 var ZAPY=Zdailyroi*365;
-document.getElementById("bunniesprofit").innerHTML=round(ZAPY);
-document.getElementById("bunniesyearlyroi").innerHTML=round(ZAPY); 
-document.getElementById("bunniesdailyroi").innerHTML=round(Zdailyroi);
-document.getElementById("bunniesweeklyroi").innerHTML=round(Zdailyroi*7);
+document.getElementById("bunniesprofit").innerHTML=roundz(ZAPY);
+document.getElementById("bunniesyearlyroi").innerHTML=roundz(ZAPY); 
+document.getElementById("bunniesdailyroi").innerHTML=roundz(Zdailyroi);
+document.getElementById("bunniesweeklyroi").innerHTML=roundz(Zdailyroi*7);
 let Zstaked= window.tronWeb.toDecimal((await zMyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("bunnies").innerHTML=round(ZpoolLPbalance/1000000);
 document.getElementById("bunniesusd").innerHTML=round(Zlppoolsupplyusd);
@@ -779,10 +784,10 @@ let GGdailyreward= await xMyContractFarm.dailyreward().call();
 var GGdailyusdreward=(GGdailyreward/1000000)*deggsprice;
 var GGdailyroi=GGdailyusdreward/(GGlppoolsupplyusd/100);
 var GGAPY=GGdailyroi*365;
-document.getElementById("gnomesprofit").innerHTML=round(GGAPY);
-document.getElementById("gnomesyearlyroi").innerHTML=round(GGAPY); 
-document.getElementById("gnomesdailyroi").innerHTML=round(GGdailyroi);
-document.getElementById("gnomesweeklyroi").innerHTML=round(GGdailyroi*7);
+document.getElementById("gnomesprofit").innerHTML=roundz(GGAPY);
+document.getElementById("gnomesyearlyroi").innerHTML=roundz(GGAPY); 
+document.getElementById("gnomesdailyroi").innerHTML=roundz(GGdailyroi);
+document.getElementById("gnomesweeklyroi").innerHTML=roundz(GGdailyroi*7);
 let GGstaked= window.tronWeb.toDecimal((await xMyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("gnomes").innerHTML=round(GGpoolLPbalance/1000000);
 document.getElementById("gnomesusd").innerHTML=round(GGlppoolsupplyusd);
@@ -807,10 +812,10 @@ let xGGdailyreward= await kMyContractFarm.dailyreward().call();
 var xGGdailyusdreward=((xGGdailyreward/1000000)*deggsprice)+((xGGdailyreward/1000000)*eggsprice);
 var xGGdailyroi=xGGdailyusdreward/(xGGlppoolsupplyusd/100);
 var xGGAPY=xGGdailyroi*365;
-document.getElementById("fairiesprofit").innerHTML=round(xGGAPY);
-document.getElementById("fairiesyearlyroi").innerHTML=round(xGGAPY); 
-document.getElementById("fairiesdailyroi").innerHTML=round(xGGdailyroi);
-document.getElementById("fairiesweeklyroi").innerHTML=round(xGGdailyroi*7);
+document.getElementById("fairiesprofit").innerHTML=roundz(xGGAPY);
+document.getElementById("fairiesyearlyroi").innerHTML=roundz(xGGAPY); 
+document.getElementById("fairiesdailyroi").innerHTML=roundz(xGGdailyroi);
+document.getElementById("fairiesweeklyroi").innerHTML=roundz(xGGdailyroi*7);
 let xGGstaked= window.tronWeb.toDecimal((await kMyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("fairies").innerHTML=round(xGGpoolLPbalance/1000000);
 document.getElementById("fairiesusd").innerHTML=round(xGGlppoolsupplyusd);
@@ -975,7 +980,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/r" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Mobirise site creator - <a href="https://mobirise.site/n" style="color:#aaa;">More</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/f" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Website was <a href="https://mobirise.site/h" style="color:#aaa;">built with</a> Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
