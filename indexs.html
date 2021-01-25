@@ -450,9 +450,9 @@
               
 			  
 			  
- <td class="body-item mbr-fonts-style display-5"><strong>Total</strong></td><td class="body-item mbr-fonts-style display-7">($<span id="totalusd" style="">-</span>)</td><td class="body-item mbr-fonts-style display-7">($<span id="mytotalusd" style="">-</span>)</td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"><span id="totalgldedaily" style="">-</span> GLDE<br>($<span id="totalgldedailyusd" style="">-</span>)<br><br><span id="totalgldidaily" style="">-</span> GLDE<br>($<span id="totalgldidailyusd" style="">-</span>)<br><br>------<br>($)</td><td class="body-item mbr-fonts-style display-7">
- <span id="mytotalgldedaily" style="">-</span> GLDE<br>($<span id="mytotalgldedailyusd" style="">-</span>)<br><br><span id="mytotalgldidaily" style="">-</span> GLDE<br>($<span id="mytotalgldidailyusd">-</span>)<br><br>------<br>($)</td><td class="body-item mbr-fonts-style display-7"><span id="mytotalgldereward" style="">-</span> GLDE<br>($<span id="mytotalglderewardusd" style="">-</span>)<br><br>
- <span id="mytotalgldireward" style="">-</span> GLDE<br>($<span id="mytotalgldirewardusd" style="">-</span>)<br><br>------<br>($)<br><br><a onclick="sellall();" class="text-primary"><strong><em>CLAIM ALL</em></strong></a></td></tr></tbody>
+ <td class="body-item mbr-fonts-style display-5"><strong>Total</strong></td><td class="body-item mbr-fonts-style display-7">($<span id="totalusd" style="">-</span>)</td><td class="body-item mbr-fonts-style display-7">($<span id="mytotalusd" style="">-</span>)</td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"><span id="totalgldedaily" style="">-</span> GLDE<br>($<span id="totalgldedailyusd" style="">-</span>)<br><br><span id="totalgldidaily" style="">-</span> GLDE<br>($<span id="totalgldidailyusd" style="">-</span>)<br><br>------<br>($<span id="totaldailyusd">-</span>)</td><td class="body-item mbr-fonts-style display-7">
+ <span id="mytotalgldedaily" style="">-</span> GLDE<br>($<span id="mytotalgldedailyusd" style="">-</span>)<br><br><span id="mytotalgldidaily" style="">-</span> GLDE<br>($<span id="mytotalgldidailyusd">-</span>)<br><br>------<br>($<span id="mytotaldailyusd">-</span>)</td><td class="body-item mbr-fonts-style display-7"><span id="mytotalgldereward" style="">-</span> GLDE<br>($<span id="mytotalglderewardusd" style="">-</span>)<br><br>
+ <span id="mytotalgldireward" style="">-</span> GLDE<br>($<span id="mytotalgldirewardusd" style="">-</span>)<br><br>------<br>($<span id="mytotalrewardprofit">-</span>)<br><br><a onclick="sellall();" class="text-primary"><strong><em>CLAIM ALL</em></strong></a></td></tr></tbody>
           </table>
         </div>
         <div class="container table-info-container">
@@ -827,23 +827,35 @@ document.getElementById("myfairiesgldedailyreward").innerHTML=round(xGGearned/10
 document.getElementById("myfairiesgldedailyrewardusd").innerHTML=round((xGGearned/1000000)*eggsprice);
 }
 
+var totalgldidailyusd=Number(round((((Number(GGdailyreward)+Number(Zdailyreward)+Number(xGGdailyreward))/1000000))*deggsprice));
+var totalgldedailyusd=Number(round((((Number(Cdailyreward)+Number(Gdailyreward)+Number(xGGdailyreward)))/1000000)*eggsprice));
 
 document.getElementById("totalusd").innerHTML=round(xGGlppoolsupplyusd+GGlppoolsupplyusd+Zlppoolsupplyusd+Glppoolsupplyusd+Clppoolsupplyusd);
 document.getElementById("mytotalusd").innerHTML=round(((staked)*Clpprice)+((Gstaked)*Glpprice)+((Zstaked)*Zlpprice)+((GGstaked)*GGlpprice)+((xGGstaked)*xGGlpprice));
 document.getElementById("totalgldedaily").innerHTML=round(((Number(Cdailyreward)+Number(Gdailyreward)+Number(xGGdailyreward)))/1000000);
-document.getElementById("totalgldedailyusd").innerHTML=round((((Number(Cdailyreward)+Number(Gdailyreward)+Number(xGGdailyreward)))/1000000)*eggsprice);
+document.getElementById("totalgldedailyusd").innerHTML=totalgldedailyusd;
 document.getElementById("totalgldidaily").innerHTML=round(((Number(GGdailyreward)+Number(Zdailyreward)+Number(xGGdailyreward))/1000000));
-document.getElementById("totalgldidailyusd").innerHTML=round((((Number(GGdailyreward)+Number(Zdailyreward)+Number(xGGdailyreward))/1000000))*deggsprice);
+document.getElementById("totalgldidailyusd").innerHTML=totalgldidailyusd;
+document.getElementById("totaldailyusd").innerHTML=totalgldidailyusd+totalgldedailyusd;
 
+var mytotalgldedailyusd=Number(round(((Number(Cdailyprod)+Number(Gdailyprod)+Number(xGGdailyprod)))*eggsprice));
+var mytotalgldidailyusd=Number(round(((Number(GGdailyprod)+Number(Zdailyprod)+Number(xGGdailyprod)))*deggsprice));
 document.getElementById("mytotalgldedaily").innerHTML=round(Number(Cdailyprod)+Number(Gdailyprod)+Number(xGGdailyprod));
-document.getElementById("mytotalgldedailyusd").innerHTML=round(((Number(Cdailyprod)+Number(Gdailyprod)+Number(xGGdailyprod)))*eggsprice);
+document.getElementById("mytotalgldedailyusd").innerHTML=mytotalgldedailyusd;
 document.getElementById("mytotalgldidaily").innerHTML=round(Number(GGdailyprod)+Number(Zdailyprod)+Number(xGGdailyprod));
-document.getElementById("mytotalgldidailyusd").innerHTML=round(((Number(GGdailyprod)+Number(Zdailyprod)+Number(xGGdailyprod)))*deggsprice);
+document.getElementById("mytotalgldidailyusd").innerHTML=mytotalgldidailyusd;
+
+document.getElementById("mytotaldailyusd").innerHTML=mytotalgldedailyusd+mytotalgldidailyusd;
+
+
+var mytotalgldirewardusd=Number(round(((Number(GGearned)+Number(Zearned)+Number(xGGearned))/1000000)*deggsprice));
+var mytotalglderewardusd=Number(round(((Number(earned)+Number(Gearned)+Number(xGGearned))/1000000)*eggsprice));
 
 document.getElementById("mytotalgldereward").innerHTML=round((Number(earned)+Number(Gearned)+Number(xGGearned))/1000000);
-document.getElementById("mytotalglderewardusd").innerHTML=round(((Number(earned)+Number(Gearned)+Number(xGGearned))/1000000)*eggsprice);
+document.getElementById("mytotalglderewardusd").innerHTML=mytotalglderewardusd;
 document.getElementById("mytotalgldireward").innerHTML=round((Number(GGearned)+Number(Zearned)+Number(xGGearned))/1000000);
-document.getElementById("mytotalgldirewardusd").innerHTML=round(((Number(GGearned)+Number(Zearned)+Number(xGGearned))/1000000)*deggsprice);
+document.getElementById("mytotalgldirewardusd").innerHTML=mytotalgldirewardusd;
+document.getElementById("mytotalrewardusd").innerHTML=mytotalglderewardusd+mytotalgldirewardusd;
 
 
 
@@ -956,7 +968,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/u" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/c" style="color:#aaa;">The</a> web page was started with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/d" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Web page was <a href="https://mobirise.site/h" style="color:#aaa;">made with</a> Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
