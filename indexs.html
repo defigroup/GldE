@@ -851,11 +851,11 @@ document.getElementById("myfairiesgldedailyrewardusd").innerHTML=round((xGGearne
 document.getElementById("totalusd").innerHTML=round(xGGlppoolsupplyusd+GGlppoolsupplyusd+Zlppoolsupplyusd+Glppoolsupplyusd+Clppoolsupplyusd);
 document.getElementById("mytotalusd").innerHTML=round(((staked)*Clpprice)+((Gstaked)*Glpprice)+((Zstaked)*Zlpprice)+((GGstaked)*GGlpprice)+((xGGstaked)*xGGlpprice));
 document.getElementById("totalgldedaily").innerHTML=round(((parseInt(Cdailyreward)+parseInt(Gdailyreward)+parseInt(xGGdailyreward)))/1000000);
-document.getElementById("totalgldedailyusd").innerHTML=round((((Number(Cdailyreward+Gdailyreward+xGGdailyreward))/1000000))*eggsprice);
-document.getElementById("totalgldidaily").innerHTML=round(((GGdailyreward+Zdailyreward+xGGdailyreward)/1000000));
-document.getElementById("totalgldidailyusd").innerHTML=round((((GGdailyreward+Zdailyreward+xGGdailyreward)/1000000))*deggsprice);
+document.getElementById("totalgldedailyusd").innerHTML=round((((Number(Cdailyreward)+Number(Gdailyreward)+Number(xGGdailyreward)))/1000000))*eggsprice;
+document.getElementById("totalgldidaily").innerHTML=round(((Number(GGdailyreward)+Number(Zdailyreward)+Number(xGGdailyreward))/1000000));
+document.getElementById("totalgldidailyusd").innerHTML=round((((Number(GGdailyreward)+Number(Zdailyreward)+Number(xGGdailyreward))/1000000))*deggsprice);
 
-document.getElementById("mytotalgldedaily").innerHTML=round(Cdailyprod+Gdailyprod+xGGdailyprod);
+document.getElementById("mytotalgldedaily").innerHTML=round((Cdailyprod)+(Gdailyprod)+(xGGdailyprod));
 document.getElementById("mytotalgldedailyusd").innerHTML=round(((Cdailyprod+Gdailyprod+xGGdailyprod)/1000000)*eggsprice);
 document.getElementById("mytotalgldidaily").innerHTML=round(GGdailyprod+Zdailyprod+xGGdailyprod);
 document.getElementById("mytotalgldidailyusd").innerHTML=round(((GGdailyprod+Zdailyprod+xGGdailyprod)/1000000)*deggsprice);
