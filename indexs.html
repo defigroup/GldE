@@ -710,19 +710,21 @@ document.getElementById("chickensyearlyroi").innerHTML=round(CAPY);
 document.getElementById("chickensdailyroi").innerHTML=round(Cdailyroi);
 document.getElementById("chickensweeklyroi").innerHTML=round(Cdailyroi*7);
 let staked= window.tronWeb.toDecimal((await MyContractFarm.balanceOf(myaddress).call())._hex); 
-document.getElementById("mychickens").innerHTML=round(staked/1000000);
-document.getElementById("mychickensusd").innerHTML=round((staked)*Clpprice);  
 document.getElementById("chickens").innerHTML=round(CpoolLPbalance/1000000);
 document.getElementById("chickensusd").innerHTML=round(Clppoolsupplyusd);
 document.getElementById("chickensdaily").innerHTML=round(Cdailyreward/1000000);
 document.getElementById("chickensdailyusd").innerHTML=round(Cdailyusdreward);
 let earned= await MyContractFarm.earned(myaddress).call();
-document.getElementById("mychickensreward").innerHTML=round(earned/1000000);
-document.getElementById("mychickensrewardusd").innerHTML=round((earned/1000000)*eggsprice);
 var Cdailyprodusd=((((staked)*Clpprice)*Cdailyroi)/100);
 var Cdailyprod=Cdailyprodusd/eggsprice;
+if(staked>0){
 document.getElementById("mychickensdaily").innerHTML=round(Cdailyprod);
 document.getElementById("mychickensdailyusd").innerHTML=round(Cdailyprodusd);
+document.getElementById("mychickens").innerHTML=round(staked/1000000);
+document.getElementById("mychickensusd").innerHTML=round((staked)*Clpprice);  
+document.getElementById("mychickensreward").innerHTML=round(earned/1000000);
+document.getElementById("mychickensrewardusd").innerHTML=round((earned/1000000)*eggsprice);
+}
 
 var Glpprice=dlpprice;
 let GpoolLPbalance= await dMyContractFarm.poolLPbalance().call(); 
@@ -736,43 +738,81 @@ document.getElementById("goosesyearlyroi").innerHTML=round(GAPY);
 document.getElementById("goosesdailyroi").innerHTML=round(Gdailyroi);
 document.getElementById("goosesweeklyroi").innerHTML=round(Gdailyroi*7);
 let Gstaked= window.tronWeb.toDecimal((await dMyContractFarm.balanceOf(myaddress).call())._hex); 
-document.getElementById("mygooses").innerHTML=round(Gstaked/1000000);
-document.getElementById("mygoosesusd").innerHTML=round((Gstaked)*Glpprice);  
 document.getElementById("gooses").innerHTML=round(GpoolLPbalance/1000000);
 document.getElementById("goosesusd").innerHTML=round(Glppoolsupplyusd);
 document.getElementById("goosesdaily").innerHTML=round(Gdailyreward/1000000);
 document.getElementById("goosesdailyusd").innerHTML=round(Gdailyusdreward);
 let Gearned= await dMyContractFarm.earned(myaddress).call();
-document.getElementById("mygoosesreward").innerHTML=round(Gearned/1000000);
-document.getElementById("mygoosesrewardusd").innerHTML=round((Gearned/1000000)*eggsprice);
 var Gdailyprodusd=((((Gstaked)*Glpprice)*Gdailyroi)/100);
 var Gdailyprod=Gdailyprodusd/eggsprice;
+if(Gstaked>0){
 document.getElementById("mygoosesdaily").innerHTML=round(Gdailyprod);
 document.getElementById("mygoosesdailyusd").innerHTML=round(Gdailyprodusd);
-
+document.getElementById("mygooses").innerHTML=round(Gstaked/1000000);
+document.getElementById("mygoosesusd").innerHTML=round((Gstaked)*Glpprice);
+document.getElementById("mygoosesreward").innerHTML=round(Gearned/1000000);
+document.getElementById("mygoosesrewardusd").innerHTML=round((Gearned/1000000)*eggsprice);
+}
 
 let xMyContractFarm = await tronWeb.contract().at(gnomesaddr); 
-
-
 let kMyContractFarm = await tronWeb.contract().at(kcontractAddressFarm); 
-
-let GGpoolLPbalance= await xMyContractFarm.poolLPbalance().call(); 
-var GGlppoolsupplyusd=GGpoolLPbalance*eggsprice/1000000;
-let GGdailyreward= await xMyContractFarm.dailyreward().call();
-var GGdailyusdreward=(GGdailyreward/1000000)*deggsprice;
-var GGdailyroi=GGdailyusdreward/(GGlppoolsupplyusd/100);
-var GGAPY=GGdailyroi*365;
-document.getElementById("gnomesprofit").innerHTML=round(GGAPY);
-
 
 var Zlpprice=lpprice;
 let ZpoolLPbalance= await zMyContractFarm.poolLPbalance().call(); 
-var Zlppoolsupplyusd=ZpoolLPbalance*lpprice;
+var Zlppoolsupplyusd=ZpoolLPbalance*Zlpprice;
 let Zdailyreward= await zMyContractFarm.dailyreward().call();
 var Zdailyusdreward=(Zdailyreward/1000000)*deggsprice;
 var Zdailyroi=Zdailyusdreward/(Zlppoolsupplyusd/100);
 var ZAPY=Zdailyroi*365;
 document.getElementById("bunniesprofit").innerHTML=round(ZAPY);
+document.getElementById("bunniesyearlyroi").innerHTML=round(ZAPY); 
+document.getElementById("bunniesdailyroi").innerHTML=round(Zdailyroi);
+document.getElementById("bunniesweeklyroi").innerHTML=round(Zdailyroi*7);
+let Zstaked= window.tronWeb.toDecimal((await zMyContractFarm.balanceOf(myaddress).call())._hex); 
+document.getElementById("bunnies").innerHTML=round(ZpoolLPbalance/1000000);
+document.getElementById("bunniesusd").innerHTML=round(Zlppoolsupplyusd);
+document.getElementById("bunniesdaily").innerHTML=round(Zdailyreward/1000000);
+document.getElementById("bunniesdailyusd").innerHTML=round(Zdailyusdreward);
+let Zearned= await zMyContractFarm.earned(myaddress).call();
+var Zdailyprodusd=((((Zstaked)*Zlpprice)*Zdailyroi)/100);
+var Zdailyprod=Zdailyprodusd/deggsprice;
+if(Zstaked>0){
+document.getElementById("mybunniesdaily").innerHTML=round(Zdailyprod);
+document.getElementById("mybunniesdailyusd").innerHTML=round(Zdailyprodusd);
+document.getElementById("mybunnies").innerHTML=round(Zstaked/1000000);
+document.getElementById("mybunniesusd").innerHTML=round((Zstaked)*Zlpprice);
+document.getElementById("mybunniesreward").innerHTML=round(Zearned/1000000);
+document.getElementById("mybunniesrewardusd").innerHTML=round((Zearned/1000000)*eggsprice);
+}
+
+var GGlpprice=eggsprice/1000000;
+let GGpoolLPbalance= await xMyContractFarm.poolLPbalance().call(); 
+var GGlppoolsupplyusd=GGpoolLPbalance*GGlpprice;
+let GGdailyreward= await xMyContractFarm.dailyreward().call();
+var GGdailyusdreward=(GGdailyreward/1000000)*deggsprice;
+var GGdailyroi=GGdailyusdreward/(GGlppoolsupplyusd/100);
+var GGAPY=GGdailyroi*365;
+document.getElementById("gnomesprofit").innerHTML=round(GGAPY);
+document.getElementById("gnomesyearlyroi").innerHTML=round(GGAPY); 
+document.getElementById("gnomesdailyroi").innerHTML=round(GGdailyroi);
+document.getElementById("gnomesweeklyroi").innerHTML=round(GGdailyroi*7);
+let GGstaked= window.tronWeb.toDecimal((await xMyContractFarm.balanceOf(myaddress).call())._hex); 
+document.getElementById("gnomes").innerHTML=round(GGpoolLPbalance/1000000);
+document.getElementById("gnomesusd").innerHTML=round(GGlppoolsupplyusd);
+document.getElementById("gnomesdaily").innerHTML=round(GGdailyreward/1000000);
+document.getElementById("gnomesdailyusd").innerHTML=round(GGdailyusdreward);
+let GGearned= await xMyContractFarm.earned(myaddress).call();
+var GGdailyprodusd=((((GGstaked)*GGlpprice)*GGdailyroi)/100);
+var GGdailyprod=GGdailyprodusd/deggsprice;
+if(GGstaked>0){
+document.getElementById("mygnomesdaily").innerHTML=round(GGdailyprod);
+document.getElementById("mygnomesdailyusd").innerHTML=round(GGdailyprodusd);
+document.getElementById("mygnomes").innerHTML=round(GGstaked/1000000);
+document.getElementById("mygnomesusd").innerHTML=round((GGstaked)*GGlpprice);
+document.getElementById("mygnomesreward").innerHTML=round(GGearned/1000000);
+document.getElementById("mygnomesrewardusd").innerHTML=round((GGearned/1000000)*eggsprice);
+}
+
 
 let xGGpoolLPbalance= await kMyContractFarm.poolLPbalance().call(); 
 var xGGlppoolsupplyusd=xGGpoolLPbalance*deggsprice/1000000;
