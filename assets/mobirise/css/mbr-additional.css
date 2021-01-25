@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Rubik:300,400,500,600,700,800,900,300i,400i,500i,600i,700i,800i,900i&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap);
 
 
 
@@ -24,7 +25,7 @@ body {
   font-size: 3.2rem;
 }
 .display-4 {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
   font-display: swap;
 }
@@ -2205,6 +2206,92 @@ section.lazy-placeholder:after {
 }
 .cid-smd7QmwXET .card-title {
   text-align: center;
+}
+.cid-sn38ziGtle {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  background-color: #fffef5;
+}
+.cid-sn38ziGtle .mbr-section-subtitle {
+  color: #767676;
+}
+.cid-sn38ziGtle .container-table {
+  margin: 0 auto;
+}
+.cid-sn38ziGtle .scroll {
+  overflow-x: auto;
+  padding: 0;
+}
+.cid-sn38ziGtle .dataTables_wrapper {
+  display: block;
+}
+.cid-sn38ziGtle .dataTables_wrapper .search {
+  margin-bottom: .5rem;
+}
+.cid-sn38ziGtle .dataTables_wrapper .table {
+  overflow-x: auto;
+}
+.cid-sn38ziGtle table {
+  width: 100% !important;
+  margin-top: 6px;
+  border: 1px solid #cccccc;
+  margin-bottom: 0;
+}
+.cid-sn38ziGtle table th {
+  border-top: none;
+  transition: all .2s;
+  border-bottom: none;
+}
+.cid-sn38ziGtle table th:hover {
+  background: #cccccc;
+  color: #000000;
+}
+.cid-sn38ziGtle table td {
+  border-top: 1px solid #cccccc;
+}
+.cid-sn38ziGtle table.table {
+  background: #ffffff;
+}
+.cid-sn38ziGtle .dataTables_filter {
+  text-align: right;
+  margin-bottom: .5rem;
+}
+.cid-sn38ziGtle .dataTables_filter label {
+  display: inline;
+  white-space: normal !important;
+}
+.cid-sn38ziGtle .dataTables_filter input {
+  display: inline;
+  width: auto;
+  margin-left: .5rem;
+  border-radius: 100px;
+  padding-left: 1rem;
+}
+.cid-sn38ziGtle .dataTables_info {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  white-space: normal !important;
+}
+@media (max-width: 992px) {
+  .cid-sn38ziGtle .dataTables_filter {
+    text-align: center;
+  }
+}
+@media (max-width: 350px) {
+  .cid-sn38ziGtle .dataTables_filter {
+    text-align: center;
+  }
+  .cid-sn38ziGtle .dataTables_filter input {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+.cid-sn38ziGtle .body-item {
+  text-align: right;
+  color: #212529;
+}
+.cid-sn38ziGtle .head-item {
+  text-align: right;
 }
 .cid-slHZx35kiL {
   padding-top: 90px;
