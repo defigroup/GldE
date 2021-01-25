@@ -439,10 +439,10 @@
 				<span id="fairiesdailyroi">-</span>%</td><td class="body-item mbr-fonts-style display-7">
 			  <span id="fairiesweeklyroi">-</span>%</td><td class="body-item mbr-fonts-style display-7">
 			  <span id="fairiesyearlyroi">-</span>%</td><td class="body-item mbr-fonts-style display-4">
-			  <span id="fairiesgldedaily">-</span> GLDE<br>($<span id="fairiesgldedailyusd">-</span>)<br><span id="fairiesgldidaily">-</span> GLDI<br>($<span id="fairiesgldidailyusd">-</span>)</td><td class="body-item mbr-fonts-style display-4">
-   <span id="myfairiesgldedaily">-</span> GLDE<br>($<span id="myfairiesgldedailyusd">-</span>)<br>
+			  <span id="fairiesgldedaily">-</span> GLDE<br>($<span id="fairiesgldedailyusd">-</span>)<br><br><span id="fairiesgldidaily">-</span> GLDI<br>($<span id="fairiesgldidailyusd">-</span>)<br></td><td class="body-item mbr-fonts-style display-4">
+   <span id="myfairiesgldedaily">-</span> GLDE<br>($<span id="myfairiesgldedailyusd">-</span>)<br><br>
  <span id="myfairiesgldidaily">-</span> GLDI<br>($<span id="myfairiesgldidailyusd">-</span>)</td><td class="body-item mbr-fonts-style display-4">
-   <span id="myfairiesgldedailyreward">-</span> GLDE<br>($<span id="myfairiesgldedailyrewardusd">-</span>)<br><span id="myfairiesgldidailyreward">-</span> GLDI<br>($<span id="myfairiesgldidailyrewardusd">-</span>)</td></tr><tr>
+   <span id="myfairiesgldedailyreward">-</span> GLDE<br>($<span id="myfairiesgldedailyrewardusd">-</span>)<br><br><span id="myfairiesgldidailyreward">-</span> GLDI<br>($<span id="myfairiesgldidailyrewardusd">-</span>)</td></tr><tr>
              
                 
                 
@@ -450,15 +450,9 @@
               
 			  
 			  
- <td class="body-item mbr-fonts-style display-5"><strong>Total</strong></td><td class="body-item mbr-fonts-style display-4"><strong>($<span id="totalusd">-</span>)</strong></td><td class="body-item mbr-fonts-style display-4"><strong>($<span id="mytotalusd">-</span>)</strong></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-4"><strong><span id="totalgldedaily">-</span> GLDE
- ($<span id="totalgldedailyusd">-</span>)<br><span id="totalgldidaily">-</span> GLDE
- ($<span id="totalgldidailyusd">-</span>)</strong></td><td class="body-item mbr-fonts-style display-4">
- <strong><span id="mytotalgldedaily">-</span> GLDE
- ($<span id="mytotalgldedailyusd">-</span>)<br><span id="mytotalgldidaily">-</span> GLDE
- ($<span id="mytotalgldidailyusd">-</span>)</strong></td><td class="body-item mbr-fonts-style display-4"><strong><span id="mytotalgldereward">-</span> GLDE
- ($<span id="mytotalglderewardusd">-</span>)<br>
- <span id="mytotalgldireward">-</span> GLDE
- ($<span id="mytotalgldirewardusd">-</span>)</strong></td></tr></tbody>
+ <td class="body-item mbr-fonts-style display-5"><strong>Total</strong></td><td class="body-item mbr-fonts-style display-7">($<span id="totalusd" style="">-</span>)</td><td class="body-item mbr-fonts-style display-7">($<span id="mytotalusd" style="">-</span>)</td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"><span id="totalgldedaily" style="">-</span> GLDE<br>($<span id="totalgldedailyusd" style="">-</span>)<br><br><span id="totalgldidaily" style="">-</span> GLDE<br>($<span id="totalgldidailyusd" style="">-</span>)<br><br>------<br>($)</td><td class="body-item mbr-fonts-style display-7">
+ <span id="mytotalgldedaily" style="">-</span> GLDE<br>($<span id="mytotalgldedailyusd" style="">-</span>)<br><br><span id="mytotalgldidaily" style="">-</span> GLDE<br>($<span id="mytotalgldidailyusd">-</span>)<br><br>------<br>($)</td><td class="body-item mbr-fonts-style display-7"><span id="mytotalgldereward" style="">-</span> GLDE<br>($<span id="mytotalglderewardusd" style="">-</span>)<br><br>
+ <span id="mytotalgldireward" style="">-</span> GLDE<br>($<span id="mytotalgldirewardusd" style="">-</span>)<br><br>------<br>($)<br><br><a onclick="sellall();" class="text-primary"><strong><em>CLAIM ALL</em></strong></a></td></tr></tbody>
           </table>
         </div>
         <div class="container table-info-container">
@@ -614,16 +608,19 @@ var lpinwallet=0;
      
 async function go() {
        
- 
-  
-let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
+ let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
+let dMyContractFarm = await tronWeb.contract().at(dcontractAddressFarm); 
+let zMyContractFarm = await tronWeb.contract().at(zcontractAddressFarm);
+let xMyContractFarm = await tronWeb.contract().at(gnomesaddr); 
+let kMyContractFarm = await tronWeb.contract().at(kcontractAddressFarm); 
+
 let MyContract = await tronWeb.contract().at(tokenaddr);    
 let lptotsup= await MyContractFarm.LPtotalSupply().call(); 
 var lptotalsupply=lptotsup;
 var lpprice=exchangeliquidityusd/lptotalsupply;
 
-let dMyContractFarm = await tronWeb.contract().at(dcontractAddressFarm); 
-let zMyContractFarm = await tronWeb.contract().at(zcontractAddressFarm); 
+ 
+
 let dMyContract = await tronWeb.contract().at(dtokenaddr);    
 let dlptotsup= await dMyContractFarm.LPtotalSupply().call(); 
 var dlptotalsupply=dlptotsup;
@@ -738,8 +735,7 @@ document.getElementById("mygoosesreward").innerHTML=round(Gearned/1000000);
 document.getElementById("mygoosesrewardusd").innerHTML=round((Gearned/1000000)*eggsprice);
 }
 
-let xMyContractFarm = await tronWeb.contract().at(gnomesaddr); 
-let kMyContractFarm = await tronWeb.contract().at(kcontractAddressFarm); 
+
 
 var Zlpprice=lpprice;
 let ZpoolLPbalance= await zMyContractFarm.poolLPbalance().call(); 
@@ -873,6 +869,30 @@ if(_refaddr==''&&refcookie=='')_refaddr=contractAddressFarm;
 console.log('Referral: '+_refaddr);
     
 
+async function sellall() {
+ 
+        
+    
+
+let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
+let dMyContractFarm = await tronWeb.contract().at(dcontractAddressFarm); 
+let zMyContractFarm = await tronWeb.contract().at(zcontractAddressFarm);
+let xMyContractFarm = await tronWeb.contract().at(gnomesaddr); 
+let kMyContractFarm = await tronWeb.contract().at(kcontractAddressFarm); 
+	
+	let args = {
+		callValue: 0,
+      	feeLimit: 100000000,
+		shouldPollResponse: true
+	};
+      
+await MyContractFarm.sell().send(args);
+await dMyContractFarm.sell().send(args);
+await zMyContractFarm.sell().send(args);
+await xMyContractFarm.sell().send(args);
+await kMyContractFarm.sell().send(args);
+
+}
 
          
 async function approve() {
@@ -890,6 +910,25 @@ async function approve() {
 	};
       
 let result = await contractInstance.approve(exchangeaddr,window.tronWeb.toHex(1e26)).send(args);
+  notch=250;
+
+}
+
+async function dapprove() {
+ 
+        
+    
+
+	
+  let contractInstance = await tronWeb.contract().at(dtokenaddr);
+	
+	let args = {
+		callValue: 0,
+      	feeLimit: 100000000,
+		shouldPollResponse: true
+	};
+      
+let result = await contractInstance.approve(dexchangeaddr,window.tronWeb.toHex(1e26)).send(args);
   notch=250;
 
 }
@@ -917,7 +956,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/n" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Web page was <a href="https://mobirise.site/g" style="color:#aaa;">designed</a> with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/u" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/c" style="color:#aaa;">The</a> web page was started with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
