@@ -813,15 +813,39 @@ document.getElementById("mygnomesreward").innerHTML=round(GGearned/1000000);
 document.getElementById("mygnomesrewardusd").innerHTML=round((GGearned/1000000)*eggsprice);
 }
 
-
+var xGGlpprice=deggsprice/1000000;
 let xGGpoolLPbalance= await kMyContractFarm.poolLPbalance().call(); 
-var xGGlppoolsupplyusd=xGGpoolLPbalance*deggsprice/1000000;
+var xGGlppoolsupplyusd=xGGpoolLPbalance*xGGlpprice;
 let xGGdailyreward= await kMyContractFarm.dailyreward().call();
 var xGGdailyusdreward=((xGGdailyreward/1000000)*deggsprice)+((xGGdailyreward/1000000)*eggsprice);
 var xGGdailyroi=xGGdailyusdreward/(xGGlppoolsupplyusd/100);
 var xGGAPY=xGGdailyroi*365;
 document.getElementById("fairiesprofit").innerHTML=round(xGGAPY);
-
+document.getElementById("fairiesyearlyroi").innerHTML=round(xGGAPY); 
+document.getElementById("fairiesdailyroi").innerHTML=round(xGGdailyroi);
+document.getElementById("fairiesweeklyroi").innerHTML=round(xGGdailyroi*7);
+let xGGstaked= window.tronWeb.toDecimal((await kMyContractFarm.balanceOf(myaddress).call())._hex); 
+document.getElementById("fairies").innerHTML=round(xGGpoolLPbalance/1000000);
+document.getElementById("fairiesusd").innerHTML=round(xGGlppoolsupplyusd);
+document.getElementById("fairiesgldedaily").innerHTML=round(xGGdailyreward/1000000);
+document.getElementById("fairiesgldedailyusd").innerHTML=round(((xGGdailyreward/1000000)*eggsprice));
+document.getElementById("fairiesgldidaily").innerHTML=round(xGGdailyreward/1000000);
+document.getElementById("fairiesgldidailyusd").innerHTML=round(((xGGdailyreward/1000000)*deggsprice));
+let xGGearned= await kMyContractFarm.earned(myaddress).call();
+var xGGdailyprodusd=((((xGGstaked)*xGGlpprice)*xGGdailyroi)/100/1000000);
+var xGGdailyprod=xGGdailyreward*(xGGstaked/xGGpoolLPbalance)/1000000;
+if(xGGstaked>0){
+document.getElementById("myfairiesgldedaily").innerHTML=round(xGGgldedailyprod);
+document.getElementById("myfairiesgldidaily").innerHTML=round(xGGgldedailyprod);
+document.getElementById("myfairiesgldedailyusd").innerHTML=round(xGGgldedailyprod/1000000*eggsprice);
+document.getElementById("myfairiesgldidailyusd").innerHTML=round(xGGgldedailyprod/1000000*deggsprice);
+document.getElementById("myfairies").innerHTML=round(xGGstaked/1000000);
+document.getElementById("myfairiesusd").innerHTML=round((xGGstaked)*xGGlpprice);
+document.getElementById("myfairiesgldireward").innerHTML=round(xGGearned/1000000);
+document.getElementById("myfairiesgldirewardusd").innerHTML=round((xGGearned/1000000)*deggsprice);
+document.getElementById("myfairiesgldereward").innerHTML=round(xGGearned/1000000);
+document.getElementById("myfairiesglderewardusd").innerHTML=round((xGGearned/1000000)*eggsprice);
+}
 }
 
 function getUrlVars() {
