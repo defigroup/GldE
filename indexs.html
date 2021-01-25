@@ -833,12 +833,12 @@ document.getElementById("fairiesgldidaily").innerHTML=round(xGGdailyreward/10000
 document.getElementById("fairiesgldidailyusd").innerHTML=round(((xGGdailyreward/1000000)*deggsprice));
 let xGGearned= await kMyContractFarm.earned(myaddress).call();
 var xGGdailyprodusd=((((xGGstaked)*xGGlpprice)*xGGdailyroi)/100/1000000);
-var xGGdailyprod=xGGdailyreward*(xGGstaked/xGGpoolLPbalance)/1000000;
+var xGGdailyprod=xGGdailyreward*(xGGstaked/xGGpoolLPbalance);
 if(xGGstaked>0){
 document.getElementById("myfairiesgldedaily").innerHTML=round(xGGdailyprod);
 document.getElementById("myfairiesgldidaily").innerHTML=round(xGGdailyprod);
-document.getElementById("myfairiesgldedailyusd").innerHTML=round(xGGdailyprod*eggsprice);
-document.getElementById("myfairiesgldidailyusd").innerHTML=round(xGGdailyprod*deggsprice);
+document.getElementById("myfairiesgldedailyusd").innerHTML=round(xGGdailyprod/1000000*eggsprice);
+document.getElementById("myfairiesgldidailyusd").innerHTML=round(xGGdailyprod/1000000*deggsprice);
 document.getElementById("myfairies").innerHTML=round(xGGstaked/1000000);
 document.getElementById("myfairiesusd").innerHTML=round((xGGstaked)*xGGlpprice);
 document.getElementById("myfairiesgldidailyreward").innerHTML=round(xGGearned/1000000);
@@ -855,10 +855,10 @@ document.getElementById("totalgldedailyusd").innerHTML=round((((Cdailyreward+Gda
 document.getElementById("totalgldidaily").innerHTML=round(((GGdailyreward+Zdailyreward+xGGdailyreward)/1000000));
 document.getElementById("totalgldidailyusd").innerHTML=round((((GGdailyreward+Zdailyreward+xGGdailyreward)/1000000))*deggsprice);
 
-document.getElementById("mytotalgldedaily").innerHTML=round(((Cdailyprod+Gdailyprod)/1000000)+xGGdailyprod);
-document.getElementById("mytotalgldedailyusd").innerHTML=round((((Cdailyprod+Gdailyprod)/1000000)+xGGdailyprod)*eggsprice);
-document.getElementById("mytotalgldidaily").innerHTML=round(((GGdailyprod+Zdailyprod)/1000000)+xGGdailyprod);
-document.getElementById("mytotalgldidailyusd").innerHTML=round((((GGdailyprod+Zdailyprod)/1000000)+xGGdailyprod)*deggsprice);
+document.getElementById("mytotalgldedaily").innerHTML=round(Cdailyprod+Gdailyprod+xGGdailyprod);
+document.getElementById("mytotalgldedailyusd").innerHTML=round(((Cdailyprod+Gdailyprod+xGGdailyprod)/1000000)*eggsprice);
+document.getElementById("mytotalgldidaily").innerHTML=round(GGdailyprod+Zdailyprod+xGGdailyprod);
+document.getElementById("mytotalgldidailyusd").innerHTML=round(((GGdailyprod+Zdailyprod+xGGdailyprod)/1000000)*deggsprice);
 
 
 
