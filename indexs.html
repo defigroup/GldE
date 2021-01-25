@@ -835,8 +835,8 @@ let xGGearned= await kMyContractFarm.earned(myaddress).call();
 var xGGdailyprodusd=((((xGGstaked)*xGGlpprice)*xGGdailyroi)/100/1000000);
 var xGGdailyprod=xGGdailyreward*(xGGstaked/xGGpoolLPbalance);
 if(xGGstaked>0){
-document.getElementById("myfairiesgldedaily").innerHTML=round(xGGdailyprod);
-document.getElementById("myfairiesgldidaily").innerHTML=round(xGGdailyprod);
+document.getElementById("myfairiesgldedaily").innerHTML=round(xGGdailyprod/1000000);
+document.getElementById("myfairiesgldidaily").innerHTML=round(xGGdailyprod/1000000);
 document.getElementById("myfairiesgldedailyusd").innerHTML=round(xGGdailyprod/1000000*eggsprice);
 document.getElementById("myfairiesgldidailyusd").innerHTML=round(xGGdailyprod/1000000*deggsprice);
 document.getElementById("myfairies").innerHTML=round(xGGstaked/1000000);
