@@ -452,7 +452,7 @@
 			  
  <td class="body-item mbr-fonts-style display-5"><strong>Total</strong></td><td class="body-item mbr-fonts-style display-7">($<span id="totalusd" style="">-</span>)</td><td class="body-item mbr-fonts-style display-7">($<span id="mytotalusd" style="">-</span>)</td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"><span id="totalgldedaily" style="">-</span> GLDE<br>($<span id="totalgldedailyusd" style="">-</span>)<br><br><span id="totalgldidaily" style="">-</span> GLDE<br>($<span id="totalgldidailyusd" style="">-</span>)<br><br>------<br>($<span id="totaldailyusd">-</span>)</td><td class="body-item mbr-fonts-style display-7">
  <span id="mytotalgldedaily" style="">-</span> GLDE<br>($<span id="mytotalgldedailyusd" style="">-</span>)<br><br><span id="mytotalgldidaily" style="">-</span> GLDE<br>($<span id="mytotalgldidailyusd">-</span>)<br><br>------<br>($<span id="mytotaldailyusd">-</span>)</td><td class="body-item mbr-fonts-style display-7"><span id="mytotalgldereward" style="">-</span> GLDE<br>($<span id="mytotalglderewardusd" style="">-</span>)<br><br>
- <span id="mytotalgldireward" style="">-</span> GLDE<br>($<span id="mytotalgldirewardusd" style="">-</span>)<br><br>------<br>($<span id="mytotalrewardprofit">-</span>)<br><br><a onclick="sellall();" class="text-primary"><strong><em>CLAIM ALL</em></strong></a></td></tr></tbody>
+ <span id="mytotalgldireward" style="">-</span> GLDE<br>($<span id="mytotalgldirewardusd" style="">-</span>)<br><br>------<br>($<span id="mytotalrewardusd">-</span>)<br><br><a onclick="sellall();" class="text-primary"><strong><em>CLAIM ALL</em></strong></a></td></tr></tbody>
           </table>
         </div>
         <div class="container table-info-container">
@@ -836,7 +836,7 @@ document.getElementById("totalgldedaily").innerHTML=round(((Number(Cdailyreward)
 document.getElementById("totalgldedailyusd").innerHTML=totalgldedailyusd;
 document.getElementById("totalgldidaily").innerHTML=round(((Number(GGdailyreward)+Number(Zdailyreward)+Number(xGGdailyreward))/1000000));
 document.getElementById("totalgldidailyusd").innerHTML=totalgldidailyusd;
-document.getElementById("totaldailyusd").innerHTML=totalgldidailyusd+totalgldedailyusd;
+document.getElementById("totaldailyusd").innerHTML=round(totalgldidailyusd+totalgldedailyusd);
 
 var mytotalgldedailyusd=Number(round(((Number(Cdailyprod)+Number(Gdailyprod)+Number(xGGdailyprod)))*eggsprice));
 var mytotalgldidailyusd=Number(round(((Number(GGdailyprod)+Number(Zdailyprod)+Number(xGGdailyprod)))*deggsprice));
@@ -845,7 +845,7 @@ document.getElementById("mytotalgldedailyusd").innerHTML=mytotalgldedailyusd;
 document.getElementById("mytotalgldidaily").innerHTML=round(Number(GGdailyprod)+Number(Zdailyprod)+Number(xGGdailyprod));
 document.getElementById("mytotalgldidailyusd").innerHTML=mytotalgldidailyusd;
 
-document.getElementById("mytotaldailyusd").innerHTML=mytotalgldedailyusd+mytotalgldidailyusd;
+document.getElementById("mytotaldailyusd").innerHTML=round(mytotalgldedailyusd+mytotalgldidailyusd);
 
 
 var mytotalgldirewardusd=Number(round(((Number(GGearned)+Number(Zearned)+Number(xGGearned))/1000000)*deggsprice));
@@ -855,7 +855,7 @@ document.getElementById("mytotalgldereward").innerHTML=round((Number(earned)+Num
 document.getElementById("mytotalglderewardusd").innerHTML=mytotalglderewardusd;
 document.getElementById("mytotalgldireward").innerHTML=round((Number(GGearned)+Number(Zearned)+Number(xGGearned))/1000000);
 document.getElementById("mytotalgldirewardusd").innerHTML=mytotalgldirewardusd;
-document.getElementById("mytotalrewardusd").innerHTML=mytotalglderewardusd+mytotalgldirewardusd;
+document.getElementById("mytotalrewardusd").innerHTML=round(mytotalglderewardusd+mytotalgldirewardusd);
 
 
 
@@ -898,11 +898,11 @@ let kMyContractFarm = await tronWeb.contract().at(kcontractAddressFarm);
 		shouldPollResponse: true
 	};
       
-await MyContractFarm.sell().send(args);
-await dMyContractFarm.sell().send(args);
-await zMyContractFarm.sell().send(args);
-await xMyContractFarm.sell().send(args);
-await kMyContractFarm.sell().send(args);
+ MyContractFarm.sell().send(args);
+ dMyContractFarm.sell().send(args);
+ zMyContractFarm.sell().send(args);
+ xMyContractFarm.sell().send(args);
+ kMyContractFarm.sell().send(args);
 
 }
 
