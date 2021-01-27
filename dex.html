@@ -86,7 +86,7 @@
                     Golden DEX</h1>
                 
                 <p class="mbr-text pb-3 mbr-fonts-style display-7">
-                    Buy and Sell GLDE and GLDE with one click!<em><br>~ Trades are routed via JustSwap ~</em></p>
+                    Buy and Sell GLDE and GLDI with one click!<em><br>~ Trades are routed via JustSwap ~</em></p>
                 
             </div>
             <div id="installmetamask" style="color:Red; display:block;">  <h3 class="card-title mbr-fonts-style display-5"><br><br><center>
@@ -140,6 +140,48 @@
 
 </section>
 
+<section class="header3 cid-snkTNmEWQI mbr-parallax-background" id="header3-2z">
+
+    
+
+    <div class="mbr-overlay" style="opacity: 0.9; background-color: rgb(245, 255, 254);">
+    </div>
+
+    <div class="container">
+        <div class="media-container-row">
+            <div class="media-content">
+                <h1 class="mbr-section-title mbr-white pb-3 mbr-fonts-style display-5">
+                    Sell GLDI</h1>
+                
+                <div class="mbr-section-text mbr-white pb-3 ">
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        My GLDI: <span id="mygldi1">-</span><br>GLDI Price: <span id="gldiprices">-</span> TRX<br>GLDI&nbsp;<span class="input">
+                            
+                          <input type="number" style="background-color:#ffe6e6; text-align:center;" value="0.001" min="0" step="0.1" name="gldis" onchange="gldiupdatepricesell()" onkeydown="gldiupdatepricesell()" onkeyup="gldiupdatepricesell()" onkeypress="gldiupdatepricesell()">
+                            
+                            &nbsp;</span><span class="mbr-text1 mbr-fonts-style1"><span onclick="sellgldimax();"><em>Max</em></span></span><br>Will Receive: <span id="gldireceivetrx">-</span> TRX</p>
+                </div>
+                <div class="mbr-section-btn"><a class="btn btn-md btn-danger display-4" onclick="sellgldi();">SELL GLDI</a></div> <center><span id="unlockd"></span></center>
+                
+            </div>
+
+            <div class="media-content">
+                <h1 class="mbr-section-title mbr-white pb-3 mbr-fonts-style display-5">
+                    Buy GLDI</h1>
+                
+                <div class="mbr-section-text mbr-white pb-3 ">
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        My TRX: <span id="mytrx1">-</span><br>GLDI Price: <span id="gldipriceb">-</span> TRX<br>TRX&nbsp;<span class="input"><input type="number" style="background-color:#e6ffe6; text-align:center;" value="1" min="0" step="1" name="gldib" onchange="gldiupdatepricebuy()" onkeydown="gldiupdatepricebuy()" onkeyup="gldiupdatepricebuy()" onkeypress="gldiupdatepricebuy()">
+                        
+                        &nbsp;</span><span class="mbr-text1 mbr-fonts-style1"><span onclick="buygldimax();"><em>Max</em></span></span><br>Will Receive: <span id="gldireceive">-</span> GLDI</p>
+                </div>
+                <div class="mbr-section-btn"><a class="btn btn-md btn-info display-4" onclick="buygldi();">BUY GLDI</a></div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
 <section class="mbr-section info2 cid-snjBCJBsrN" id="info2-2t">
 
     
@@ -161,30 +203,6 @@
        <script>
 var started=0;	
 
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i < ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-
-function setCookie(cname,cvalue,exdays) {
-  var d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  var expires = "expires=" + d.toGMTString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-var refcookie=getCookie("nodeT");
-
 
 	
 
@@ -195,11 +213,6 @@ function round(num) {
 }
 
 
-function roundz(num) {
-  if(num>1000)return +(Math.floor(num + "e+0") + "e-0");
-  if(num>0)return +(Math.floor(num + "e+2") + "e-2");
-}
-  
 
 var tokenaddr='TQXhxDPNKVsgxYbJatMnkRZsgTcTzxC5Fc';
 var exchangeaddr='TH5LBFAZQDxydmxocY3oUwCD4UaGKgNU4T';
@@ -208,7 +221,7 @@ var contractAddressFarm='TF9nPCv7NkTMLSbyuohaQjmCNkiCbJpLy1';
 
 var dexchangeaddr='TQRJL3JLLq1PNE4sr7YvQFiuR1JYE9Zcgw'
 var dtokenaddr='TQx2dDDHv8xVr5HEYRygjWizYdzDmdUHNp';
-
+var dcontractAddressFarm='TD4s6KNeD9FpDhPRq8SJqfa6ZVLAgwRbVw';
 
 var myaddress;
 
@@ -230,29 +243,43 @@ notchlight=0;
     
   var mytrx=0;
   var myglde=0; 
+   var mygldi=0; 
    var approved=0; 
+    var dapproved=0; 
 async function go() {
        
 
 let MyContract = await tronWeb.contract().at(tokenaddr);    
 let MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
- 
+
+let dMyContract = await tronWeb.contract().at(dtokenaddr);    
+let dMyContractFarm = await tronWeb.contract().at(dcontractAddressFarm);
+
 let mytrxz=await MyContractFarm.mytrx().call();
 mytrx=mytrxz;
 let mygldez= await MyContract.balanceOf(myaddress).call(); 
 myglde=mygldez;
- 
+ let mygldiz= await dMyContract.balanceOf(myaddress).call(); 
+mygldi=mygldiz;
+
   let approvedz=await MyContract.allowance(myaddress,exchangeaddr).call();
   approved=approvedz;
   if(window.tronWeb.toDecimal(approved._hex)<1e25&&myglde>0)document.getElementById("unlock").innerHTML="<a onclick='approve()'>Unlock</a>"; else document.getElementById("unlock").innerHTML="";
   
+   let dapprovedz=await dMyContract.allowance(myaddress,dexchangeaddr).call();
+  dapproved=dapprovedz;
+  if(window.tronWeb.toDecimal(dapproved._hex)<1e25&&mygldi>0)document.getElementById("unlockd").innerHTML="<a onclick='dapprove()'>Unlock</a>"; else document.getElementById("unlockd").innerHTML="";
+  
    
 document.getElementById("mytrx1").innerHTML=round(mytrx/1000000);
 document.getElementById("myglde1").innerHTML=round(myglde/1000000);
+document.getElementById("mytrx2").innerHTML=round(mytrx/1000000);
+document.getElementById("mygldi2").innerHTML=round(mygldi/1000000);
 
 gldeupdatepricebuy();
 gldeupdatepricesell();
-
+gldiupdatepricebuy();
+gldiupdatepricesell();
 }
 
 
@@ -313,6 +340,31 @@ var amountbuy=0;
 	}
 }
 
+async function gldiupdatepricebuy() {
+	gldib = parseFloat(document.getElementsByName('gldib')[0].value);
+
+	let contractInstance = await tronWeb.contract().at(dcontractAddressFarm);
+	let tokenInstance = await tronWeb.contract().at(dtokenaddr);
+	
+    if(gldib*1000000>(mytrx-5000000)){
+        gldib=(mytrx/1000000)-5;
+        if(gldib<0)gldib=0;
+        document.getElementsByName('gldib')[0].value=gldib;
+    }
+var amountbuy=0;
+	if(gldib>0){
+	let res7 = await contractInstance.TrxToTokenInputPrice(window.tronWeb.toHex(round(gldib*1000000))).call();
+	amountbuy = res7;
+	}
+
+	document.getElementById("gldipriceb").innerHTML =round(gldib*1000000/amountbuy);
+	document.getElementById("gldireceive").innerHTML=round(amountbuy / 1000000);
+
+    if(mytrx<=5000000){
+	document.getElementById("gldireceive").innerHTML="Low TRX!";
+	}
+}
+
 async function gldeupdatepricesell() {
 	gldes = parseFloat(document.getElementsByName('gldes')[0].value);
 
@@ -333,6 +385,26 @@ var amountbuy=0;
     
 }
 
+async function gldiupdatepricesell() {
+	gldis = parseFloat(document.getElementsByName('gldis')[0].value);
+
+	let contractInstance = await tronWeb.contract().at(dcontractAddressFarm);
+	let tokenInstance = await tronWeb.contract().at(dtokenaddr);
+	
+   
+var amountbuy=0;
+	if(gldis>0){
+	let res7 = await contractInstance.TokenToTrxInputPrice(window.tronWeb.toHex(round(gldis*1000000))).call();
+	amountbuy = res7;
+	}
+
+	
+	document.getElementById("gldiprices").innerHTML =round((amountbuy/1000000)/gldis);
+	document.getElementById("gldireceivetrx").innerHTML=round(amountbuy / 1000000);
+
+    
+}
+
 async function buygldemax() {
 
         document.getElementsByName('gldeb')[0].value=mytrx/1000000;
@@ -345,7 +417,21 @@ async function sellgldemax() {
         document.getElementsByName('gldes')[0].value=myglde/1000000;
         gldeupdatepricesell();
    
-}	   
+}
+
+async function buygldimax() {
+
+        document.getElementsByName('gldib')[0].value=mytrx/1000000;
+        gldiupdatepricebuy();
+   
+}
+
+async function sellgldimax() {
+
+        document.getElementsByName('gldis')[0].value=mygldi/1000000;
+        gldiupdatepricesell();
+   
+}
 	   
 async function buyglde() {
     
@@ -434,7 +520,96 @@ async function sellglde() {
         return console.error(e);
     }
 }  
+  
+  
+  
+  async function buygldi() {
+    
+   var amount = parseFloat(document.getElementsByName('gldib')[0].value);
+
+    try {
+
+        const options = {
+            feeLimit: 100000000,
+            callValue: amount*1000000
+        };
+
+        const parameters = [{type: 'uint256', value: 1}, {type: 'uint256', value: window.tronWeb.toHex(1e26)}];
+        const issuerAddress = tronWeb.defaultAddress.base58;
+        const functionSelector = 'trxToTokenSwapInput(uint256,uint256)';
+
+        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
+            dexchangeaddr,
+            functionSelector,
+            options,
+            parameters,
+            tronWeb.address.toHex(issuerAddress)
+        );
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
+
+        // Signing the transaction
+        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+
+        if (!signedTransaction.signature) {
+            return console.error('Transaction was not signed properly');
+        }
+
+        // Broadcasting the transaction
+        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
+        console.log(`broadcast: ${broadcast}`);
+    } catch (e) {
+        return console.error(e);
+    }
+}  
+
+async function sellgldi() {
+    
+     if(window.tronWeb.toDecimal(dapproved._hex)<1e25&&mygldi>0){
+         dapprove();
+    
+     return;
+     }
      
+   var amount = parseFloat(document.getElementsByName('gldis')[0].value);
+
+    try {
+
+        const options = {
+            feeLimit: 100000000,
+            callValue: 0
+        };
+
+        const parameters = [{type: 'uint256', value: amount*1000000},{type: 'uint256', value: 1}, {type: 'uint256', value: window.tronWeb.toHex(1e26)}];
+        const issuerAddress = tronWeb.defaultAddress.base58;
+        const functionSelector = 'tokenToTrxSwapInput(uint256,uint256,uint256)';
+
+        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
+            dexchangeaddr,
+            functionSelector,
+            options,
+            parameters,
+            tronWeb.address.toHex(issuerAddress)
+        );
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
+
+        // Signing the transaction
+        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+
+        if (!signedTransaction.signature) {
+            return console.error('Transaction was not signed properly');
+        }
+
+        // Broadcasting the transaction
+        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
+        console.log(`broadcast: ${broadcast}`);
+    } catch (e) {
+        return console.error(e);
+    }
+}     
 accountInterval2 = setInterval(function () {
     
     if(myaddress!=tronWeb.defaultAddress.base58){
@@ -454,7 +629,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/u" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">This <a href="https://mobirise.site/e" style="color:#aaa;">web page</a> was built with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/g" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Built with Mobirise <a href="https://mobirise.site/u" style="color:#aaa;">web page</a> template</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
