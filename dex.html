@@ -324,7 +324,7 @@ let result = await contractInstance.approve(dexchangeaddr,window.tronWeb.toHex(1
  
 async function gldeupdatepricebuy() {
 	gldeb = parseFloat(document.getElementsByName('gldeb')[0].value);
-
+    
 	let contractInstance = await tronWeb.contract().at(contractAddressFarm);
 	let tokenInstance = await tronWeb.contract().at(tokenaddr);
 	
@@ -333,6 +333,7 @@ async function gldeupdatepricebuy() {
         if(gldeb<0)gldeb=0;
         document.getElementsByName('gldeb')[0].value=gldeb;
     }
+    if(gldeb<=0)gldeb=0.000001;
 var amountbuy=0;
 	if(gldeb>0){
 	let res7 = await contractInstance.TrxToTokenInputPrice(window.tronWeb.toHex(round(gldeb*1000000))).call();
@@ -349,7 +350,7 @@ var amountbuy=0;
 
 async function gldiupdatepricebuy() {
 	gldib = parseFloat(document.getElementsByName('gldib')[0].value);
-
+   
 	let contractInstance = await tronWeb.contract().at(dcontractAddressFarm);
 	let tokenInstance = await tronWeb.contract().at(dtokenaddr);
 	
@@ -358,6 +359,7 @@ async function gldiupdatepricebuy() {
         if(gldib<0)gldib=0;
         document.getElementsByName('gldib')[0].value=gldib;
     }
+     if(gldib<=0)gldib=0.000001;
 var amountbuy=0;
 	if(gldib>0){
 	let res7 = await contractInstance.TrxToTokenInputPrice(window.tronWeb.toHex(round(gldib*1000000))).call();
@@ -374,7 +376,7 @@ var amountbuy=0;
 
 async function gldeupdatepricesell() {
 	gldes = parseFloat(document.getElementsByName('gldes')[0].value);
-
+    if(gldes<=0)gldes=0.000001;
 	let contractInstance = await tronWeb.contract().at(contractAddressFarm);
 	let tokenInstance = await tronWeb.contract().at(tokenaddr);
 	
@@ -394,7 +396,7 @@ var amountbuy=0;
 
 async function gldiupdatepricesell() {
 	gldis = parseFloat(document.getElementsByName('gldis')[0].value);
-
+    if(gldis<=0)gldis=0.000001;
 	let contractInstance = await tronWeb.contract().at(dcontractAddressFarm);
 	let tokenInstance = await tronWeb.contract().at(dtokenaddr);
 	
@@ -640,7 +642,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/p" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Built with Mobirise - <a href="https://mobirise.site/m" style="color:#aaa;">Get now</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/r" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">How to start your own site - <a href="https://mobirise.site/x" style="color:#aaa;">Check this</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
