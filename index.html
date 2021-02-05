@@ -832,7 +832,9 @@ document.getElementById("dgldesupply").innerHTML=round((deggsupply-diamondburned
 let dTokenToTrxInputPrice_=await dMyContractFarm.TokenToTrxInputPrice(1000000).call();
   
   let dmyeggs=await dMyContractFarm.myeggs().call(); 
-  mydiamonds=window.tronWeb.toDecimal(dmyeggs._hex);;
+  
+  mydiamonds=window.tronWeb.toDecimal(dmyeggs._hex);
+  
    let dapproved=await dMyContract.allowance(myaddress,dexchangeaddr).call();
    
    let _lotterydapproved=await dMyContract.allowance(myaddress,lotterycontractAddress).call();
