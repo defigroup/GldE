@@ -833,7 +833,6 @@ let dTokenToTrxInputPrice_=await dMyContractFarm.TokenToTrxInputPrice(1000000).c
   
   let dmyeggs=await dMyContractFarm.myeggs().call(); 
   
-  mydiamonds=window.tronWeb.toDecimal(dmyeggs._hex);
   
    let dapproved=await dMyContract.allowance(myaddress,dexchangeaddr).call();
    
@@ -1062,6 +1061,7 @@ document.getElementById("mytotalrewardusd").innerHTML=round(mytotalglderewardusd
 
 let mytrx=(await MyContractFarm.mytrx().call())/1000000;
 let mygldi= (await dMyContract.balanceOf(myaddress).call())/1000000; 
+mydiamonds=mygldi;
 let myglde= (await MyContract.balanceOf(myaddress).call())/1000000; 
 var mygldiusd=mygldi*deggsprice;
 var mygldeusd=myglde*eggsprice;
