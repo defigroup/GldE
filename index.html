@@ -832,7 +832,7 @@ document.getElementById("dgldesupply").innerHTML=round((deggsupply-diamondburned
 let dTokenToTrxInputPrice_=await dMyContractFarm.TokenToTrxInputPrice(1000000).call();
   
   let dmyeggs=await dMyContractFarm.myeggs().call(); 
-  mydiamonds=dmyeggs;
+  mydiamonds=window.tronWeb.toDecimal(dmyeggs._hex);;
    let dapproved=await dMyContract.allowance(myaddress,dexchangeaddr).call();
    
    let _lotterydapproved=await dMyContract.allowance(myaddress,lotterycontractAddress).call();
@@ -1083,7 +1083,7 @@ let res11=await lotteryMyContractFarm.mytickets().call();
 			
 			 let res9d=await lotteryMyContractFarm.checkticketprize().call();
 			document.getElementById("ticketsprice").innerHTML=round(res9d/1000000);
-		ticketprice=res9d;
+		ticketprice=window.tronWeb.toDecimal(res9d._hex);
   
    
 	let res8=await lotteryMyContractFarm.checkprize().call();
@@ -1323,7 +1323,7 @@ let result = await contractInstance.approve(lotterycontractAddress,window.tronWe
 
 async function buyraffle() {
 
-if(started>0){
+if(started>0&&ticketprice>0){
 
 	
 	
