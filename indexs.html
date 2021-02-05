@@ -509,12 +509,9 @@
                   
                     </div>
                      <div class="align-left aside-content">
-                         <p class="mbr-text text2 pt-4 mbr-light mbr-fonts-style display-5">Today Prize: <strong><span id="todayprize">-</span>&nbsp;GLDI</strong><strong><br></strong></p>
-                     <center>Buy Tickets<br><span class="input">
-		<input type="text" name="ticketstobuy" align="center" value="1" style="text-align: center;" size="5">
-		<span></span>	
-                       </span> </center> <div class="mbr-section-btn pt-3 align-left"><a onclick="buyraffle()" class="btn btn-danger-outline display-4">
-                            Buy Now
+                         <p class="mbr-text text2 pt-4 mbr-light mbr-fonts-style display-5"><br>Today Prize: <strong><span id="todayprize">-</span>&nbsp;GLDI</strong><strong><br></strong></p>
+                    <div class="mbr-section-btn pt-3 align-left"><a onclick="buyraffle()" class="btn btn-danger-outline display-4">
+                            Get Ticket
                   </a></div>
                    <div class="mbr-section-text">
                         <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4"><em>You have <span id="mytickets">-</span> Tickets</em></p>
@@ -1081,7 +1078,7 @@ document.getElementById("mygldiusd").innerHTML=round(mygldiusd);
 let res11=await lotteryMyContractFarm.mytickets().call();
 			document.getElementById("mytickets").innerHTML=res11;
 			
-			 let res9d=await lotteryMyContractFarm.checkticketprice().call();
+			 let res9d=await lotteryMyContractFarm.ticketprice().call();
 			document.getElementById("ticketsprice").innerHTML=round(res9d/1000000);
 		ticketsprice=res9d;
   
@@ -1090,7 +1087,11 @@ let res11=await lotteryMyContractFarm.mytickets().call();
 			pot=round(res8/1000000);
 			document.getElementById("todayprize").innerHTML=pot;	
 
-
+ let checkcountdown= await MyColotteryMyContractFarmntract.checkcountdown().call(); 
+  var hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
+				var minutes = Math.floor((checkcountdown % (60 * 60)) / (60));
+				var seconds = Math.floor((checkcountdown % (60)));
+  document.getElementById("countdown2").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
 
 var contractz=lotterycontractAddress;
  	let events = tronWeb.getEventResult(contractAddress = contractz, sinceTimestamp = 0, eventName = false, blockNumber = false, size = 10, page = 1, callback = false).then(result => {
@@ -1372,7 +1373,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/x" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/i" style="color:#aaa;">Built with Mobirise</a> free creator</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/y" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Built with Mobirise <a href="https://mobirise.site/u" style="color:#aaa;">web</a> themes</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
