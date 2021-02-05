@@ -695,13 +695,15 @@ var myaddress;
 
 var kcontractAddressFarm='TDojWcYd1cVvUAVFzytMttULpFVf1BDYRW';
 
-var lotterycontractAddress='THhnVGuXKySbhMchzMWs481umgkDcj9HLZ';
+var lotterycontractAddress='TYdD3CL9zfdBpEXw7muCnJr36Q9pXDxWuh';
 var notch=0;
      
-
+var updating;
 async function start() {
   notch+=1;
 
+if(updating==0){
+    updating=1;
  	if(notch>60||started==0){
    notch=0;
    started=1;
@@ -709,6 +711,7 @@ async function start() {
       
 } else if(started>0&&notch>5){
   go();
+}
 }
 
 
@@ -1078,7 +1081,7 @@ document.getElementById("mygldiusd").innerHTML=round(mygldiusd);
 let res11=await lotteryMyContractFarm.mytickets().call();
 			document.getElementById("mytickets").innerHTML=res11;
 			
-			 let res9d=await lotteryMyContractFarm.ticketprice().call();
+			 let res9d=await lotteryMyContractFarm.checkticketprize().call();
 			document.getElementById("ticketsprice").innerHTML=round(res9d/1000000);
 		ticketsprice=res9d;
   
@@ -1114,7 +1117,7 @@ var contractz=lotterycontractAddress;
 			
 		}
 	});	
-	
+updating=0;	
 	
 }
 
@@ -1373,7 +1376,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/y" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Built with Mobirise <a href="https://mobirise.site/u" style="color:#aaa;">web</a> themes</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/j" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/s" style="color:#aaa;">web page</a> was started with Mobirise website templates</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
