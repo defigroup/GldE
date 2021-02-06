@@ -777,9 +777,11 @@ let kMyContractFarm = await tronWeb.contract().at(kcontractAddressFarm);
 let MyContract = await tronWeb.contract().at(tokenaddr);  
 let lotteryMyContractFarm = await tronWeb.contract().at(lotterycontractAddress); 
 let dMyContract = await tronWeb.contract().at(dtokenaddr);  
+console.log("pregoing "+going);
 }
 if(going==0){ 
 going=1; 
+console.log("goooo");
 let lptotsup= await MyContractFarm.LPtotalSupply().call(); 
 var lptotalsupply=lptotsup;
 var lpprice=exchangeliquidityusd/lptotalsupply;
