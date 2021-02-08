@@ -129,7 +129,7 @@
                                   <br><span id="dmyeggs">-</span> <a href="dex.html" class="text-primary">Golden Diamonds</a> ($<span id="dmyeggsusd">-</span>)<br></p>
                                  <p class="mbr-text mbr-fonts-style col-right mbr-black align-center display-5"><strong><br></strong><br><strong>Offer Eggs+Diamonds</strong><em><br></em></p>         <p class="mbr-text1 mbr-fonts-style col-right mbr-black align-center display-7"><span class="input">Invest&nbsp;<input type="text" align="center" value="0" style="text-align: center;" size="5" name="trx">&nbsp; <a href="dex.html" class="text-primary">GLDE</a>+<a href="dex.html" class="text-primary">GLDI</a><span></span></span></p>
                                  
-                                  <div id="approvedyes" style="display:none;"><div class="mbr-section-btn col-right align-center"><a onclick="buy()" class="btn m-0 btn-success display-7">Hatch Eggs</a></div></div> <center><span id="unlock"></span></center>
+                                  <div id="approvedyes" style="display:none;"><div class="mbr-section-btn col-right align-center"><a onclick="buy()" class="btn m-0 btn-warning display-7">Get Dragons</a></div></div> <center><span id="unlock"></span></center>
                                   
                                 
                                    <p class="mbr-text mbr-fonts-style col-right mbr-black align-center display-5"><strong><br></strong><br><strong>Claimable</strong><em><br></em></p>
@@ -266,7 +266,8 @@ var refcookie=getCookie("nodeT");
 function round(num) {
   if(num>1000)return +(Math.floor(num + "e+0") + "e-0");
   if(num>10)return +(Math.floor(num + "e+2") + "e-2");
-  if(num>0)return +(Math.floor(num + "e+4") + "e-4");
+  if(num>1)return +(Math.floor(num + "e+4") + "e-4");
+  if(num>0)return +(Math.floor(num + "e+6") + "e-6");
 }
 
   
@@ -432,7 +433,7 @@ var lpprice=eggsprice;
  }
  
  
- document.getElementById("dailyrewardusd").innerHTML=round(dailyreward*deggsprice/1000000);
+ document.getElementById("dailyrewardusd").innerHTML=round(dailyreward*eggsprice/1000000);
       
 
    
@@ -463,7 +464,7 @@ var lpprice=eggsprice;
   
   if(earned>0){
    document.getElementById("myreward").innerHTML=round(earned/1000000);
-   document.getElementById("myrewardusd").innerHTML=round((earned/1000000)*deggsprice);
+   document.getElementById("myrewardusd").innerHTML=round((earned/1000000)*eggsprice);
   }else{
       document.getElementById("myreward").innerHTML=0;
    document.getElementById("myrewardusd").innerHTML=0;
@@ -595,7 +596,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/w" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">The <a href="https://mobirise.site/e" style="color:#aaa;">page</a> was made with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/q" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Web page was <a href="https://mobirise.site/g" style="color:#aaa;">started</a> with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
