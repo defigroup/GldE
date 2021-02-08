@@ -360,7 +360,13 @@ let dMyContract = await tronWeb.contract().at(dtokenaddr);
 
 
 
-
+ let dTokenToTrxInputPrice_=await dMyContractFarm.TokenToTrxInputPrice(1000000).call();
+  
+  
+  var dTokenToTrxInputPrice=window.tronWeb.toDecimal(dTokenToTrxInputPrice_);
+  console.log(TokenToTrxInputPrice);
+  
+  var deggsprice=Number((dTokenToTrxInputPrice/1000000)*trxprice);
 
 
  let TokenToTrxInputPrice_=await MyContractFarm.TokenToTrxInputPrice(1000000).call();
@@ -382,7 +388,7 @@ var lpprice=eggsprice;
   
 
    
-  let dTokenToTrxInputPrice_=await dMyContractFarm.TokenToTrxInputPrice(1000000).call();
+ 
   
   let myeggs=await MyContractFarm.myeggs().call(); 
   myeggs_=myeggs;
@@ -408,11 +414,6 @@ var lpprice=eggsprice;
   
   
   
-  
-  var dTokenToTrxInputPrice=window.tronWeb.toDecimal(dTokenToTrxInputPrice_);
-  console.log(TokenToTrxInputPrice);
-  
-  var deggsprice=Number((dTokenToTrxInputPrice/1000000)*trxprice);
   
   
    
@@ -442,8 +443,8 @@ var lpprice=eggsprice;
      document.getElementById("mytrx").innerHTML=round(mytrx/1000000); 
      document.getElementById("myusd").innerHTML=round(mytrx/1000000*trxprice); 
 
-  var dailyusdreward=(dailyreward/1000000)*deggsprice;
-  
+  var dailyusdreward=(dailyreward/1000000)*eggsprice;
+  console.log('ddddddddd '+dailyusdreward);
   var dailyroi=dailyusdreward/(lppoolsupplyusd/100);
   var hourlyroi=dailyroi/24;
   var weeklyroi=dailyroi*7;
@@ -596,7 +597,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/q" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Web page was <a href="https://mobirise.site/g" style="color:#aaa;">started</a> with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/g" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/c" style="color:#aaa;">This</a> site was made with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
