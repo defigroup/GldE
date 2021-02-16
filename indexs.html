@@ -953,33 +953,7 @@ document.getElementById("mychickensreward").innerHTML=round(earned/1000000);
 document.getElementById("mychickensrewardusd").innerHTML=round((earned/1000000)*eggsprice);
 }
 
-var flpprice=dlpprice;
-let fpoolLPbalance= await fMyContractFarm.poolLPbalance().call(); 
-var flppoolsupplyusd=fpoolLPbalance*flpprice;
-let fdailyreward= await fMyContractFarm.dailyreward().call();
-var fdailyusdreward=(fdailyreward/1000000)*deggsprice;
-var fdailyroi=fdailyusdreward/(flppoolsupplyusd/100);
-var fAPY=fdailyroi*365;
-document.getElementById("flamingosprofit").innerHTML=roundz(fAPY); 
-document.getElementById("flamingosyearlyroi").innerHTML=roundz(fAPY); 
-document.getElementById("flamingosdailyroi").innerHTML=roundz(fdailyroi);
-document.getElementById("flamingosweeklyroi").innerHTML=roundz(fdailyroi*7);
-let fstaked= window.tronWeb.toDecimal((await fMyContractFarm.balanceOf(myaddress).call())._hex); 
-document.getElementById("flamingos").innerHTML=round(fpoolLPbalance/1000000);
-document.getElementById("flamingosusd").innerHTML=round(flppoolsupplyusd);
-document.getElementById("flamingosdaily").innerHTML=round(fdailyreward/1000000);
-document.getElementById("flamingosdailyusd").innerHTML=round(fdailyusdreward);
-let fearned= await fMyContractFarm.earned(myaddress).call();
-var fdailyprodusd=((((fstaked)*flpprice)*fdailyroi)/100);
-var fdailyprod=fdailyprodusd/deggsprice;
-if(fstaked>0){
-document.getElementById("myflamingosdaily").innerHTML=round(fdailyprod);
-document.getElementById("myflamingosdailyusd").innerHTML=round(fdailyprodusd);
-document.getElementById("myflamingos").innerHTML=round(fstaked/1000000);
-document.getElementById("myflamingosusd").innerHTML=round((fstaked)*flpprice);  
-document.getElementById("myflamingosreward").innerHTML=round(fearned/1000000);
-document.getElementById("myflamingosrewardusd").innerHTML=round((fearned/1000000)*deggsprice);
-}
+
 
 var Glpprice=dlpprice;
 let GpoolLPbalance= await dMyContractFarm.poolLPbalance().call(); 
@@ -1039,18 +1013,42 @@ document.getElementById("mybunniesreward").innerHTML=round(Zearned/1000000);
 document.getElementById("mybunniesrewardusd").innerHTML=round((Zearned/1000000)*deggsprice);
 }
 
+var flpprice=dlpprice;
+let fpoolLPbalance= await fMyContractFarm.poolLPbalance().call(); 
+var flppoolsupplyusd=fpoolLPbalance*flpprice;
+let fdailyreward= await fMyContractFarm.dailyreward().call();
+var fdailyusdreward=(fdailyreward/1000000)*deggsprice;
+var fdailyroi=fdailyusdreward/(flppoolsupplyusd/100);
+var fAPY=fdailyroi*365;
+document.getElementById("flamingosprofit").innerHTML=roundz(fAPY); 
+document.getElementById("flamingosyearlyroi").innerHTML=roundz(fAPY); 
+document.getElementById("flamingosdailyroi").innerHTML=roundz(fdailyroi);
+document.getElementById("flamingosweeklyroi").innerHTML=roundz(fdailyroi*7);
+let fstaked= window.tronWeb.toDecimal((await fMyContractFarm.balanceOf(myaddress).call())._hex); 
+document.getElementById("flamingos").innerHTML=round(fpoolLPbalance/1000000);
+document.getElementById("flamingosusd").innerHTML=round(flppoolsupplyusd);
+document.getElementById("flamingosdaily").innerHTML=round(fdailyreward/1000000);
+document.getElementById("flamingosdailyusd").innerHTML=round(fdailyusdreward);
+let fearned= await fMyContractFarm.earned(myaddress).call();
+var fdailyprodusd=((((fstaked)*flpprice)*fdailyroi)/100);
+var fdailyprod=fdailyprodusd/deggsprice;
+if(fstaked>0){
+document.getElementById("myflamingosdaily").innerHTML=round(fdailyprod);
+document.getElementById("myflamingosdailyusd").innerHTML=round(fdailyprodusd);
+document.getElementById("myflamingos").innerHTML=round(fstaked/1000000);
+document.getElementById("myflamingosusd").innerHTML=round((fstaked)*flpprice);  
+document.getElementById("myflamingosreward").innerHTML=round(fearned/1000000);
+document.getElementById("myflamingosrewardusd").innerHTML=round((fearned/1000000)*deggsprice);
+}
+
 
 let PpoolLPbalance= await pMyContractFarm.poolLPbalance().call(); ///////////////
 var Plppoolsupply=Number(PpoolLPbalance);
-
 let PdpoolLPbalance= await pMyContractFarm.dpoolLPbalance().call(); ///////////////
 var Pdlppoolsupply=Number(PdpoolLPbalance);
 var Plppoolsupplyusd=Number(PpoolLPbalance*lpprice)+Number(PdpoolLPbalance*dlpprice);
-
-
 let Pdailyreward= await pMyContractFarm.dailyreward().call();
 var Pdailyusdreward=Number((Pdailyreward/1000000)*eggsprice)+Number((Pdailyreward/1000000)*deggsprice);
-
 var Pdailyroi=Pdailyusdreward/(Plppoolsupplyusd/100);
 var PAPY=Pdailyroi*365;
 document.getElementById("penguinsprofit").innerHTML=roundz(PAPY);
@@ -1058,7 +1056,7 @@ document.getElementById("penguinsyearlyroi").innerHTML=roundz(PAPY);
 document.getElementById("penguinsdailyroi").innerHTML=roundz(Pdailyroi);
 document.getElementById("penguinsweeklyroi").innerHTML=roundz(Pdailyroi*7);
 let Pstaked= window.tronWeb.toDecimal((await pMyContractFarm.balanceOf(myaddress).call())._hex); 
-document.getElementById("penguins").innerHTML=round(PpoolLPbalance/1000000);
+document.getElementById("penguins").innerHTML=round((lppoolsupply+dlppoolsupply)/1000000);
 document.getElementById("penguinsusd").innerHTML=round(Plppoolsupplyusd);
 document.getElementById("penguinsgldedaily").innerHTML=round(Pdailyreward/1000000);
 document.getElementById("penguinsgldedailyusd").innerHTML=round(((Pdailyreward/1000000)*eggsprice));
@@ -1068,12 +1066,11 @@ let Pearned= await pMyContractFarm.earned(myaddress).call();
 let PfarmLPtotalSupply=await pMyContractFarm.totalSupply().call(); 
 var Pdailyprodusd=(Pdailyusdreward/100)*Pstaked/(PfarmLPtotalSupply/100);
 var Pdailyprod=(Pdailyreward/100)*Pstaked/(PfarmLPtotalSupply/100);
- 
 if(Pstaked>0){
-document.getElementById("mypenguinsgldedaily").innerHTML=round(Pdailyprod);
-document.getElementById("mypenguinsgldidaily").innerHTML=round(Pdailyprod);
-document.getElementById("mypenguinsgldedailyusd").innerHTML=round(Pdailyprod*eggsprice);
-document.getElementById("mypenguinsgldidailyusd").innerHTML=round(Pdailyprod*deggsprice);
+document.getElementById("mypenguinsgldedaily").innerHTML=round(Pdailyprod/1000000);
+document.getElementById("mypenguinsgldidaily").innerHTML=round(Pdailyprod/1000000);
+document.getElementById("mypenguinsgldedailyusd").innerHTML=round(Pdailyprod*eggsprice/1000000);
+document.getElementById("mypenguinsgldidailyusd").innerHTML=round(Pdailyprod*deggsprice/1000000);
 document.getElementById("mypenguins").innerHTML=round(Pstaked/1000000);
 document.getElementById("mypenguinsusd").innerHTML=round((Plppoolsupplyusd/100)*Pstaked/(PfarmLPtotalSupply/100));
 document.getElementById("mypenguinsgldidailyreward").innerHTML=round(Pearned/1000000);
@@ -1557,7 +1554,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/m" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Website <a href="https://mobirise.site/f" style="color:#aaa;">was built</a> with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/p" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Created with Mobirise - <a href="https://mobirise.site/k" style="color:#aaa;">More</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
