@@ -884,7 +884,7 @@ document.getElementById("dgldesupply").innerHTML=round((deggsupply-diamondburned
         document.getElementById("gldetrx").innerHTML=round(TokenToTrxInputPrice/1000000); 
         var marketcap=eggsprice*(eggsupply-eggburned-eggburned2)/1000000;
   document.getElementById("marketcap").innerHTML=round(marketcap); 
-  //exchangeliquidityusd=marketcap*2;
+  exchangeliquidityusd=marketcap*2;
  document.getElementById("liquidity").innerHTML=round(exchangeliquidityusd);  
 
 
@@ -908,7 +908,7 @@ let dTokenToTrxInputPrice_=await dMyContractFarm.TokenToTrxInputPrice(1000000).c
         document.getElementById("dgldetrx").innerHTML=round(dTokenToTrxInputPrice/1000000); 
         var dmarketcap=deggsprice*(deggsupply-diamondburned-diamondburned2)/1000000;
   document.getElementById("dmarketcap").innerHTML=round(dmarketcap); 
-   //dexchangeliquidityusd=dmarketcap*2;
+   dexchangeliquidityusd=dmarketcap*2;
  document.getElementById("dliquidity").innerHTML=round(dexchangeliquidityusd);  
 
 let dlptotsup= await dMyContractFarm.LPtotalSupply().call(); 
