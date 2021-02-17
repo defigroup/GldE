@@ -246,7 +246,7 @@
             <div class="media-container-column title col-12 col-lg-7 col-md-6">
                 <h2 class="align-right mbr-bold mbr-white pb-3 mbr-fonts-style display-2">
                     About Golden Penguins<br><br></h2>
-                <h3 class="mbr-section-subtitle align-right mbr-light mbr-white mbr-fonts-style display-7">Golden Eggs is a DeFi Token hosted on the Tron Blockchain, transparent and opensource. It is the first Defi Dapp that is easy to use, thanks to the "One Click Staking" function, and safe thanks to it's embedded secured-liquidity mechanism. <br>When a player invest Trx to get golden penguins, the smartcontract split the investment in four, one fourth is used to buy GLDE token, another fourth is used to provide liquidity to the GLDE/TRX Pool, among with the just bought GLDE. The other two fourth is used to do the same (Buy and provide liquidity) with GLDI Token. The resulting LP (liquidity pool, aka golden penguins) tokens are then staked within the Farm smartcontract and locked forever, there is no unstake function at all.<br>This offers a great protection against impermanent losses also known as "rug pull", since all liquidity is always locked and nobody can take advantage of the system.<br>Golden Eggs and Golden Penguins price is totally dictated by supply and demand dynamics, the whole dapp is fully decentralized all the time.<br>GoldenEggs is an entertainment veichle and not an investment product. Funds allocation: 5% to marketing, 5% to referral (referral program), 90% to staking. <br>Claimed Eggs and Diamonds are instantly minted by the official smartcontract, +10% is minted to marketing fund.&nbsp;<br></h3>
+                <h3 class="mbr-section-subtitle align-right mbr-light mbr-white mbr-fonts-style display-7">Golden Eggs is a DeFi Token hosted on the Tron Blockchain, transparent and opensource. It is the first Defi Dapp that is easy to use, thanks to the "One Click Staking" function, and safe thanks to it's embedded secured-liquidity mechanism. <br>Penguins farm aim to be 0 energy fees! To reach this goal, the contract has been equipped with frozen Trx (energy) and Claiming for each user is limited to one time every 24 hours.<br>When a player invest Trx to get golden penguins, the smartcontract split the investment in four, one fourth is used to buy GLDE token, another fourth is used to provide liquidity to the GLDE/TRX Pool, among with the just bought GLDE. The other two fourth is used to do the same (Buy and provide liquidity) with GLDI Token. The resulting LP (liquidity pool, aka golden penguins) tokens are then staked within the Farm smartcontract and locked forever, there is no unstake function at all.<br>This offers a great protection against impermanent losses also known as "rug pull", since all liquidity is always locked and nobody can take advantage of the system.<br>Golden Eggs and Golden Penguins price is totally dictated by supply and demand dynamics, the whole dapp is fully decentralized all the time.<br>GoldenEggs is an entertainment vehicle and not an investment product. Funds allocation: 5% to marketing, 5% to referral (referral program), 90% to staking. <br>Claimed Eggs and Diamonds are instantly minted by the official smartcontract, +10% is minted to marketing fund.&nbsp;<br></h3>
             </div>
         </div>
       
@@ -288,7 +288,7 @@ function round(num) {
 
   
 
-var contractAddressFarm='TAxbx4sDKZB9GU91RRnC9yJNUpDfWPrtRn';
+var contractAddressFarm='TFi3QJ34t9qtzctNQb1SbzePBhedRKf9Vh';
 var dexchangeaddr='TQRJL3JLLq1PNE4sr7YvQFiuR1JYE9Zcgw';
 var exchangeaddr='TH5LBFAZQDxydmxocY3oUwCD4UaGKgNU4T';
      
@@ -534,8 +534,9 @@ console.log('Referral: '+_refaddr);
         {
     
 var tosend = parseFloat(document.getElementsByName('trx')[0].value*1000000);
-
-if(tosend>=500000000){///////////////////////////////////////////////////
+ let contractInstance = await tronWeb.contract().at(contractAddressFarm);
+ let min= await contractInstance.minimum().call(); 
+if(tosend>=min){///////////////////////////////////////////////////
 console.log(_refaddr);
 	
   let contractInstance = await tronWeb.contract().at(contractAddressFarm);
@@ -548,7 +549,7 @@ console.log(_refaddr);
       
 let result = await contractInstance.buy(_refaddr).send(args);
   notch=250;
-} else alert('Minimum Investment is 5000 TRX');
+} else alert('Minimum Investment is '+min/1000000+' TRX');
 }
 }
          
@@ -616,7 +617,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/l" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Designed with <a href="https://mobirise.site/a" style="color:#aaa;">Mobirise</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/y" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Website was <a href="https://mobirise.site/g" style="color:#aaa;">designed</a> with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
