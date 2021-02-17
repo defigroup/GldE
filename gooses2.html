@@ -336,32 +336,19 @@ console.log("Fetching data...");
 getJSON("https://api.just.network/swap/scan/statusinfo?exchangeAddress="+exchangeaddr).then(data => {
  
  
-  exchangeliquidityusd=data.data.totalLiquidity;
+  
   trxprice=data.data.trxPrice;
-  exchangeliquiditytrx=exchangeliquidityusd/trxprice;
+ 
  
   
- 
+ liquidities();
 
    
 }).catch(error => {
   console.error(error);
 }); 
 
-getJSON("https://api.just.network/swap/scan/statusinfo?exchangeAddress="+diamondexchangeaddr).then(data => {
- 
- 
-  diamondexchangeliquidityusd=data.data.totalLiquidity;
-  diamondtrxprice=data.data.trxPrice;
-  diamondexchangeliquiditytrx=diamondexchangeliquidityusd/diamondtrxprice;
- 
-  
-  liquidities();
 
-   
-}).catch(error => {
-  console.error(error);
-}); 
 
 }
 
@@ -369,7 +356,7 @@ var lpinwallet=0;
  var approvedLP=0;    
 
 //var exchangeliquidityusd;
-//var dexchangeliquidityusd;   
+var dexchangeliquidityusd;   
 
 async function liquidities() {
 var contractAddressFarm='TF9nPCv7NkTMLSbyuohaQjmCNkiCbJpLy1';
@@ -614,7 +601,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/a" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Create a free site - <a href="https://mobirise.site/w" style="color:#aaa;">Go now</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/d" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Mobirise free builder - <a href="https://mobirise.site/n" style="color:#aaa;">More here</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
