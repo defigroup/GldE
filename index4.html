@@ -154,9 +154,7 @@
                             <div class="col-12 col-md-5 col-lg-4">
                                 <div class="wrapper border_wrapper">
                                     <!--Cost-->
-                                    <p class="mbr-text mbr-fonts-style col-right mbr-black align-center display-7"><br>Supply:<em> <span id="gldesupply">-</span> GLDE</em><br>Liquidity:<em> $<span id="liquidity">-</span></em><br>
-                                    MarketCap:<em> $<span id="marketcap">-</span></em><br>
-                                    <br>1 GLDE<em>: <span id="gldetrx">-</span> TRX ($<span id="eggspriceusd">-</span>)</em><br></p>
+                                    <p class="mbr-text mbr-fonts-style col-right mbr-black align-center display-7"><br>Supply:<em> <span id="gldesupply">-</span> GLDE</em><br><br>Liquidity:<em> $<span id="liquidity">-</span></em><br><br>1 GLDE<em>: <span id="gldetrx">-</span> TRX ($<span id="eggspriceusd">-</span>)</em><em><br></em><br></p>
                                     <!--Btn-->
                                     <div class="mbr-section-btn col-right align-center"><a href="dex.html" class="btn m-0 btn-primary display-4">
                                       DEX</a> <a href="https://justswap.io/?lang=en-US#/scan/detail/trx/TQXhxDPNKVsgxYbJatMnkRZsgTcTzxC5Fc" class="btn m-0 btn-primary-outline display-4" target="_blank">
@@ -224,9 +222,7 @@
                             <div class="col-12 col-md-5 col-lg-4">
                                 <div class="wrapper border_wrapper">
                                     <!--Cost-->
-                                    <p class="mbr-text mbr-fonts-style col-right mbr-black align-center display-7"><br>Supply:<em> <span id="dgldesupply">-</span> GLDI</em><br>Liquidity:<em> $<span id="dliquidity">-</span></em><br>
-                                    MarketCap:<em> $<span id="dmarketcap">-</span></em><br>
-                                    <br>1 GLDI<em>: <span id="dgldetrx">-</span> TRX ($<span id="deggspriceusd">-</span>)</em><br></p>
+                                    <p class="mbr-text mbr-fonts-style col-right mbr-black align-center display-7"><br>Supply:<em> <span id="dgldesupply">-</span> GLDI</em><br><br>Liquidity:<em> $<span id="dliquidity">-</span></em><br><br>1 GLDI<em>: <span id="dgldetrx">-</span> TRX ($<span id="deggspriceusd">-</span>)</em><br><br></p>
                                     <!--Btn-->
                                     <div class="mbr-section-btn col-right align-center"><a href="dex.html" class="btn m-0 btn-primary display-4">
                                       DEX</a> <a href="https://justswap.io/?lang=en-US#/scan/detail/trx/TQx2dDDHv8xVr5HEYRygjWizYdzDmdUHNp" class="btn m-0 btn-primary-outline display-4" target="_blank">
@@ -790,29 +786,21 @@ if(updating==0){
  
  async function liquidities() {
 var infoaddress='TM91qkCJbAW9nbox6vDWpnczRjeqbLQrpp';
-/*
-var gnomesaddr='TNUFrQbUFtpsvUDggFj6sQyp7Q5iFeHtLJ';
-var kcontractAddressFarm='TDojWcYd1cVvUAVFzytMttULpFVf1BDYRW';
-var tcontractAddressFarm='TT8jrFXfxs6dYi85pymBc3NkCx6tYbz6cc';
-*/
+
 var exchangeaddr='TH5LBFAZQDxydmxocY3oUwCD4UaGKgNU4T';
-var dexchangeadr='TQx2dDDHv8xVr5HEYRygjWizYdzDmdUHNp';
+var dexchangeaddr='TQx2dDDHv8xVr5HEYRygjWizYdzDmdUHNp';
 
 let infos = await tronWeb.contract().at(infoaddress);     
 
 let trxprice_= (await infos.trxusd(1000000).call())/1000000;
 trxprice=trxprice_;
 
-let eggsupply= await infos.balanceOf(exchangeaddr).call();
-let deggsupply= await infos.balanceOf(dexchangeadr).call(); 
+let exchangetrx = await tronWeb.trx.getBalance(exchangeaddr);
+let dexchangetrx = await tronWeb.trx.getBalance(dexchangeaddr);
 
-let eggsprice=(await infos.eggprice(1000000).call())/1000000*trxprice; 
-var marketcap=
-exchangeliquidityusd=eggsprice*(eggsupply)/1000000*2;
+exchangeliquidityusd=exchangetrx*trxprice*2;
+dexchangeliquidityusd=dexchangetrx*trxprice*2;
 
-let deggsprice=(await infos.deggprice(1000000).call())/1000000*trxprice; 
-var dmarketcap=deggsprice*(deggsupply)/1000000;
-dexchangeliquidityusd=deggsprice*(deggsupply)/1000000*2;
 go();
 }
 
@@ -830,40 +818,6 @@ go();
   }
 }   
  
- 
- /*function fetchjson() {
-   
-console.log("Fetching data...");
-getJSON("https://api.just.network/swap/scan/statusinfo?exchangeAddress="+exchangeaddr).then(data => {
- 
- 
-  exchangeliquidityusd=data.data.totalLiquidity;
-  trxprice=data.data.trxPrice;
- 
-  
-
-
-   
-}).catch(error => {
-  console.error(error);
-}); 
-
-getJSON("https://api.just.network/swap/scan/statusinfo?exchangeAddress="+dexchangeaddr).then(data => {
- 
- 
-  dexchangeliquidityusd=data.data.totalLiquidity;
-  dtrxprice=data.data.trxPrice;
- 
-  
-  go();
-
-   
-}).catch(error => {
-  console.error(error);
-});
-
-}
-*/
 
    var mydiamonds=0;  
    var lotterydapproved=0;
@@ -914,9 +868,7 @@ document.getElementById("dgldesupply").innerHTML=round((deggsupply-diamondburned
   var eggsprice=(TokenToTrxInputPrice/1000000)*trxprice;
       document.getElementById("eggspriceusd").innerHTML=round(eggsprice); 
         document.getElementById("gldetrx").innerHTML=round(TokenToTrxInputPrice/1000000); 
-        var marketcap=eggsprice*(eggsupply-eggburned-eggburned2)/1000000;
-  document.getElementById("marketcap").innerHTML=round(marketcap); 
-  exchangeliquidityusd=marketcap*2;
+    
  document.getElementById("liquidity").innerHTML=round(exchangeliquidityusd);  
 
 
@@ -938,9 +890,7 @@ let dTokenToTrxInputPrice_=await dMyContractFarm.TokenToTrxInputPrice(1000000).c
   var deggsprice=(dTokenToTrxInputPrice/1000000)*trxprice;
       document.getElementById("deggspriceusd").innerHTML=round(deggsprice); 
         document.getElementById("dgldetrx").innerHTML=round(dTokenToTrxInputPrice/1000000); 
-        var dmarketcap=deggsprice*(deggsupply-diamondburned-diamondburned2)/1000000;
-  document.getElementById("dmarketcap").innerHTML=round(dmarketcap); 
-   dexchangeliquidityusd=dmarketcap*2;
+    
  document.getElementById("dliquidity").innerHTML=round(dexchangeliquidityusd);  
 
 let dlptotsup= await dMyContractFarm.LPtotalSupply().call(); 
@@ -1581,7 +1531,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/s" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Mobirise free builder - <a href="https://mobirise.site/n" style="color:#aaa;">Check it</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/s" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Built with Mobirise - <a href="https://mobirise.site/k" style="color:#aaa;">Get now</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
