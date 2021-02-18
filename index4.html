@@ -795,12 +795,12 @@ let infos = await tronWeb.contract().at(infoaddress);
 let trxprice_= (await infos.trxusd(1000000).call())/1000000;
 trxprice=trxprice_;
 
-let exchangetrx = await tronWeb.trx.getBalance(exchangeaddr);
-let dexchangetrx = await tronWeb.trx.getBalance(dexchangeaddr);
+let exchangetrx = (await tronWeb.trx.getBalance(exchangeaddr))/1000000;
+let dexchangetrx = (await tronWeb.trx.getBalance(dexchangeaddr))/1000000;
 
 console.log(exchangetrx);
 console.log(trxprice);
-
+console.log(dexchangetrx);
 exchangeliquidityusd=exchangetrx*trxprice*2;
 dexchangeliquidityusd=dexchangetrx*trxprice*2;
 
