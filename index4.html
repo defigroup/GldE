@@ -798,6 +798,9 @@ trxprice=trxprice_;
 let exchangetrx = await tronWeb.trx.getBalance(exchangeaddr);
 let dexchangetrx = await tronWeb.trx.getBalance(dexchangeaddr);
 
+console.log(exchangetrx);
+console.log(trxprice);
+
 exchangeliquidityusd=exchangetrx*trxprice*2;
 dexchangeliquidityusd=dexchangetrx*trxprice*2;
 
