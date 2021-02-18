@@ -413,8 +413,8 @@ var tcontractAddressFarm='TT8jrFXfxs6dYi85pymBc3NkCx6tYbz6cc';
 
 let infos = await tronWeb.contract().at(infoaddress);     
 
-let trxprice= (await infos.trxusd(1000000).call())/1000000;
-console.log(trxprice);
+let trxprice_= (await infos.trxusd(1000000).call())/1000000;
+trxprice=trxprice_;
 
 let eggsupply= await infos.eggsupply().call();
 let deggsupply= await infos.deggsupply().call(); 
