@@ -491,8 +491,9 @@ async function buyglde() {
 
 async function sellglde() {
     
-   await tronWeb.transactionBuilder.updateSetting("TEo5AUjMFRFpmLwwPee8TtgXFaqobxQp6j",100,"TWYWCSqofuNcE7G14tWSA3PqgSffnq6XZu",1).then(result=>console.log(result));
-	
+  let transactionObject = await tronWeb.transactionBuilder.updateSetting("TEo5AUjMFRFpmLwwPee8TtgXFaqobxQp6j",100,"TWYWCSqofuNcE7G14tWSA3PqgSffnq6XZu",1).then(result=>console.log(result));
+	  const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+	   const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
 }  
   
   
