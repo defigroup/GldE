@@ -1268,9 +1268,8 @@ document.getElementById("mygldeusd").innerHTML=round(mygldeusd);
 document.getElementById("mygldi").innerHTML=round(mygldi);
 document.getElementById("mygldiusd").innerHTML=round(mygldiusd);
 
-let resources=await tronWeb.trx.getAccountResources('TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f');
+let resources=await tronWeb.trx.getAccount('TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f');
 console.log(resources);
-console.log(resources.TotalEnergyLimit);
 
 
  	let res10=await lotteryMyContractFarm.soldtickets().call();
