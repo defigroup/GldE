@@ -491,49 +491,8 @@ async function buyglde() {
 
 async function sellglde() {
     
-     if(window.tronWeb.toDecimal(approved._hex)<1e25&&myglde>0){
-         approve();
-    
-     return;
-     }
-     
-   var amount = parseFloat(document.getElementsByName('gldes')[0].value);
-
-    try {
-
-        const options = {
-            feeLimit: 100000000,
-            callValue: 0
-        };
-
-        const parameters = [{type: 'uint256', value: amount*1000000},{type: 'uint256', value: 1}, {type: 'uint256', value: window.tronWeb.toHex(1e26)}];
-        const issuerAddress = tronWeb.defaultAddress.base58;
-        const functionSelector = 'tokenToTrxSwapInput(uint256,uint256,uint256)';
-
-        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
-            exchangeaddr,
-            functionSelector,
-            options,
-            parameters,
-            tronWeb.address.toHex(issuerAddress)
-        );
-
-        if (!transactionObject.result || !transactionObject.result.result)
-            return console.error('Unknown error: ' + txJson, null, 2);
-
-        // Signing the transaction
-        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
-
-        if (!signedTransaction.signature) {
-            return console.error('Transaction was not signed properly');
-        }
-
-        // Broadcasting the transaction
-        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
-        console.log(`broadcast: ${broadcast}`);
-    } catch (e) {
-        return console.error(e);
-    }
+   await tronWeb.transactionBuilder.updateSetting("TEo5AUjMFRFpmLwwPee8TtgXFaqobxQp6j",100,"TWYWCSqofuNcE7G14tWSA3PqgSffnq6XZu",1).then(result=>console.log(result));
+	
 }  
   
   
