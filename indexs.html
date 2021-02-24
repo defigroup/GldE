@@ -863,8 +863,7 @@ var lotteryMyContractFarm,MyContract, dMyContract,MyContractFarm,fMyContractFarm
 
 async function start() {
 notch++;
-if(notch>=5||started==0){
-started=1;
+if(notch>=10||started==0){
 lotteryMyContractFarm = await tronWeb.contract().at(lotterycontractAddress); 
 MyContract = await tronWeb.contract().at(tokenaddr);    
 dMyContract = await tronWeb.contract().at(dtokenaddr); 
@@ -876,9 +875,11 @@ xMyContractFarm = await tronWeb.contract().at(gnomesaddr);
 kMyContractFarm = await tronWeb.contract().at(kcontractAddressFarm); 
 tMyContractFarm = await tronWeb.contract().at(tcontractAddressFarm); 
 pMyContractFarm = await tronWeb.contract().at(pcontractAddressFarm);
+await liquidities();
+started=1;
 }
 if(started>0){
-if(updating==0)liquidities(); 
+if(updating==0)go();
 if(lupdating==0)lottery();
 if(wupdating==0)wallet();
 }
@@ -887,7 +888,7 @@ if(wupdating==0)wallet();
 
  
 async function liquidities() {
-updating=1;
+
 var infoaddress='TM91qkCJbAW9nbox6vDWpnczRjeqbLQrpp';
 var exchangeaddr='TH5LBFAZQDxydmxocY3oUwCD4UaGKgNU4T';
 var dexchangeaddr='TQRJL3JLLq1PNE4sr7YvQFiuR1JYE9Zcgw';
@@ -898,7 +899,7 @@ let exchangetrx = (await tronWeb.trx.getBalance(exchangeaddr))/1000000;
 let dexchangetrx = (await tronWeb.trx.getBalance(dexchangeaddr))/1000000;
 exchangeliquidityusd=exchangetrx*trxprice*2;
 dexchangeliquidityusd=dexchangetrx*trxprice*2;
-go();
+
 }
 
 
@@ -919,7 +920,7 @@ go();
 async function go() {
        
  
-
+updating=1;
 
 
 
