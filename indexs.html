@@ -861,21 +861,7 @@ var exchangeliquidityusd, trxprice,dexchangeliquidityusd;
 
 async function start() {
 
- contractAddressFarm='TF9nPCv7NkTMLSbyuohaQjmCNkiCbJpLy1';
- fcontractAddressFarm='TVFNoGTFDnpgTKEsMsoYsoGQwSMZR8up2T';
- tokenaddr='TQXhxDPNKVsgxYbJatMnkRZsgTcTzxC5Fc';
- exchangeaddr='TH5LBFAZQDxydmxocY3oUwCD4UaGKgNU4T';   
- dcontractAddressFarm='TD4s6KNeD9FpDhPRq8SJqfa6ZVLAgwRbVw';
- dexchangeaddr='TQRJL3JLLq1PNE4sr7YvQFiuR1JYE9Zcgw'
- dtokenaddr='TQx2dDDHv8xVr5HEYRygjWizYdzDmdUHNp';
- zcontractAddressFarm='TKrP7G8x7NbPkqkQmd1S6qLF3xc6Rgd45Z';
- gnomesaddr='TNUFrQbUFtpsvUDggFj6sQyp7Q5iFeHtLJ';
- myaddress;
- kcontractAddressFarm='TDojWcYd1cVvUAVFzytMttULpFVf1BDYRW';
- tcontractAddressFarm='TT8jrFXfxs6dYi85pymBc3NkCx6tYbz6cc';
- pcontractAddressFarm='TFi3QJ34t9qtzctNQb1SbzePBhedRKf9Vh';
- lotterycontractAddress='TYdD3CL9zfdBpEXw7muCnJr36Q9pXDxWuh';
-started=1; 
+
   
 if(lupdating==0)lottery();
 if(updating==0)liquidities();
@@ -1585,7 +1571,7 @@ let result = await contractInstance.approve(lotterycontractAddress,window.tronWe
 
 async function buyraffle() {
 
-if(started>0&&ticketprice>0){
+if(ticketprice>0){
 
 	
 	
@@ -1748,6 +1734,7 @@ accountInterval2 = setInterval(function () {
   if(tronWeb.defaultAddress.base58 != false){
 document.getElementById("installmetamask").style.display = "none";
   console.log('started');
+  myaddress = tronWeb.defaultAddress.base58;
    start();
 }}
 }, 1000);
