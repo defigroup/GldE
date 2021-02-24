@@ -862,9 +862,9 @@ var exchangeliquidityusd, trxprice,dexchangeliquidityusd;
 async function start() {
 
 
-  
+ if(updating==0)liquidities(); 
 if(lupdating==0)lottery();
-if(updating==0)liquidities();
+
 if(wupdating==0)wallet();  
  
     
@@ -901,7 +901,7 @@ go();
   }
 }   
  
-
+var MyContract, dMyContract;
 async function go() {
        
 let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
@@ -918,8 +918,8 @@ let pMyContractFarm = await tronWeb.contract().at(pcontractAddressFarm);
 
 
  
-let MyContract = await tronWeb.contract().at(tokenaddr);    
-let dMyContract = await tronWeb.contract().at(dtokenaddr);    
+ MyContract = await tronWeb.contract().at(tokenaddr);    
+ dMyContract = await tronWeb.contract().at(dtokenaddr);    
 let eggsupply= await MyContract.totalSupply().call();
 let deggsupply= await dMyContract.totalSupply().call(); 
 let eggburned= await MyContract.balanceOf(gnomesaddr).call(); 
@@ -1272,8 +1272,7 @@ updating=0;
 
 async function wallet(){
 wupdating=1;
-let MyContract = await tronWeb.contract().at(tokenaddr);    
-let dMyContract = await tronWeb.contract().at(dtokenaddr);  
+ 
 let mytrx=(await tronWeb.trx.getBalance(myaddress))/1000000;
 let mygldi= (await dMyContract.balanceOf(myaddress).call())/1000000; 
 let myglde= (await MyContract.balanceOf(myaddress).call())/1000000; 
@@ -1301,7 +1300,7 @@ wupdating=0;
 
 async function lottery(){
 lupdating=1;
-let dMyContract = await tronWeb.contract().at(dtokenaddr); 
+ dMyContract = await tronWeb.contract().at(dtokenaddr); 
 let lotteryMyContractFarm = await tronWeb.contract().at(lotterycontractAddress); 
 
 let _lotterydapproved=await dMyContract.allowance(myaddress,lotterycontractAddress).call();
@@ -1720,23 +1719,18 @@ let result = await dcontractInstance.approve(tcontractAddressFarm,window.tronWeb
 
 }
     
-accountInterval2 = setInterval(function () {
- // if(myaddress==false&&tronWeb.defaultAddress.base58 != false) location.reload();
-    
-    if(myaddress!=tronWeb.defaultAddress.base58){
+setInterval(function () {
+ 
+if(myaddress!=tronWeb.defaultAddress.base58){
       myaddress = tronWeb.defaultAddress.base58;
       updating=0;
-      start();
 }
   
-	if (typeof window.tronWeb !== 'undefined'){		
-
-  if(tronWeb.defaultAddress.base58 != false){
+if(typeof window.tronWeb !== 'undefined'&&tronWeb.defaultAddress.base58 != false){		
 document.getElementById("installmetamask").style.display = "none";
-  console.log('started');
-  myaddress = tronWeb.defaultAddress.base58;
-   start();
-}}
+myaddress = tronWeb.defaultAddress.base58;
+start();
+}
 }, 1000);
   </script>
       
