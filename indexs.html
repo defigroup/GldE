@@ -859,16 +859,29 @@ var exchangeliquidityusd, trxprice,dexchangeliquidityusd;
    var eggsprice,deggsprice;
    var myeggs_,dmyeggs_;
 
-async function start() {
+var lotteryMyContractFarm,MyContract, dMyContract,MyContractFarm,fMyContractFarm,zMyContractFarm,xMyContractFarm,kMyContractFarm,tMyContractFarm,pMyContractFarm;
 
- MyContract = await tronWeb.contract().at(tokenaddr);    
- dMyContract = await tronWeb.contract().at(dtokenaddr); 
- 
+async function start() {
+notch++;
+if(notch>=5||started==0){
+started=1;
+lotteryMyContractFarm = await tronWeb.contract().at(lotterycontractAddress); 
+MyContract = await tronWeb.contract().at(tokenaddr);    
+dMyContract = await tronWeb.contract().at(dtokenaddr); 
+MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
+fMyContractFarm = await tronWeb.contract().at(fcontractAddressFarm); 
+dMyContractFarm = await tronWeb.contract().at(dcontractAddressFarm); 
+zMyContractFarm = await tronWeb.contract().at(zcontractAddressFarm);
+xMyContractFarm = await tronWeb.contract().at(gnomesaddr); 
+kMyContractFarm = await tronWeb.contract().at(kcontractAddressFarm); 
+tMyContractFarm = await tronWeb.contract().at(tcontractAddressFarm); 
+pMyContractFarm = await tronWeb.contract().at(pcontractAddressFarm);
+}
+if(started>0){
 if(updating==0)liquidities(); 
 if(lupdating==0)lottery();
-if(wupdating==0)wallet();  
- 
-    
+if(wupdating==0)wallet();
+}
 }
  
 
@@ -902,17 +915,10 @@ go();
   }
 }   
  
-var MyContract, dMyContract;
+
 async function go() {
        
-let MyContractFarm = await tronWeb.contract().at(contractAddressFarm); 
-let fMyContractFarm = await tronWeb.contract().at(fcontractAddressFarm); 
-let dMyContractFarm = await tronWeb.contract().at(dcontractAddressFarm); 
-let zMyContractFarm = await tronWeb.contract().at(zcontractAddressFarm);
-let xMyContractFarm = await tronWeb.contract().at(gnomesaddr); 
-let kMyContractFarm = await tronWeb.contract().at(kcontractAddressFarm); 
-let tMyContractFarm = await tronWeb.contract().at(tcontractAddressFarm); 
-let pMyContractFarm = await tronWeb.contract().at(pcontractAddressFarm); 
+ 
 
 
 
@@ -929,7 +935,7 @@ let diamondburned2= await dMyContract.balanceOf(tcontractAddressFarm).call();
   
 
 document.getElementById("dgldesupply").innerHTML=round((deggsupply-diamondburned-diamondburned2)/1000000);
- document.getElementById("gldesupply").innerHTML=round((eggsupply-eggburned-eggburned2)/1000000);
+document.getElementById("gldesupply").innerHTML=round((eggsupply-eggburned-eggburned2)/1000000);
 
   
   let TokenToTrxInputPrice_=await MyContractFarm.TokenToTrxInputPrice(1000000).call();
@@ -1300,8 +1306,8 @@ wupdating=0;
 
 async function lottery(){
 lupdating=1;
- dMyContract = await tronWeb.contract().at(dtokenaddr); 
-let lotteryMyContractFarm = await tronWeb.contract().at(lotterycontractAddress); 
+
+
 
 let _lotterydapproved=await dMyContract.allowance(myaddress,lotterycontractAddress).call();
    lotterydapproved=_lotterydapproved;
