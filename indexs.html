@@ -863,8 +863,7 @@ var lotteryMyContractFarm,MyContract, dMyContract,MyContractFarm,fMyContractFarm
 var prestart=0;
 async function start() {
 notch++;
-if(notch>=10||prestart==0){
-
+if(prestart==0){
 lotteryMyContractFarm = await tronWeb.contract().at(lotterycontractAddress); 
 MyContract = await tronWeb.contract().at(tokenaddr);    
 dMyContract = await tronWeb.contract().at(dtokenaddr); 
@@ -877,10 +876,10 @@ kMyContractFarm = await tronWeb.contract().at(kcontractAddressFarm);
 tMyContractFarm = await tronWeb.contract().at(tcontractAddressFarm); 
 pMyContractFarm = await tronWeb.contract().at(pcontractAddressFarm);
 liquidities();
-
 }
 if(notch>=10||(started==0&&prestart>0)){
 started=1;
+if(notch>=10)liquidities();
 notch=0;
 if(updating==0)go();
 if(lupdating==0)lottery();
