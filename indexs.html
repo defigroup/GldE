@@ -1274,7 +1274,7 @@ updating=0;
 }
 
 async function wallet(){
-
+wupdating=1;
 let MyContract = await tronWeb.contract().at(tokenaddr);    
 let dMyContract = await tronWeb.contract().at(dtokenaddr);  
 let mytrx=(await tronWeb.trx.getBalance(myaddress);)/1000000;
@@ -1299,7 +1299,7 @@ document.getElementById("energy").innerHTML=resources.EnergyLimit-resources.Ener
 
 let presources=await tronWeb.trx.getAccountResources('TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f');
 document.getElementById("penergy").innerHTML=presources.EnergyLimit-presources.EnergyUsed;
-
+wupdating=0;
 }
 
 async function lottery(){
