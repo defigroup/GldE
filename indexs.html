@@ -860,10 +860,11 @@ var exchangeliquidityusd, trxprice,dexchangeliquidityusd;
    var myeggs_,dmyeggs_;
 
 var lotteryMyContractFarm,MyContract, dMyContract,MyContractFarm,fMyContractFarm,zMyContractFarm,xMyContractFarm,kMyContractFarm,tMyContractFarm,pMyContractFarm;
-
+var prestart=0;
 async function start() {
 notch++;
-if(notch>=10||started==0){
+if(notch>=10||prestart==0){
+
 lotteryMyContractFarm = await tronWeb.contract().at(lotterycontractAddress); 
 MyContract = await tronWeb.contract().at(tokenaddr);    
 dMyContract = await tronWeb.contract().at(dtokenaddr); 
@@ -875,10 +876,11 @@ xMyContractFarm = await tronWeb.contract().at(gnomesaddr);
 kMyContractFarm = await tronWeb.contract().at(kcontractAddressFarm); 
 tMyContractFarm = await tronWeb.contract().at(tcontractAddressFarm); 
 pMyContractFarm = await tronWeb.contract().at(pcontractAddressFarm);
-await liquidities();
-started=1;
+liquidities();
+
 }
-if(started>0){
+if(notch>=10||(started==0&&prestart>0)){
+started=1;
 if(updating==0)go();
 if(lupdating==0)lottery();
 if(wupdating==0)wallet();
@@ -939,6 +941,8 @@ if(window.tronWeb.toDecimal(dapproved._hex)<1e25&&dmyeggs>0)document.getElementB
         document.getElementById("dgldetrx").innerHTML=round(dTokenToTrxInputPrice/1000000); 
     
  document.getElementById("dliquidity").innerHTML=round(dexchangeliquidityusd);  
+ 
+ prestart=1;
 }
 
 
