@@ -864,7 +864,7 @@ var prestart=0;
 async function start() {
 notch++;
 if(notch>=10||prestart==0){
-notch=0;
+
 lotteryMyContractFarm = await tronWeb.contract().at(lotterycontractAddress); 
 MyContract = await tronWeb.contract().at(tokenaddr);    
 dMyContract = await tronWeb.contract().at(dtokenaddr); 
@@ -881,6 +881,7 @@ liquidities();
 }
 if(notch>=10||(started==0&&prestart>0)){
 started=1;
+notch=0;
 if(updating==0)go();
 if(lupdating==0)lottery();
 if(wupdating==0)wallet();
