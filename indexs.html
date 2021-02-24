@@ -873,14 +873,12 @@ xMyContractFarm = await tronWeb.contract().at(gnomesaddr);
 kMyContractFarm = await tronWeb.contract().at(kcontractAddressFarm); 
 tMyContractFarm = await tronWeb.contract().at(tcontractAddressFarm); 
 pMyContractFarm = await tronWeb.contract().at(pcontractAddressFarm);
-liquidities();
+prestart=1;
 }
-if(prestart>0&&(notch>=maxnotch||started==0)){
+if(prestart>0){
 
-if(notch>=maxnotch)liquidities();
-if(updating==0)go();
-if(lupdating==0)lottery();
-if(wupdating==0)wallet();
+if(updating==0)liquidities();
+
 
 started=1;
 notch=0;
@@ -891,7 +889,7 @@ notch=0;
  
 async function liquidities() {
 
-
+updating=1;
 
 let trxprice_= (await infos.trxusd(1000000).call())/1000000;
 trxprice=trxprice_;
@@ -934,7 +932,7 @@ if(window.tronWeb.toDecimal(dapproved._hex)<1e25&&dmyeggs>0)document.getElementB
     
  document.getElementById("dliquidity").innerHTML=round(dexchangeliquidityusd);  
  
- prestart=1;
+wallet();
 }
 
 
@@ -1251,7 +1249,7 @@ document.getElementById("mytotalgldireward").innerHTML=round((Number(GGearned)+N
 document.getElementById("mytotalgldirewardusd").innerHTML=mytotalgldirewardusd;
 document.getElementById("mytotalrewardusd").innerHTML=round(mytotalglderewardusd+mytotalgldirewardusd);
 	
-updating=0;	
+lottery();	
 	
 }
 
@@ -1280,7 +1278,7 @@ document.getElementById("energy").innerHTML=resources.EnergyLimit-resources.Ener
 
 let presources=await tronWeb.trx.getAccountResources('TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f');
 document.getElementById("penergy").innerHTML=presources.EnergyLimit-presources.EnergyUsed;
-wupdating=0;
+go();
 }
 
 async function lottery(){
@@ -1332,7 +1330,7 @@ var contractz=lotterycontractAddress;
 			
 		}
 	});
-	lupdating=0;
+	updating=0;
 }
 function getUrlVars() {
 			var vars = {};
