@@ -861,10 +861,11 @@ var exchangeliquidityusd, trxprice,dexchangeliquidityusd;
 
 async function start() {
 
-
- if(updating==0)liquidities(); 
+ MyContract = await tronWeb.contract().at(tokenaddr);    
+ dMyContract = await tronWeb.contract().at(dtokenaddr); 
+ 
+if(updating==0)liquidities(); 
 if(lupdating==0)lottery();
-
 if(wupdating==0)wallet();  
  
     
@@ -918,8 +919,7 @@ let pMyContractFarm = await tronWeb.contract().at(pcontractAddressFarm);
 
 
  
- MyContract = await tronWeb.contract().at(tokenaddr);    
- dMyContract = await tronWeb.contract().at(dtokenaddr);    
+   
 let eggsupply= await MyContract.totalSupply().call();
 let deggsupply= await dMyContract.totalSupply().call(); 
 let eggburned= await MyContract.balanceOf(gnomesaddr).call(); 
