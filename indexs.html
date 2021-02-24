@@ -1273,7 +1273,7 @@ async function wallet(){
 wupdating=1;
 let MyContract = await tronWeb.contract().at(tokenaddr);    
 let dMyContract = await tronWeb.contract().at(dtokenaddr);  
-let mytrx=(await tronWeb.trx.getBalance(myaddress);)/1000000;
+let mytrx=(await tronWeb.trx.getBalance(myaddress))/1000000;
 let mygldi= (await dMyContract.balanceOf(myaddress).call())/1000000; 
 let myglde= (await MyContract.balanceOf(myaddress).call())/1000000; 
 
