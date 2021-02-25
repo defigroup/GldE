@@ -1213,17 +1213,7 @@ document.getElementById("myfairiesgldedailyreward").innerHTML=round(xGGearned/10
 document.getElementById("myfairiesgldedailyrewardusd").innerHTML=round((xGGearned/1000000)*eggsprice);
 }
 
-if(fdailyreward=='undefined')fdailyreward=0;
-if(GGdailyreward=='undefined')GGdailyreward=0;
-if(Zdailyreward=='undefined')Zdailyreward=0;
-if(xGGdailyreward=='undefined')xGGdailyreward=0;
-if(Pdailyreward=='undefined')Pdailyreward=0;
 
-if(Cdailyreward=='undefined')Cdailyreward=0;
-if(Tdailyreward=='undefined')Tdailyreward=0;
-if(Gdailyreward=='undefined')Gdailyreward=0;
-if(xGGdailyreward=='undefined')xGGdailyreward=0;
-if(Pdailyreward=='undefined')Pdailyreward=0;
 
 var totalgldidailyusd=Number(round(((Number(fdailyreward)+Number(GGdailyreward)+Number(Zdailyreward)+Number(xGGdailyreward)+Number(Pdailyreward))/1000000)*deggsprice));
 
@@ -1245,6 +1235,18 @@ var totaldailyroi=totaldailyusd/(totalusd/100);
 document.getElementById("globalyearlyroi").innerHTML=roundz(totaldailyroi*365); 
 document.getElementById("globaldailyroi").innerHTML=roundz(totaldailyroi);
 document.getElementById("globalweeklyroi").innerHTML=roundz(totaldailyroi*7);
+
+if(Cdailyprod==undefined)Cdailyprod=0;
+if(Tdailyprod==undefined)Tdailyprod=0;
+if(Gdailyprod==undefined)Gdailyprod=0;
+if(xGGdailyprod==undefined)xGGdailyprod=0;
+if(Pdailyprod==undefined)Pdailyprod=0;
+
+if(GGdailyprod==undefined)GGdailyprod=0;
+if(fdailyprod==undefined)fdailyprod=0;
+if(Zdailyprod==undefined)Zdailyprod=0;
+if(xGGdailyprod==undefined)xGGdailyprod=0;
+if(Pdailyprod==undefined)Pdailyprod=0;
 
 var mytotalgldedailyusd=Number(round(((Number(Cdailyprod)+Number(Tdailyprod)+Number(Gdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000)))*eggsprice));
 var mytotalgldidailyusd=Number(round(((Number(GGdailyprod)+Number(fdailyprod)+Number(Zdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000)))*deggsprice));
