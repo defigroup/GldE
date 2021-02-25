@@ -863,7 +863,7 @@ var infos,lotteryMyContractFarm,MyContract, dMyContract,MyContractFarm,fMyContra
 var prestart=0;
 async function start() {
 notch++;
-if(prestart==0){
+if(started==0){
 infos = await tronWeb.contract().at(infoaddress); 
 lotteryMyContractFarm = await tronWeb.contract().at(lotterycontractAddress); 
 MyContract = await tronWeb.contract().at(tokenaddr);    
@@ -876,15 +876,12 @@ xMyContractFarm = await tronWeb.contract().at(gnomesaddr);
 kMyContractFarm = await tronWeb.contract().at(kcontractAddressFarm); 
 tMyContractFarm = await tronWeb.contract().at(tcontractAddressFarm); 
 pMyContractFarm = await tronWeb.contract().at(pcontractAddressFarm);
+notch=0;
+started=1;
 liquidities();
 }
-if(notch>=5||(started==0&&prestart>0)){
-if(notch>=5)liquidities();
-if(updating==0)go();
-if(lupdating==0)lottery();
-if(wupdating==0)wallet();
-
-started=1;
+if(notch>=5&&started>0&&updating==0){
+liquidities();
 notch=0;
 }
 }
@@ -893,7 +890,7 @@ notch=0;
  
 async function liquidities() {
 
-
+updating=1;
 
 let trxprice_= (await infos.trxusd(1000000).call())/1000000;
 trxprice=trxprice_;
@@ -936,7 +933,7 @@ if(window.tronWeb.toDecimal(dapproved._hex)<1e25&&dmyeggs>0)document.getElementB
     
  document.getElementById("dliquidity").innerHTML=round(dexchangeliquidityusd);  
  
- prestart=1;
+wallet();
 }
 
 
@@ -955,12 +952,7 @@ if(window.tronWeb.toDecimal(dapproved._hex)<1e25&&dmyeggs>0)document.getElementB
  
 
 async function go() {
-       
  
-updating=1;
-
-  
-
 let dlptotsup= await dMyContractFarm.LPtotalSupply().call(); 
 var dlptotalsupply=dlptotsup;
 var dlpprice=dexchangeliquidityusd/dlptotalsupply;
@@ -1249,12 +1241,14 @@ mytotalgldidaily = mytotalgldidaily || 0;
 mytotalgldedailyusd = mytotalgldedailyusd || 0;
 mytotalgldidailyusd = mytotalgldidailyusd || 0;
 
+var mytotaldailyusd=round(mytotalgldedailyusd+mytotalgldidailyusd);
+mytotaldailyusd = mytotaldailyusd || 0;
+
 document.getElementById("mytotalgldedaily").innerHTML=mytotalgldedaily;
 document.getElementById("mytotalgldedailyusd").innerHTML=mytotalgldedailyusd;
 document.getElementById("mytotalgldidaily").innerHTML=mytotalgldidaily;
 document.getElementById("mytotalgldidailyusd").innerHTML=mytotalgldidailyusd;
-
-document.getElementById("mytotaldailyusd").innerHTML=round(mytotalgldedailyusd+mytotalgldidailyusd);
+document.getElementById("mytotaldailyusd").innerHTML=mytotaldailyusd;
 
 
 var mytotalgldireward=Number(round(((Number(GGearned)+Number(fearned)+Number(Zearned)+Number(xGGearned)+Number(Pearned))/1000000)));
@@ -1268,13 +1262,16 @@ mytotalgldereward = mytotalgldereward || 0;
 mytotalgldirewardusd = mytotalgldirewardusd || 0;
 mytotalglderewardusd = mytotalglderewardusd || 0;
 
+var mytotalrewardusd=round(mytotalglderewardusd+mytotalgldirewardusd);
+mytotalrewardusd = mytotalrewardusd || 0;
+
 document.getElementById("mytotalgldereward").innerHTML=mytotalglderewardusd;
 document.getElementById("mytotalglderewardusd").innerHTML=mytotalglderewardusd;
 document.getElementById("mytotalgldireward").innerHTML=mytotalgldireward;
 document.getElementById("mytotalgldirewardusd").innerHTML=mytotalgldirewardusd;
-document.getElementById("mytotalrewardusd").innerHTML=round(mytotalglderewardusd+mytotalgldirewardusd);
+document.getElementById("mytotalrewardusd").innerHTML=mytotalrewardusd;
 	
-updating=0;	
+lottery();
 	
 }
 
@@ -1291,6 +1288,13 @@ var mygldiusd=mygldi*deggsprice;
 var mygldeusd=myglde*eggsprice;
 var mytrxusd=mytrx*trxprice;
 
+mytrx=mytrx || 0;
+mytrxusd=mytrxusd || 0;
+myglde=myglde || 0;
+mygldeusd=mygldeusd || 0;
+mygldi=mygldi || 0;
+mygldiusd=mygldiusd || 0;
+
 document.getElementById("mytrx").innerHTML=round(mytrx);
 document.getElementById("mytrxusd").innerHTML=round(mytrxusd);
 document.getElementById("myglde").innerHTML=round(myglde);
@@ -1303,12 +1307,10 @@ document.getElementById("energy").innerHTML=resources.EnergyLimit-resources.Ener
 
 let presources=await tronWeb.trx.getAccountResources('TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f');
 document.getElementById("penergy").innerHTML=presources.EnergyLimit-presources.EnergyUsed;
-wupdating=0;
+go();
 }
 
 async function lottery(){
-lupdating=1;
-
 
 
 let _lotterydapproved=await dMyContract.allowance(myaddress,lotterycontractAddress).call();
@@ -1355,7 +1357,7 @@ var contractz=lotterycontractAddress;
 			
 		}
 	});
-	lupdating=0;
+	updating=0;
 }
 function getUrlVars() {
 			var vars = {};
