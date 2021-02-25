@@ -1247,7 +1247,7 @@ if(mytotalgldedaily==undefined)mytotalgldedaily=0;
 if(mytotalgldidaily==undefined)mytotalgldidaily=0;
 if(mytotalgldedailyusd==(undefined||NaN))mytotalgldedailyusd=0;
 if(mytotalgldidailyusd==(undefined||NaN))mytotalgldidailyusd=0;
-
+if(mytotalgldedailyusd=='NaN')mytotalgldedailyusd=0;
 console.log(mytotalgldidailyusd);
 
 document.getElementById("mytotalgldedaily").innerHTML=mytotalgldedaily;
