@@ -1243,6 +1243,13 @@ var mytotalgldidaily=round(Number(GGdailyprod)+Number(fdailyprod)+Number(Zdailyp
 var mytotalgldedailyusd=Number(round(mytotalgldedaily*eggsprice));
 var mytotalgldidailyusd=Number(round(mytotalgldidaily*deggsprice));
 
+if(mytotalgldedaily==undefined)mytotalgldedaily=0;
+if(mytotalgldidaily==undefined)mytotalgldidaily=0;
+if(mytotalgldedailyusd==undefined)mytotalgldedailyusd=0;
+if(mytotalgldidailyusd==undefined)mytotalgldidailyusd=0;
+
+console.log(mytotalgldidailyusd);
+
 document.getElementById("mytotalgldedaily").innerHTML=mytotalgldedaily;
 document.getElementById("mytotalgldedailyusd").innerHTML=mytotalgldedailyusd;
 document.getElementById("mytotalgldidaily").innerHTML=mytotalgldidaily;
