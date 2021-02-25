@@ -1245,8 +1245,8 @@ var mytotalgldidailyusd=Number(round(mytotalgldidaily*deggsprice));
 
 if(mytotalgldedaily==undefined)mytotalgldedaily=0;
 if(mytotalgldidaily==undefined)mytotalgldidaily=0;
-if(mytotalgldedailyusd==undefined)mytotalgldedailyusd=0;
-if(mytotalgldidailyusd==undefined)mytotalgldidailyusd=0;
+if(mytotalgldedailyusd==(undefined||NaN))mytotalgldedailyusd=0;
+if(mytotalgldidailyusd==(undefined||NaN))mytotalgldidailyusd=0;
 
 console.log(mytotalgldidailyusd);
 
