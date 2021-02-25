@@ -1213,17 +1213,17 @@ document.getElementById("myfairiesgldedailyreward").innerHTML=round(xGGearned/10
 document.getElementById("myfairiesgldedailyrewardusd").innerHTML=round((xGGearned/1000000)*eggsprice);
 }
 
-if(fdailyreward==undefined)fdailyreward=0;
-if(GGdailyreward==undefined)GGdailyreward=0;
-if(Zdailyreward==undefined)Zdailyreward=0;
-if(xGGdailyreward==undefined)xGGdailyreward=0;
-if(Pdailyreward==undefined)Pdailyreward=0;
+if(fdailyreward=='undefined')fdailyreward=0;
+if(GGdailyreward=='undefined')GGdailyreward=0;
+if(Zdailyreward=='undefined')Zdailyreward=0;
+if(xGGdailyreward=='undefined')xGGdailyreward=0;
+if(Pdailyreward=='undefined')Pdailyreward=0;
 
-if(Cdailyreward==undefined)Cdailyreward=0;
-if(Tdailyreward==undefined)Tdailyreward=0;
-if(Gdailyreward==undefined)Gdailyreward=0;
-if(xGGdailyreward==undefined)xGGdailyreward=0;
-if(Pdailyreward==undefined)Pdailyreward=0;
+if(Cdailyreward=='undefined')Cdailyreward=0;
+if(Tdailyreward=='undefined')Tdailyreward=0;
+if(Gdailyreward=='undefined')Gdailyreward=0;
+if(xGGdailyreward=='undefined')xGGdailyreward=0;
+if(Pdailyreward=='undefined')Pdailyreward=0;
 
 var totalgldidailyusd=Number(round(((Number(fdailyreward)+Number(GGdailyreward)+Number(Zdailyreward)+Number(xGGdailyreward)+Number(Pdailyreward))/1000000)*deggsprice));
 
