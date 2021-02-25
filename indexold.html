@@ -879,6 +879,7 @@ pMyContractFarm = await tronWeb.contract().at(pcontractAddressFarm);
 notch=0;
 started=1;
 liquidities();
+console.log("starting ONE");
 }
 if(notch>=5&&started>0&&updating==0){
 liquidities();
@@ -891,7 +892,7 @@ notch=0;
 async function liquidities() {
 
 updating=1;
-
+console.log("starting TWO");
 let trxprice_= (await infos.trxusd(1000000).call())/1000000;
 trxprice=trxprice_;
 let exchangetrx = (await tronWeb.trx.getBalance(exchangeaddr))/1000000;
@@ -952,7 +953,7 @@ wallet();
  
 
 async function go() {
- 
+  console.log("starting FOUR");
 let dlptotsup= await dMyContractFarm.LPtotalSupply().call(); 
 var dlptotalsupply=dlptotsup;
 var dlpprice=dexchangeliquidityusd/dlptotalsupply;
@@ -1277,7 +1278,7 @@ lottery();
 
 async function wallet(){
 wupdating=1;
- 
+ console.log("starting THREE");
 let mytrx=(await tronWeb.trx.getBalance(myaddress))/1000000;
 let mygldi= (await dMyContract.balanceOf(myaddress).call())/1000000; 
 let myglde= (await MyContract.balanceOf(myaddress).call())/1000000; 
