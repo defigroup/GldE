@@ -1243,12 +1243,11 @@ var mytotalgldidaily=round(Number(GGdailyprod)+Number(fdailyprod)+Number(Zdailyp
 var mytotalgldedailyusd=Number(round(mytotalgldedaily*eggsprice));
 var mytotalgldidailyusd=Number(round(mytotalgldidaily*deggsprice));
 
-if(mytotalgldedaily==undefined)mytotalgldedaily=0;
-if(mytotalgldidaily==undefined)mytotalgldidaily=0;
-if(mytotalgldedailyusd==(undefined||NaN))mytotalgldedailyusd=0;
-if(mytotalgldidailyusd==(undefined||NaN))mytotalgldidailyusd=0;
-if(mytotalgldedailyusd=='NaN')mytotalgldedailyusd=0;
-console.log(mytotalgldidailyusd);
+
+mytotalgldedaily = mytotalgldedaily || 0;
+mytotalgldidaily = mytotalgldidaily || 0;
+mytotalgldedailyusd = mytotalgldedailyusd || 0;
+mytotalgldidailyusd = mytotalgldidailyusd || 0;
 
 document.getElementById("mytotalgldedaily").innerHTML=mytotalgldedaily;
 document.getElementById("mytotalgldedailyusd").innerHTML=mytotalgldedailyusd;
@@ -1258,12 +1257,20 @@ document.getElementById("mytotalgldidailyusd").innerHTML=mytotalgldidailyusd;
 document.getElementById("mytotaldailyusd").innerHTML=round(mytotalgldedailyusd+mytotalgldidailyusd);
 
 
-var mytotalgldirewardusd=Number(round(((Number(GGearned)+Number(fearned)+Number(Zearned)+Number(xGGearned)+Number(Pearned))/1000000)*deggsprice));
-var mytotalglderewardusd=Number(round(((Number(earned)+Number(Gearned)+Number(Tearned)+Number(xGGearned)+Number(Pearned))/1000000)*eggsprice));
+var mytotalgldireward=Number(round(((Number(GGearned)+Number(fearned)+Number(Zearned)+Number(xGGearned)+Number(Pearned))/1000000)));
+var mytotalgldereward=Number(round(((Number(earned)+Number(Gearned)+Number(Tearned)+Number(xGGearned)+Number(Pearned))/1000000)));
 
-document.getElementById("mytotalgldereward").innerHTML=round((Number(earned)+Number(Tearned)+Number(Gearned)+Number(xGGearned)+Number(Pearned))/1000000);
+var mytotalgldirewardusd=round(mytotalgldireward*deggsprice);
+var mytotalglderewardusd=round(mytotalgldereward*eggsprice);
+
+mytotalgldireward = mytotalgldireward || 0;
+mytotalgldereward = mytotalgldereward || 0;
+mytotalgldirewardusd = mytotalgldirewardusd || 0;
+mytotalglderewardusd = mytotalglderewardusd || 0;
+
+document.getElementById("mytotalgldereward").innerHTML=mytotalglderewardusd;
 document.getElementById("mytotalglderewardusd").innerHTML=mytotalglderewardusd;
-document.getElementById("mytotalgldireward").innerHTML=round((Number(GGearned)+Number(fearned)+Number(Zearned)+Number(xGGearned)+Number(Pearned))/1000000);
+document.getElementById("mytotalgldireward").innerHTML=mytotalgldireward;
 document.getElementById("mytotalgldirewardusd").innerHTML=mytotalgldirewardusd;
 document.getElementById("mytotalrewardusd").innerHTML=round(mytotalglderewardusd+mytotalgldirewardusd);
 	
