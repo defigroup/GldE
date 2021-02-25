@@ -864,6 +864,7 @@ var prestart=0;
 async function start() {
 notch++;
 if(started==0){
+started=1;
 infos = await tronWeb.contract().at(infoaddress); 
 lotteryMyContractFarm = await tronWeb.contract().at(lotterycontractAddress); 
 MyContract = await tronWeb.contract().at(tokenaddr);    
@@ -876,10 +877,9 @@ xMyContractFarm = await tronWeb.contract().at(gnomesaddr);
 kMyContractFarm = await tronWeb.contract().at(kcontractAddressFarm); 
 tMyContractFarm = await tronWeb.contract().at(tcontractAddressFarm); 
 pMyContractFarm = await tronWeb.contract().at(pcontractAddressFarm);
-notch=0;
-started=1;
 liquidities();
 console.log("starting ONE");
+notch=0;
 }
 if(notch>=5&&started>0&&updating==0){
 liquidities();
