@@ -1236,25 +1236,16 @@ document.getElementById("globalyearlyroi").innerHTML=roundz(totaldailyroi*365);
 document.getElementById("globaldailyroi").innerHTML=roundz(totaldailyroi);
 document.getElementById("globalweeklyroi").innerHTML=roundz(totaldailyroi*7);
 
-if(Cdailyprod==undefined)Cdailyprod=0;
-if(Tdailyprod==undefined)Tdailyprod=0;
-if(Gdailyprod==undefined)Gdailyprod=0;
-if(xGGdailyprod==undefined)xGGdailyprod=0;
-if(Pdailyprod==undefined)Pdailyprod=0;
 
-console.log(Cdailyprod," ",Tdailyprod," ",Gdailyprod," ",xGGdailyprod," ",Pdailyprod,"  ",eggsprice);
 
-if(GGdailyprod==undefined)GGdailyprod=0;
-if(fdailyprod==undefined)fdailyprod=0;
-if(Zdailyprod==undefined)Zdailyprod=0;
-if(xGGdailyprod==undefined)xGGdailyprod=0;
-if(Pdailyprod==undefined)Pdailyprod=0;
+var mytotalgldedaily=round(Number(Cdailyprod)+Number(Tdailyprod)+Number(Gdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000));;
+var mytotalgldidaily=round(Number(GGdailyprod)+Number(fdailyprod)+Number(Zdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000));;
+var mytotalgldedailyusd=Number(round(mytotalgldedaily*eggsprice));
+var mytotalgldidailyusd=Number(round(mytotalgldidaily*deggsprice));
 
-var mytotalgldedailyusd=Number(round(((Number(Cdailyprod)+Number(Tdailyprod)+Number(Gdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000)))*eggsprice));
-var mytotalgldidailyusd=Number(round(((Number(GGdailyprod)+Number(fdailyprod)+Number(Zdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000)))*deggsprice));
-document.getElementById("mytotalgldedaily").innerHTML=round(Number(Cdailyprod)+Number(Tdailyprod)+Number(Gdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000));
+document.getElementById("mytotalgldedaily").innerHTML=mytotalgldedaily;
 document.getElementById("mytotalgldedailyusd").innerHTML=mytotalgldedailyusd;
-document.getElementById("mytotalgldidaily").innerHTML=round(Number(GGdailyprod)+Number(fdailyprod)+Number(Zdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000));
+document.getElementById("mytotalgldidaily").innerHTML=mytotalgldidaily;
 document.getElementById("mytotalgldidailyusd").innerHTML=mytotalgldidailyusd;
 
 document.getElementById("mytotaldailyusd").innerHTML=round(mytotalgldedailyusd+mytotalgldidailyusd);
