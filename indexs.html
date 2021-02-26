@@ -571,7 +571,7 @@
                                 <p class="card-title mbr-fonts-style display-7"><strong><br></strong><br><strong>Free Energy</strong><br></p>
                      <p class="card-title mbr-fonts-style display-7"><br>Penguins Farm<br><em><span id="penergy"><strong>-</strong></span></em><br><br>All other Farms<br><em><span id="energy"><strong>-</strong></span></em><br><br><br><br></p>
                             </div>
-                            
+                          
                             <div class="col-12 col-md-3">
                                 <p class="card-title mbr-fonts-style display-5"><strong>My TRX</strong><br></p>
                             
@@ -598,8 +598,8 @@
                                       
                                     </div>
                                       <p class="card-title mbr-fonts-style display-5"><em><span id="mygldi">-</span> <a href="dex.html" class="text-primary"><i>GLDI </i></a>($<span id="mygldiusd">-</span>)</em><br><br></p>
-                            </div>
-                             
+                           
+                               </div> 
                              
                         </div>
                        <div class="row">
@@ -830,37 +830,41 @@ function roundz(num) {
 var contractAddressFarm='TF9nPCv7NkTMLSbyuohaQjmCNkiCbJpLy1';
 var fcontractAddressFarm='TVFNoGTFDnpgTKEsMsoYsoGQwSMZR8up2T';
 var tokenaddr='TQXhxDPNKVsgxYbJatMnkRZsgTcTzxC5Fc';
-var exchangeaddr='TH5LBFAZQDxydmxocY3oUwCD4UaGKgNU4T';  
+var exchangeaddr='TH5LBFAZQDxydmxocY3oUwCD4UaGKgNU4T';
+     
 var dcontractAddressFarm='TD4s6KNeD9FpDhPRq8SJqfa6ZVLAgwRbVw';
 var dexchangeaddr='TQRJL3JLLq1PNE4sr7YvQFiuR1JYE9Zcgw'
 var dtokenaddr='TQx2dDDHv8xVr5HEYRygjWizYdzDmdUHNp';
+
 var zcontractAddressFarm='TKrP7G8x7NbPkqkQmd1S6qLF3xc6Rgd45Z';
+
 var gnomesaddr='TNUFrQbUFtpsvUDggFj6sQyp7Q5iFeHtLJ';
-var infoaddress='TM91qkCJbAW9nbox6vDWpnczRjeqbLQrpp';
+var myaddress;
+
 var kcontractAddressFarm='TDojWcYd1cVvUAVFzytMttULpFVf1BDYRW';
 var tcontractAddressFarm='TT8jrFXfxs6dYi85pymBc3NkCx6tYbz6cc';
 var pcontractAddressFarm='TFi3QJ34t9qtzctNQb1SbzePBhedRKf9Vh';
-var lotterycontractAddress='TYdD3CL9zfdBpEXw7muCnJr36Q9pXDxWuh';
 
-var myaddress;
+var lotterycontractAddress='TYdD3CL9zfdBpEXw7muCnJr36Q9pXDxWuh';
 var notch=0;
-    
+     var infoaddress='TM91qkCJbAW9nbox6vDWpnczRjeqbLQrpp';
 var updating=0;
 var lupdating=0;
 var wupdating=0;
 
-var exchangeliquidityusd, trxprice,dexchangeliquidityusd, mydiamonds, eggsprice,deggsprice,myeggs,dmyeggs,ticketprice,lotterydapproved;  
+var exchangeliquidityusd, trxprice,dexchangeliquidityusd;
+   var mydiamonds=0;  
+   var lotterydapproved=0;
+   var ticketprice=0;
+   var eggsprice,deggsprice;
+   var myeggs,dmyeggs;
+
 var infos,lotteryMyContractFarm,MyContract, dMyContract,MyContractFarm,fMyContractFarm,zMyContractFarm,xMyContractFarm,kMyContractFarm,tMyContractFarm,pMyContractFarm;
-
 var prestart=0;
-
-
-
-var maxnotch=5;
-
 async function start() {
 notch++;
-if(prestart==0){
+if(started==0){
+started=1;
 infos = await tronWeb.contract().at(infoaddress); 
 lotteryMyContractFarm = await tronWeb.contract().at(lotterycontractAddress); 
 MyContract = await tronWeb.contract().at(tokenaddr);    
@@ -873,14 +877,17 @@ xMyContractFarm = await tronWeb.contract().at(gnomesaddr);
 kMyContractFarm = await tronWeb.contract().at(kcontractAddressFarm); 
 tMyContractFarm = await tronWeb.contract().at(tcontractAddressFarm); 
 pMyContractFarm = await tronWeb.contract().at(pcontractAddressFarm);
-prestart=1;
+liquidities();
+console.log("starting ONE");
+notch=0;
 }
-if(prestart>0){
+if(notch>=5&&started>0&&updating==0){
 
-if(updating==0)liquidities();
+liquidities();
+wallet();
+go();
+lottery();
 
-
-started=1;
 notch=0;
 }
 }
@@ -890,7 +897,7 @@ notch=0;
 async function liquidities() {
 
 updating=1;
-
+console.log("starting TWO");
 let trxprice_= (await infos.trxusd(1000000).call())/1000000;
 trxprice=trxprice_;
 let exchangetrx = (await tronWeb.trx.getBalance(exchangeaddr))/1000000;
@@ -909,7 +916,7 @@ let diamondburned2= await dMyContract.balanceOf(tcontractAddressFarm).call();
 document.getElementById("dgldesupply").innerHTML=round((deggsupply-diamondburned-diamondburned2)/1000000);
 document.getElementById("gldesupply").innerHTML=round((eggsupply-eggburned-eggburned2)/1000000);
 let TokenToTrxInputPrice=await MyContractFarm.TokenToTrxInputPrice(1000000).call();
-let myeggs=await MyContractFarm.myeggs().call(); 
+ myeggs=await MyContractFarm.myeggs().call(); 
 let approved=await MyContract.allowance(myaddress,exchangeaddr).call();
 if(window.tronWeb.toDecimal(approved._hex)<1e25&&myeggs>0)document.getElementById("unlock").innerHTML="<a onclick='approve()'>Unlock</a>"; else document.getElementById("unlock").innerHTML="";
 eggsprice=(TokenToTrxInputPrice/1000000)*trxprice;
@@ -920,7 +927,7 @@ let dTokenToTrxInputPrice=await dMyContractFarm.TokenToTrxInputPrice(1000000).ca
 
 let mygldi= (await dMyContract.balanceOf(myaddress).call()); 
  
-var dmyeggs=Number(mygldi*1000000);
+ dmyeggs=Number(mygldi*1000000);
    let dapproved=await dMyContract.allowance(myaddress,dexchangeaddr).call();
    
    
@@ -932,7 +939,7 @@ if(window.tronWeb.toDecimal(dapproved._hex)<1e25&&dmyeggs>0)document.getElementB
     
  document.getElementById("dliquidity").innerHTML=round(dexchangeliquidityusd);  
  
-wallet();
+updating=0;
 }
 
 
@@ -951,12 +958,7 @@ wallet();
  
 
 async function go() {
-       
- 
-updating=1;
-
-  
-
+  console.log("starting FOUR");
 let dlptotsup= await dMyContractFarm.LPtotalSupply().call(); 
 var dlptotalsupply=dlptotsup;
 var dlpprice=dexchangeliquidityusd/dlptotalsupply;
@@ -1209,13 +1211,15 @@ document.getElementById("myfairiesgldedailyreward").innerHTML=round(xGGearned/10
 document.getElementById("myfairiesgldedailyrewardusd").innerHTML=round((xGGearned/1000000)*eggsprice);
 }
 
+
+
 var totalgldidailyusd=Number(round(((Number(fdailyreward)+Number(GGdailyreward)+Number(Zdailyreward)+Number(xGGdailyreward)+Number(Pdailyreward))/1000000)*deggsprice));
 
 var totalgldedailyusd=Number(round((((Number(Cdailyreward)+Number(Tdailyreward)+Number(Gdailyreward)+Number(xGGdailyreward)+Number(Pdailyreward)))/1000000)*eggsprice));
 
 var totalusd=Number(xGGlppoolsupplyusd+GGlppoolsupplyusd+Tlppoolsupplyusd+Zlppoolsupplyusd+Glppoolsupplyusd+Clppoolsupplyusd+flppoolsupplyusd+Plppoolsupplyusd);
 document.getElementById("totalusd").innerHTML=round(totalusd);
-document.getElementById("mytotalusd").innerHTML=round(((staked)*Clpprice)+((fstaked)*flpprice)+((Gstaked)*Glpprice)+((Zstaked)*Zlpprice)+((GGstaked)*GGlpprice)+((xGGstaked)*xGGlpprice)+((Tstaked)*Tlpprice)+((Plppoolsupplyusd/100)*Pstaked/(PfarmLPtotalSupply/100)));
+document.getElementById("mytotalusd").innerHTML=round(((staked)*Clpprice)+((fstaked)*flpprice)+((Gstaked)*Glpprice)+((Zstaked)*Zlpprice)+((GGstaked)*GGlpprice)+((xGGstaked)*xGGlpprice)+((Tstaked)*Tlpprice)+((Plppoolsupplyusd/100)*Pstaked/(PfarmLPtotalSupply/100))) || 0;
 document.getElementById("totalgldedaily").innerHTML=round((Number(Cdailyreward)+Number(Gdailyreward)+Number(xGGdailyreward)+Number(Tdailyreward)+Number(Pdailyreward))/1000000);
 document.getElementById("totalgldedailyusd").innerHTML=totalgldedailyusd;
 document.getElementById("totalgldidaily").innerHTML=round(((Number(GGdailyreward)+Number(fdailyreward)+Number(Zdailyreward)+Number(xGGdailyreward)+Number(Pdailyreward))/1000000));
@@ -1230,32 +1234,56 @@ document.getElementById("globalyearlyroi").innerHTML=roundz(totaldailyroi*365);
 document.getElementById("globaldailyroi").innerHTML=roundz(totaldailyroi);
 document.getElementById("globalweeklyroi").innerHTML=roundz(totaldailyroi*7);
 
-var mytotalgldedailyusd=Number(round(((Number(Cdailyprod)+Number(Tdailyprod)+Number(Gdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000)))*eggsprice));
-var mytotalgldidailyusd=Number(round(((Number(GGdailyprod)+Number(fdailyprod)+Number(Zdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000)))*deggsprice));
-document.getElementById("mytotalgldedaily").innerHTML=round(Number(Cdailyprod)+Number(Tdailyprod)+Number(Gdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000));
+
+
+var mytotalgldedaily=round(Number(Cdailyprod)+Number(Tdailyprod)+Number(Gdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000));;
+var mytotalgldidaily=round(Number(GGdailyprod)+Number(fdailyprod)+Number(Zdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000));;
+var mytotalgldedailyusd=Number(round(mytotalgldedaily*eggsprice));
+var mytotalgldidailyusd=Number(round(mytotalgldidaily*deggsprice));
+
+
+mytotalgldedaily = mytotalgldedaily || 0;
+mytotalgldidaily = mytotalgldidaily || 0;
+mytotalgldedailyusd = mytotalgldedailyusd || 0;
+mytotalgldidailyusd = mytotalgldidailyusd || 0;
+
+var mytotaldailyusd=round(mytotalgldedailyusd+mytotalgldidailyusd);
+mytotaldailyusd = mytotaldailyusd || 0;
+
+document.getElementById("mytotalgldedaily").innerHTML=mytotalgldedaily;
 document.getElementById("mytotalgldedailyusd").innerHTML=mytotalgldedailyusd;
-document.getElementById("mytotalgldidaily").innerHTML=round(Number(GGdailyprod)+Number(fdailyprod)+Number(Zdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000));
+document.getElementById("mytotalgldidaily").innerHTML=mytotalgldidaily;
 document.getElementById("mytotalgldidailyusd").innerHTML=mytotalgldidailyusd;
+document.getElementById("mytotaldailyusd").innerHTML=mytotaldailyusd;
 
-document.getElementById("mytotaldailyusd").innerHTML=round(mytotalgldedailyusd+mytotalgldidailyusd);
 
+var mytotalgldireward=Number(round(((Number(GGearned)+Number(fearned)+Number(Zearned)+Number(xGGearned)+Number(Pearned))/1000000)));
+var mytotalgldereward=Number(round(((Number(earned)+Number(Gearned)+Number(Tearned)+Number(xGGearned)+Number(Pearned))/1000000)));
 
-var mytotalgldirewardusd=Number(round(((Number(GGearned)+Number(fearned)+Number(Zearned)+Number(xGGearned)+Number(Pearned))/1000000)*deggsprice));
-var mytotalglderewardusd=Number(round(((Number(earned)+Number(Gearned)+Number(Tearned)+Number(xGGearned)+Number(Pearned))/1000000)*eggsprice));
+var mytotalgldirewardusd=round(mytotalgldireward*deggsprice);
+var mytotalglderewardusd=round(mytotalgldereward*eggsprice);
 
-document.getElementById("mytotalgldereward").innerHTML=round((Number(earned)+Number(Tearned)+Number(Gearned)+Number(xGGearned)+Number(Pearned))/1000000);
+mytotalgldireward = mytotalgldireward || 0;
+mytotalgldereward = mytotalgldereward || 0;
+mytotalgldirewardusd = mytotalgldirewardusd || 0;
+mytotalglderewardusd = mytotalglderewardusd || 0;
+
+var mytotalrewardusd=round(mytotalglderewardusd+mytotalgldirewardusd);
+mytotalrewardusd = mytotalrewardusd || 0;
+
+document.getElementById("mytotalgldereward").innerHTML=mytotalgldereward;
 document.getElementById("mytotalglderewardusd").innerHTML=mytotalglderewardusd;
-document.getElementById("mytotalgldireward").innerHTML=round((Number(GGearned)+Number(fearned)+Number(Zearned)+Number(xGGearned)+Number(Pearned))/1000000);
+document.getElementById("mytotalgldireward").innerHTML=mytotalgldireward;
 document.getElementById("mytotalgldirewardusd").innerHTML=mytotalgldirewardusd;
-document.getElementById("mytotalrewardusd").innerHTML=round(mytotalglderewardusd+mytotalgldirewardusd);
+document.getElementById("mytotalrewardusd").innerHTML=mytotalrewardusd;
 	
-lottery();	
+
 	
 }
 
 async function wallet(){
 wupdating=1;
- 
+ console.log("starting THREE");
 let mytrx=(await tronWeb.trx.getBalance(myaddress))/1000000;
 let mygldi= (await dMyContract.balanceOf(myaddress).call())/1000000; 
 let myglde= (await MyContract.balanceOf(myaddress).call())/1000000; 
@@ -1266,24 +1294,29 @@ var mygldiusd=mygldi*deggsprice;
 var mygldeusd=myglde*eggsprice;
 var mytrxusd=mytrx*trxprice;
 
-document.getElementById("mytrx").innerHTML=round(mytrx);
-document.getElementById("mytrxusd").innerHTML=round(mytrxusd);
-document.getElementById("myglde").innerHTML=round(myglde);
-document.getElementById("mygldeusd").innerHTML=round(mygldeusd);
-document.getElementById("mygldi").innerHTML=round(mygldi);
-document.getElementById("mygldiusd").innerHTML=round(mygldiusd);
+mytrx=mytrx || 0;
+mytrxusd=mytrxusd || 0;
+myglde=myglde || 0;
+mygldeusd=mygldeusd || 0;
+mygldi=mygldi || 0;
+mygldiusd=mygldiusd || 0;
+
+document.getElementById("mytrx").innerHTML=round(mytrx) || 0;
+document.getElementById("mytrxusd").innerHTML=round(mytrxusd) || 0;
+document.getElementById("myglde").innerHTML=round(myglde) || 0;
+document.getElementById("mygldeusd").innerHTML=round(mygldeusd) || 0;
+document.getElementById("mygldi").innerHTML=round(mygldi) || 0;
+document.getElementById("mygldiusd").innerHTML=round(mygldiusd) || 0;
 
 let resources=await tronWeb.trx.getAccountResources('TWYWCSqofuNcE7G14tWSA3PqgSffnq6XZu');
 document.getElementById("energy").innerHTML=resources.EnergyLimit-resources.EnergyUsed;
 
 let presources=await tronWeb.trx.getAccountResources('TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f');
 document.getElementById("penergy").innerHTML=presources.EnergyLimit-presources.EnergyUsed;
-go();
+
 }
 
 async function lottery(){
-lupdating=1;
-
 
 
 let _lotterydapproved=await dMyContract.allowance(myaddress,lotterycontractAddress).call();
@@ -1330,7 +1363,7 @@ var contractz=lotterycontractAddress;
 			
 		}
 	});
-	updating=0;
+	
 }
 function getUrlVars() {
 			var vars = {};
@@ -1711,7 +1744,7 @@ start();
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/o" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/t" style="color:#aaa;">Designed</a> with Mobirise bootstrap templates</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/t" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Develop a free website - <a href="https://mobirise.site/v" style="color:#aaa;">Learn more</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
