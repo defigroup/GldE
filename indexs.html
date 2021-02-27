@@ -957,8 +957,19 @@ updating=0;
  
 var lpprice,lptotalsupply,dlpprice,dlptotalsupply;
 
-async function chickens() {
-var Clpprice=lpprice;
+
+ 
+
+
+async function go() {
+  console.log("starting FOUR");
+ dlptotalsupply= await dMyContractFarm.LPtotalSupply().call(); 
+ dlpprice=dexchangeliquidityusd/dlptotalsupply;
+ lptotalsupply= await MyContractFarm.LPtotalSupply().call();
+ lpprice=exchangeliquidityusd/lptotalsupply;
+ 
+ 
+ var Clpprice=lpprice;
 var CpoolLPbalance= await MyContractFarm.poolLPbalance().call(); 
 var Clppoolsupplyusd=CpoolLPbalance*Clpprice;
 var Cdailyreward= await MyContractFarm.dailyreward().call();
@@ -983,12 +994,7 @@ document.getElementById("mychickens").innerHTML=round(staked/1000000)||0;
 document.getElementById("mychickensusd").innerHTML=round((staked)*Clpprice)||0;  
 document.getElementById("mychickensreward").innerHTML=round(earned/1000000)||0;
 document.getElementById("mychickensrewardusd").innerHTML=round((earned/1000000)*eggsprice)||0; 
-}
- 
- async function gooses() {
- 
-
-var Glpprice=dlpprice;
+ var Glpprice=dlpprice;
 var GpoolLPbalance= await dMyContractFarm.poolLPbalance().call(); 
 var Glppoolsupplyusd=GpoolLPbalance*Glpprice;
 var Gdailyreward= await dMyContractFarm.dailyreward().call();
@@ -1014,11 +1020,7 @@ document.getElementById("mygooses").innerHTML=round(Gstaked/1000000)||0;
 document.getElementById("mygoosesusd").innerHTML=round((Gstaked)*Glpprice)||0;
 document.getElementById("mygoosesreward").innerHTML=round(Gearned/1000000)||0;
 document.getElementById("mygoosesrewardusd").innerHTML=round((Gearned/1000000)*eggsprice)||0;
- }
- 
-  async function bunnies() {
- 
-var Zlpprice=lpprice;
+ var Zlpprice=lpprice;
 var ZpoolLPbalance= await zMyContractFarm.poolLPbalance().call(); 
 var Zlppoolsupplyusd=ZpoolLPbalance*Zlpprice;
 var Zdailyreward= await zMyContractFarm.dailyreward().call();
@@ -1044,11 +1046,7 @@ document.getElementById("mybunnies").innerHTML=round(Zstaked/1000000)||0;
 document.getElementById("mybunniesusd").innerHTML=round((Zstaked)*Zlpprice)||0;
 document.getElementById("mybunniesreward").innerHTML=round(Zearned/1000000)||0;
 document.getElementById("mybunniesrewardusd").innerHTML=round((Zearned/1000000)*deggsprice)||0;
- }
-  async function flamingos() {
- 
-
-var flpprice=dlpprice;
+ var flpprice=dlpprice;
 var fpoolLPbalance= await fMyContractFarm.poolLPbalance().call(); 
 var flppoolsupplyusd=fpoolLPbalance*flpprice;
 var fdailyreward= await fMyContractFarm.dailyreward().call();
@@ -1074,8 +1072,6 @@ document.getElementById("myflamingos").innerHTML=round(fstaked/1000000)||0;
 document.getElementById("myflamingosusd").innerHTML=round((fstaked)*flpprice)||0;  
 document.getElementById("myflamingosreward").innerHTML=round(fearned/1000000)||0;
 document.getElementById("myflamingosrewardusd").innerHTML=round((fearned/1000000)*deggsprice)||0;
- }
-async function penguins() {
 var PpoolLPbalance= await pMyContractFarm.poolLPbalance().call(); ///////////////
 var Plppoolsupply=Number(PpoolLPbalance);
 var PdpoolLPbalance= await pMyContractFarm.dpoolLPbalance().call(); ///////////////
@@ -1111,12 +1107,6 @@ document.getElementById("mypenguinsgldidailyreward").innerHTML=round(Pearned/100
 document.getElementById("mypenguinsgldidailyrewardusd").innerHTML=round((Pearned/1000000)*deggsprice)||0;
 document.getElementById("mypenguinsgldedailyreward").innerHTML=round(Pearned/1000000)||0;
 document.getElementById("mypenguinsgldedailyrewardusd").innerHTML=round((Pearned/1000000)*eggsprice)||0;
- }
-  async function tgnomes() {
- 
-
-
-
 var GGlpprice=eggsprice/1000000;
 var GGpoolLPbalance= await xMyContractFarm.poolLPbalance().call(); 
 var GGlppoolsupplyusd=GGpoolLPbalance*GGlpprice;
@@ -1143,8 +1133,6 @@ document.getElementById("mygnomes").innerHTML=round(GGstaked/1000000)||0;
 document.getElementById("mygnomesusd").innerHTML=round((GGstaked)*GGlpprice)||0;
 document.getElementById("mygnomesreward").innerHTML=round(GGearned/1000000)||0;
 document.getElementById("mygnomesrewardusd").innerHTML=round((GGearned/1000000)*deggsprice)||0;
- }
- async function tfairies() {
  var xGGlpprice=deggsprice/1000000;
 var xGGpoolLPbalance= await kMyContractFarm.poolLPbalance().call(); 
 var xGGlppoolsupplyusd=xGGpoolLPbalance*xGGlpprice;
@@ -1177,8 +1165,7 @@ document.getElementById("myfairiesgldidailyreward").innerHTML=round(xGGearned/10
 document.getElementById("myfairiesgldidailyrewardusd").innerHTML=round((xGGearned/1000000)*deggsprice)||0;
 document.getElementById("myfairiesgldedailyreward").innerHTML=round(xGGearned/1000000)||0;
 document.getElementById("myfairiesgldedailyrewardusd").innerHTML=round((xGGearned/1000000)*eggsprice)||0;
- }
- async function tdragons() {
+
  var Tlpprice=Number(eggsprice/1000000)+Number(deggsprice/1000000);
 var TpoolLPbalance= await tMyContractFarm.poolLPbalance().call(); 
 var Tlppoolsupplyusd=TpoolLPbalance*Tlpprice;
@@ -1205,32 +1192,6 @@ document.getElementById("mydragons").innerHTML=round(Tstaked/1000000)||0;
 document.getElementById("mydragonsusd").innerHTML=round((Tstaked)*Tlpprice)||0;
 document.getElementById("mydragonsreward").innerHTML=round(Tearned/1000000)||0;
 document.getElementById("mydragonsrewardusd").innerHTML=round((Tearned/1000000)*eggsprice)||0;
- }
- 
-var fdailyreward,GGdailyreward,Zdailyreward,xGGdailyreward,Pdailyreward,Cdailyreward,Tdailyreward,Gdailyreward,xGGdailyreward;
-var xGGlppoolsupplyusd,GGlppoolsupplyusd,Tlppoolsupplyusd,Zlppoolsupplyusd,Glppoolsupplyusd,Clppoolsupplyusd,flppoolsupplyusd,Plppoolsupplyusd;
-var staked,Clpprice,fstaked,flpprice,Gstaked,Glpprice,Zstaked,Zlpprice,GGstaked,GGlpprice,xGGstaked,xGGlpprice,Tstaked,Tlpprice,Pstaked,PfarmLPtotalSupply;
-var Cdailyprod,Tdailyprod,Gdailyprod,xGGdailyprod,Pdailyprod,Zdailyprod,fdailyprod,GGdailyprod;
-var GGearned,fearned,Zearned,xGGearned,Pearned,Tearned,Gearned,earned;
-
-async function go() {
-  console.log("starting FOUR");
- dlptotalsupply= await dMyContractFarm.LPtotalSupply().call(); 
- dlpprice=dexchangeliquidityusd/dlptotalsupply;
- lptotalsupply= await MyContractFarm.LPtotalSupply().call();
- lpprice=exchangeliquidityusd/lptotalsupply;
- 
-await chickens();
-await gooses();
-await bunnies();
-await flamingos();
-await tgnomes();
-await tdragons();
-await tfairies();
-await penguins();
-
-
-
 
 var totalgldidailyusd=Number(round(((Number(fdailyreward)+Number(GGdailyreward)+Number(Zdailyreward)+Number(xGGdailyreward)+Number(Pdailyreward))/1000000)*deggsprice));
 var totalgldedailyusd=Number(round((((Number(Cdailyreward)+Number(Tdailyreward)+Number(Gdailyreward)+Number(xGGdailyreward)+Number(Pdailyreward)))/1000000)*eggsprice));
