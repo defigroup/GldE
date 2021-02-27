@@ -1060,12 +1060,12 @@ document.getElementById("flamingosprofit").innerHTML=roundz(fAPY);
 document.getElementById("flamingosyearlyroi").innerHTML=roundz(fAPY); 
 document.getElementById("flamingosdailyroi").innerHTML=roundz(fdailyroi);
 document.getElementById("flamingosweeklyroi").innerHTML=roundz(fdailyroi*7);
-let fstaked= window.tronWeb.toDecimal((await fMyContractFarm.balanceOf(myaddress).call())._hex); 
+var fstaked= window.tronWeb.toDecimal((await fMyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("flamingos").innerHTML=round(fpoolLPbalance/1000000);
 document.getElementById("flamingosusd").innerHTML=round(flppoolsupplyusd);
 document.getElementById("flamingosdaily").innerHTML=round(fdailyreward/1000000);
 document.getElementById("flamingosdailyusd").innerHTML=round(fdailyusdreward);
-let fearned= await fMyContractFarm.earned(myaddress).call();
+var fearned= await fMyContractFarm.earned(myaddress).call();
 var fdailyprodusd=((((fstaked)*flpprice)*fdailyroi)/100);
 var fdailyprod=fdailyprodusd/deggsprice;
 
@@ -1077,12 +1077,12 @@ document.getElementById("myflamingosreward").innerHTML=round(fearned/1000000)||0
 document.getElementById("myflamingosrewardusd").innerHTML=round((fearned/1000000)*deggsprice)||0;
  }
   async function penguins() {
- let PpoolLPbalance= await pMyContractFarm.poolLPbalance().call(); ///////////////
+ var PpoolLPbalance= await pMyContractFarm.poolLPbalance().call(); ///////////////
 var Plppoolsupply=Number(PpoolLPbalance);
-let PdpoolLPbalance= await pMyContractFarm.dpoolLPbalance().call(); ///////////////
+var PdpoolLPbalance= await pMyContractFarm.dpoolLPbalance().call(); ///////////////
 var Pdlppoolsupply=Number(PdpoolLPbalance);
 var Plppoolsupplyusd=Number(PpoolLPbalance*lpprice)+Number(PdpoolLPbalance*dlpprice);
-let Pdailyreward= await pMyContractFarm.dailyreward().call();
+var Pdailyreward= await pMyContractFarm.dailyreward().call();
 var Pdailyusdreward=Number((Pdailyreward/1000000)*eggsprice)+Number((Pdailyreward/1000000)*deggsprice);
 var Pdailyroi=Pdailyusdreward/(Plppoolsupplyusd/100);
 var PAPY=Pdailyroi*365;
@@ -1090,15 +1090,15 @@ document.getElementById("penguinsprofit").innerHTML=roundz(PAPY);
 document.getElementById("penguinsyearlyroi").innerHTML=roundz(PAPY); 
 document.getElementById("penguinsdailyroi").innerHTML=roundz(Pdailyroi);
 document.getElementById("penguinsweeklyroi").innerHTML=roundz(Pdailyroi*7);
-let Pstaked= window.tronWeb.toDecimal((await pMyContractFarm.balanceOf(myaddress).call())._hex); 
+var Pstaked= window.tronWeb.toDecimal((await pMyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("penguins").innerHTML=round((Plppoolsupply+Pdlppoolsupply)/1000000);
 document.getElementById("penguinsusd").innerHTML=round(Plppoolsupplyusd);
 document.getElementById("penguinsgldedaily").innerHTML=round(Pdailyreward/1000000);
 document.getElementById("penguinsgldedailyusd").innerHTML=round(((Pdailyreward/1000000)*eggsprice));
 document.getElementById("penguinsgldidaily").innerHTML=round(Pdailyreward/1000000);
 document.getElementById("penguinsgldidailyusd").innerHTML=round(((Pdailyreward/1000000)*deggsprice));
-let Pearned= await pMyContractFarm.earned(myaddress).call();
-let PfarmLPtotalSupply=await pMyContractFarm.totalSupply().call(); 
+var Pearned= await pMyContractFarm.earned(myaddress).call();
+var PfarmLPtotalSupply=await pMyContractFarm.totalSupply().call(); 
 var Pdailyprodusd=(Pdailyusdreward/100)*Pstaked/(PfarmLPtotalSupply/100);
 var Pdailyprod=(Pdailyreward/100)*Pstaked/(PfarmLPtotalSupply/100);
 
@@ -1119,9 +1119,9 @@ document.getElementById("mypenguinsgldedailyrewardusd").innerHTML=round((Pearned
 
 
 var GGlpprice=eggsprice/1000000;
-let GGpoolLPbalance= await xMyContractFarm.poolLPbalance().call(); 
+var GGpoolLPbalance= await xMyContractFarm.poolLPbalance().call(); 
 var GGlppoolsupplyusd=GGpoolLPbalance*GGlpprice;
-let GGdailyreward= await xMyContractFarm.dailyreward().call();
+var GGdailyreward= await xMyContractFarm.dailyreward().call();
 var GGdailyusdreward=(GGdailyreward/1000000)*deggsprice;
 var GGdailyroi=GGdailyusdreward/(GGlppoolsupplyusd/100);
 var GGAPY=GGdailyroi*365;
@@ -1129,12 +1129,12 @@ document.getElementById("gnomesprofit").innerHTML=roundz(GGAPY);
 document.getElementById("gnomesyearlyroi").innerHTML=roundz(GGAPY); 
 document.getElementById("gnomesdailyroi").innerHTML=roundz(GGdailyroi);
 document.getElementById("gnomesweeklyroi").innerHTML=roundz(GGdailyroi*7);
-let GGstaked= window.tronWeb.toDecimal((await xMyContractFarm.balanceOf(myaddress).call())._hex); 
+var GGstaked= window.tronWeb.toDecimal((await xMyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("gnomes").innerHTML=round(GGpoolLPbalance/1000000);
 document.getElementById("gnomesusd").innerHTML=round(GGlppoolsupplyusd);
 document.getElementById("gnomesdaily").innerHTML=round(GGdailyreward/1000000);
 document.getElementById("gnomesdailyusd").innerHTML=round(GGdailyusdreward);
-let GGearned= await xMyContractFarm.earned(myaddress).call();
+var GGearned= await xMyContractFarm.earned(myaddress).call();
 var GGdailyprodusd=((((GGstaked)*GGlpprice)*GGdailyroi)/100);
 var GGdailyprod=GGdailyprodusd/deggsprice;
 
@@ -1147,9 +1147,9 @@ document.getElementById("mygnomesrewardusd").innerHTML=round((GGearned/1000000)*
  }
  async function tfairies() {
  var xGGlpprice=deggsprice/1000000;
-let xGGpoolLPbalance= await kMyContractFarm.poolLPbalance().call(); 
+var xGGpoolLPbalance= await kMyContractFarm.poolLPbalance().call(); 
 var xGGlppoolsupplyusd=xGGpoolLPbalance*xGGlpprice;
-let xGGdailyreward= await kMyContractFarm.dailyreward().call();
+var xGGdailyreward= await kMyContractFarm.dailyreward().call();
 var xGGdailyusdreward=((xGGdailyreward/1000000)*deggsprice)+((xGGdailyreward/1000000)*eggsprice);
 var xGGdailyroi=xGGdailyusdreward/(xGGlppoolsupplyusd/100);
 var xGGAPY=xGGdailyroi*365;
@@ -1157,14 +1157,14 @@ document.getElementById("fairiesprofit").innerHTML=roundz(xGGAPY);
 document.getElementById("fairiesyearlyroi").innerHTML=roundz(xGGAPY); 
 document.getElementById("fairiesdailyroi").innerHTML=roundz(xGGdailyroi);
 document.getElementById("fairiesweeklyroi").innerHTML=roundz(xGGdailyroi*7);
-let xGGstaked= window.tronWeb.toDecimal((await kMyContractFarm.balanceOf(myaddress).call())._hex); 
+var xGGstaked= window.tronWeb.toDecimal((await kMyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("fairies").innerHTML=round(xGGpoolLPbalance/1000000);
 document.getElementById("fairiesusd").innerHTML=round(xGGlppoolsupplyusd);
 document.getElementById("fairiesgldedaily").innerHTML=round(xGGdailyreward/1000000);
 document.getElementById("fairiesgldedailyusd").innerHTML=round(((xGGdailyreward/1000000)*eggsprice));
 document.getElementById("fairiesgldidaily").innerHTML=round(xGGdailyreward/1000000);
 document.getElementById("fairiesgldidailyusd").innerHTML=round(((xGGdailyreward/1000000)*deggsprice));
-let xGGearned= await kMyContractFarm.earned(myaddress).call();
+var xGGearned= await kMyContractFarm.earned(myaddress).call();
 var xGGdailyprodusd=((((xGGstaked)*xGGlpprice)*xGGdailyroi)/100/1000000);
 var xGGdailyprod=xGGdailyreward*(xGGstaked/xGGpoolLPbalance)/1000000;
 
@@ -1181,9 +1181,9 @@ document.getElementById("myfairiesgldedailyrewardusd").innerHTML=round((xGGearne
  }
  async function tdragons() {
  var Tlpprice=Number(eggsprice/1000000)+Number(deggsprice/1000000);
-let TpoolLPbalance= await tMyContractFarm.poolLPbalance().call(); 
+var TpoolLPbalance= await tMyContractFarm.poolLPbalance().call(); 
 var Tlppoolsupplyusd=TpoolLPbalance*Tlpprice;
-let Tdailyreward= await tMyContractFarm.dailyreward().call();
+var Tdailyreward= await tMyContractFarm.dailyreward().call();
 var Tdailyusdreward=(Tdailyreward/1000000)*eggsprice;
 var Tdailyroi=Tdailyusdreward/(Tlppoolsupplyusd/100);
 var TAPY=Tdailyroi*365;
@@ -1191,12 +1191,12 @@ document.getElementById("dragonsprofit").innerHTML=roundz(TAPY);
 document.getElementById("dragonsyearlyroi").innerHTML=roundz(TAPY); 
 document.getElementById("dragonsdailyroi").innerHTML=roundz(Tdailyroi);
 document.getElementById("dragonsweeklyroi").innerHTML=roundz(Tdailyroi*7);
-let Tstaked= window.tronWeb.toDecimal((await tMyContractFarm.balanceOf(myaddress).call())._hex); 
+var Tstaked= window.tronWeb.toDecimal((await tMyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("dragons").innerHTML=round(TpoolLPbalance/1000000);
 document.getElementById("dragonsusd").innerHTML=round(Tlppoolsupplyusd);
 document.getElementById("dragonsdaily").innerHTML=round(Tdailyreward/1000000);
 document.getElementById("dragonsdailyusd").innerHTML=round(Tdailyusdreward);
-let Tearned= await tMyContractFarm.earned(myaddress).call();
+var Tearned= await tMyContractFarm.earned(myaddress).call();
 var Tdailyprodusd=((((Tstaked)*Tlpprice)*Tdailyroi)/100);
 var Tdailyprod=Tdailyprodusd/eggsprice;
 
@@ -1222,7 +1222,7 @@ flamingos();
 tgnomes();
 tdragons();
 tfairies();
-
+penguins();
 
 
 
@@ -1300,9 +1300,9 @@ document.getElementById("mytotalrewardusd").innerHTML=mytotalrewardusd;
 async function wallet(){
 wupdating=1;
  console.log("starting THREE");
-let mytrx=(await tronWeb.trx.getBalance(myaddress))/1000000;
-let mygldi= (await dMyContract.balanceOf(myaddress).call())/1000000; 
-let myglde= (await MyContract.balanceOf(myaddress).call())/1000000; 
+var mytrx=(await tronWeb.trx.getBalance(myaddress))/1000000;
+var mygldi= (await dMyContract.balanceOf(myaddress).call())/1000000; 
+var myglde= (await MyContract.balanceOf(myaddress).call())/1000000; 
 
 mydiamonds=mygldi*1000000;
 
@@ -1324,10 +1324,10 @@ document.getElementById("mygldeusd").innerHTML=round(mygldeusd) || 0;
 document.getElementById("mygldi").innerHTML=round(mygldi) || 0;
 document.getElementById("mygldiusd").innerHTML=round(mygldiusd) || 0;
 
-let resources=await tronWeb.trx.getAccountResources('TWYWCSqofuNcE7G14tWSA3PqgSffnq6XZu');
+var resources=await tronWeb.trx.getAccountResources('TWYWCSqofuNcE7G14tWSA3PqgSffnq6XZu');
 document.getElementById("energy").innerHTML=resources.EnergyLimit-resources.EnergyUsed;
 
-let presources=await tronWeb.trx.getAccountResources('TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f');
+var presources=await tronWeb.trx.getAccountResources('TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f');
 document.getElementById("penergy").innerHTML=presources.EnergyLimit-presources.EnergyUsed;
 
 }
