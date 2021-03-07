@@ -205,7 +205,7 @@
                             
                             <h4 class="mbr-element-title align-center mbr-fonts-style pb-2 display-5">
                                 Tokens to Claim</h4>
-                            <p class="mbr-section-text align-center mbr-fonts-style display-7">- GLDE ($)<br>- GLDI ($)<br><br><a href="page14.html" class="text-primary"><strong>CLAIM ALL</strong></a><br><br><a href="page14.html" class="text-primary"><strong><br></strong></a></p>
+                            <p class="mbr-section-text align-center mbr-fonts-style display-7"><span id="mytotalgldereward">-</span> GLDE ($<span id="mytotalglderewardusd">-</span>)<br><span id="mytotalgldireward">-</span> GLDI ($<span id="mytotalgldirewardusd">-</span>)<br><br><a href="page14.html" class="text-primary"><strong>CLAIM ALL</strong></a><br><br><a href="page14.html" class="text-primary"><strong><br></strong></a></p>
                             
                            
                         </div>
@@ -215,7 +215,7 @@
                             <h4 class="mbr-element-title align-center mbr-fonts-style pb-2 display-5">
                                 My Wallet</h4>
                             <p class="mbr-section-text align-center mbr-fonts-style display-7">
-                                - TRX ($)<br>- GLDI ($)<br>- GLDE ($)<br><br><br></p>
+                                <span id="mytrx">-</span> TRX ($<span id="mytrxusd">-</span>)<br><span id="mygldi">-</span> GLDI ($<span id="mygldiusd">-</span>)<br><span id="myglde">-</span> GLDE ($<span id="mygldeusd">-</span>)<br><br><br></p>
                         </div>
 
                        
@@ -1436,7 +1436,10 @@ var totalgldidailyusd=Number(round(((Number(fdailyreward)+Number(GGdailyreward)+
 var totalgldedailyusd=Number(round((((Number(Cdailyreward)+Number(Tdailyreward)+Number(Gdailyreward)+Number(xGGdailyreward)+Number(Pdailyreward)))/1000000)*eggsprice));
 
 var totalusd=Number(xGGlppoolsupplyusd+GGlppoolsupplyusd+Tlppoolsupplyusd+Zlppoolsupplyusd+Glppoolsupplyusd+Clppoolsupplyusd+flppoolsupplyusd+Plppoolsupplyusd);
+
 document.getElementById("totalusd").innerHTML=round(totalusd);
+
+/*
 document.getElementById("mytotalusd").innerHTML=round(((staked)*Clpprice)+((fstaked)*flpprice)+((Gstaked)*Glpprice)+((Zstaked)*Zlpprice)+((GGstaked)*GGlpprice)+((xGGstaked)*xGGlpprice)+((Tstaked)*Tlpprice)+((Plppoolsupplyusd/100)*Pstaked/(PfarmLPtotalSupply/100))) || 0;
 document.getElementById("totalgldedaily").innerHTML=round((Number(Cdailyreward)+Number(Gdailyreward)+Number(xGGdailyreward)+Number(Tdailyreward)+Number(Pdailyreward))/1000000);
 document.getElementById("totalgldedailyusd").innerHTML=totalgldedailyusd;
@@ -1444,14 +1447,14 @@ document.getElementById("totalgldidaily").innerHTML=round(((Number(GGdailyreward
 document.getElementById("totalgldidailyusd").innerHTML=totalgldidailyusd;
 var totaldailyusd=Number(totalgldidailyusd+totalgldedailyusd);
 document.getElementById("totaldailyusd").innerHTML=round(totaldailyusd);
-
+*/
 var totaldailyroi=totaldailyusd/(totalusd/100);
 
-
+/*
 document.getElementById("globalyearlyroi").innerHTML=roundz(totaldailyroi*365); 
 document.getElementById("globaldailyroi").innerHTML=roundz(totaldailyroi);
 document.getElementById("globalweeklyroi").innerHTML=roundz(totaldailyroi*7);
-
+*/
 
 var mytotalgldedaily=round(Number(Cdailyprod)+Number(Tdailyprod)+Number(Gdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000))|| 0;
 var mytotalgldidaily=round(Number(GGdailyprod)+Number(fdailyprod)+Number(Zdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000))|| 0;
@@ -1462,13 +1465,13 @@ var mytotalgldidailyusd=Number(round(mytotalgldidaily*deggsprice))|| 0;
 
 var mytotaldailyusd=round(mytotalgldedailyusd+mytotalgldidailyusd)|| 0;
 
-
+/*
 document.getElementById("mytotalgldedaily").innerHTML=mytotalgldedaily;
 document.getElementById("mytotalgldedailyusd").innerHTML=mytotalgldedailyusd;
 document.getElementById("mytotalgldidaily").innerHTML=mytotalgldidaily;
 document.getElementById("mytotalgldidailyusd").innerHTML=mytotalgldidailyusd;
 document.getElementById("mytotaldailyusd").innerHTML=mytotaldailyusd;
-
+*/
 
 
 var mytotalgldireward=Number(round(((Number(GGearned)+Number(fearned)+Number(Zearned)+Number(xGGearned)+Number(Pearned))/1000000)));
@@ -1489,7 +1492,7 @@ document.getElementById("mytotalgldereward").innerHTML=mytotalgldereward;
 document.getElementById("mytotalglderewardusd").innerHTML=mytotalglderewardusd;
 document.getElementById("mytotalgldireward").innerHTML=mytotalgldireward;
 document.getElementById("mytotalgldirewardusd").innerHTML=mytotalgldirewardusd;
-document.getElementById("mytotalrewardusd").innerHTML=mytotalrewardusd;
+//document.getElementById("mytotalrewardusd").innerHTML=mytotalrewardusd;
 	
 
 	
@@ -1522,12 +1525,13 @@ document.getElementById("mygldeusd").innerHTML=round(mygldeusd) || 0;
 document.getElementById("mygldi").innerHTML=round(mygldi) || 0;
 document.getElementById("mygldiusd").innerHTML=round(mygldiusd) || 0;
 
+/*
 var resources=await tronWeb.trx.getAccountResources('TWYWCSqofuNcE7G14tWSA3PqgSffnq6XZu');
 document.getElementById("energy").innerHTML=resources.EnergyLimit-resources.EnergyUsed;
 
 var presources=await tronWeb.trx.getAccountResources('TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f');
 document.getElementById("penergy").innerHTML=presources.EnergyLimit-presources.EnergyUsed;
-
+*/
 }
 
 async function lottery(){
@@ -1958,7 +1962,7 @@ start();
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/w" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Mobirise web maker - <a href="https://mobirise.site/p" style="color:#aaa;">Get more</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/v" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/q" style="color:#aaa;">The site</a> was made with Mobirise site template</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
