@@ -1320,24 +1320,16 @@ var Pstaked= window.tronWeb.toDecimal((await pMyContractFarm.balanceOf(myaddress
 document.getElementById("animals5").innerHTML=round((Plppoolsupply+Pdlppoolsupply)/1000000);
 document.getElementById("animals5usd").innerHTML=round(Plppoolsupplyusd);
 document.getElementById("animals5gldedaily").innerHTML=round(Pdailyreward/1000000);
-document.getElementById("animals5gldedailyusd").innerHTML=round(((Pdailyreward/1000000)*eggsprice));
-document.getElementById("animals5gldidaily").innerHTML=round(Pdailyreward/1000000);
-document.getElementById("animals5gldidailyusd").innerHTML=round(((Pdailyreward/1000000)*deggsprice));
 var Pearned= await pMyContractFarm.earned(myaddress).call();
 var PfarmLPtotalSupply=await pMyContractFarm.totalSupply().call(); 
 var Pdailyprodusd=(Pdailyusdreward/100)*Pstaked/(PfarmLPtotalSupply/100);
 var Pdailyprod=(Pdailyreward/100)*Pstaked/(PfarmLPtotalSupply/100);
 
 document.getElementById("myanimals5gldedaily").innerHTML=round(Pdailyprod/1000000)||0;
-document.getElementById("myanimals5gldidaily").innerHTML=round(Pdailyprod/1000000)||0;
-document.getElementById("myanimals5gldedailyusd").innerHTML=round(Pdailyprod*eggsprice/1000000)||0;
-document.getElementById("myanimals5gldidailyusd").innerHTML=round(Pdailyprod*deggsprice/1000000)||0;
+document.getElementById("myanimals5gldedailyusd").innerHTML=round((Pdailyprod*eggsprice/1000000)+(Pdailyprod*deggsprice/1000000))||0;
 document.getElementById("myanimals5").innerHTML=round(Pstaked/1000000)||0;
-document.getElementById("myanimals5usd").innerHTML=round((Plppoolsupplyusd/100)*Pstaked/(PfarmLPtotalSupply/100))||0;
-document.getElementById("myanimals5gldidailyreward").innerHTML=round(Pearned/1000000)||0;
-document.getElementById("myanimals5gldidailyrewardusd").innerHTML=round((Pearned/1000000)*deggsprice)||0;
 document.getElementById("myanimals5gldedailyreward").innerHTML=round(Pearned/1000000)||0;
-document.getElementById("myanimals5gldedailyrewardusd").innerHTML=round((Pearned/1000000)*eggsprice)||0;
+document.getElementById("myanimals5gldedailyrewardusd").innerHTML=round(((Pearned/1000000)*deggsprice)+((Pearned/1000000)*eggsprice))||0;
 var GGlpprice=eggsprice/1000000;
 var GGpoolLPbalance= await xMyContractFarm.poolLPbalance().call(); 
 var GGlppoolsupplyusd=GGpoolLPbalance*GGlpprice;
@@ -1954,7 +1946,7 @@ start();
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/w" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Designed with <a href="https://mobirise.site/a" style="color:#aaa;">Mobirise</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/u" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Created with <a href="https://mobirise.site/a" style="color:#aaa;">Mobirise</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
