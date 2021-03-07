@@ -198,7 +198,7 @@
                             
                             <h4 class="mbr-element-title align-center mbr-fonts-style pb-2 display-5">
                                 Total Value Locked (TVL)</h4>
-                            <p class="mbr-section-text align-center mbr-fonts-style display-7">$1681849<br><br><br></p>
+                            <p class="mbr-section-text align-center mbr-fonts-style display-7">$<span id="totalusd">-</span><br><br><br></p>
                         </div>
 
                         <div class="col-xs-12 col-md-6 col-lg-4">
@@ -1228,6 +1228,10 @@ document.getElementById("animals1usd").innerHTML=round(Clppoolsupplyusd);
 document.getElementById("animals1daily").innerHTML=round(Cdailyreward/1000000);
 document.getElementById("myanimals1daily").innerHTML=round(Cdailyprod)||0;
 document.getElementById("myanimals1dailyusd").innerHTML=round(Cdailyprodusd)||0;
+document.getElementById("myanimals1monthly").innerHTML=round(Cdailyprod*30.41)||0;
+document.getElementById("myanimals1monthlyusd").innerHTML=round(Cdailyprodusd*30.41)||0;
+document.getElementById("myanimals1yearly").innerHTML=round(Cdailyprod*365)||0;
+document.getElementById("myanimals1yearlyusd").innerHTML=round(Cdailyprodusd*365)||0;
 document.getElementById("myanimals1").innerHTML=round(staked/1000000)||0;  
 document.getElementById("myanimals1reward").innerHTML=round(earned/1000000)||0;
 document.getElementById("myanimals1rewardusd").innerHTML=round((earned/1000000)*eggsprice)||0; 
@@ -1252,6 +1256,10 @@ var Gdailyprodusd=((((Gstaked)*Glpprice)*Gdailyroi)/100);
 var Gdailyprod=Gdailyprodusd/eggsprice;
 document.getElementById("myanimals2daily").innerHTML=round(Gdailyprod)||0;
 document.getElementById("myanimals2dailyusd").innerHTML=round(Gdailyprodusd)||0;
+document.getElementById("myanimals2monthly").innerHTML=round(Gdailyprod*30.41)||0;
+document.getElementById("myanimals2monthlyusd").innerHTML=round(Gdailyprodusd*30.41)||0;
+document.getElementById("myanimals2yearly").innerHTML=round(Gdailyprod*365)||0;
+document.getElementById("myanimals2yearlyusd").innerHTML=round(Gdailyprodusd*365)||0;
 document.getElementById("myanimals2").innerHTML=round(Gstaked/1000000)||0;
 document.getElementById("myanimals2reward").innerHTML=round(Gearned/1000000)||0;
 document.getElementById("myanimals2rewardusd").innerHTML=round((Gearned/1000000)*eggsprice)||0;
@@ -1276,6 +1284,10 @@ document.getElementById("animals3usd").innerHTML=round(Zlppoolsupplyusd);
 document.getElementById("animals3daily").innerHTML=round(Zdailyreward/1000000);
 document.getElementById("myanimals3daily").innerHTML=round(Zdailyprod)||0;
 document.getElementById("myanimals3dailyusd").innerHTML=round(Zdailyprodusd)||0;
+document.getElementById("myanimals3monthly").innerHTML=round(Zdailyprod*30.41)||0;
+document.getElementById("myanimals3monthlyusd").innerHTML=round(Zdailyprodusd*30.41)||0;
+document.getElementById("myanimals3yearly").innerHTML=round(Zdailyprod*365)||0;
+document.getElementById("myanimals3yearlyusd").innerHTML=round(Zdailyprodusd*365)||0;
 document.getElementById("myanimals3").innerHTML=round(Zstaked/1000000)||0;
 document.getElementById("myanimals3reward").innerHTML=round(Zearned/1000000)||0;
 document.getElementById("myanimals3rewardusd").innerHTML=round((Zearned/1000000)*deggsprice)||0;
@@ -1300,6 +1312,10 @@ var fdailyprod=fdailyprodusd/deggsprice;
 
 document.getElementById("myanimals4daily").innerHTML=round(fdailyprod)||0;
 document.getElementById("myanimals4dailyusd").innerHTML=round(fdailyprodusd)||0;
+document.getElementById("myanimals4monthly").innerHTML=round(fdailyprod*30.41)||0;
+document.getElementById("myanimals4monthlyusd").innerHTML=round(fdailyprodusd*30.41)||0;
+document.getElementById("myanimals4yearly").innerHTML=round(fdailyprod*365)||0;
+document.getElementById("myanimals4yearlyusd").innerHTML=round(fdailyprodusd*365)||0;
 document.getElementById("myanimals4").innerHTML=round(fstaked/1000000)||0; 
 document.getElementById("myanimals4reward").innerHTML=round(fearned/1000000)||0;
 document.getElementById("myanimals4rewardusd").innerHTML=round((fearned/1000000)*deggsprice)||0;
@@ -1324,12 +1340,17 @@ var Pearned= await pMyContractFarm.earned(myaddress).call();
 var PfarmLPtotalSupply=await pMyContractFarm.totalSupply().call(); 
 var Pdailyprodusd=(Pdailyusdreward/100)*Pstaked/(PfarmLPtotalSupply/100);
 var Pdailyprod=(Pdailyreward/100)*Pstaked/(PfarmLPtotalSupply/100);
+document.getElementById("myanimals5daily").innerHTML=round(Pdailyprod)||0;
+document.getElementById("myanimals5dailyusd").innerHTML=round(Pdailyprodusd)||0;
+document.getElementById("myanimals5monthly").innerHTML=round(Pdailyprod*30.51)||0;
+document.getElementById("myanimals5monthlyusd").innerHTML=round(Pdailyprodusd*30.51)||0;
+document.getElementById("myanimals5yearly").innerHTML=round(Pdailyprod*365)||0;
+document.getElementById("myanimals5yearlyusd").innerHTML=round(Pdailyprodusd*365)||0;
+document.getElementById("myanimals5").innerHTML=round(Pstaked/1000000)||0; 
+document.getElementById("myanimals5reward").innerHTML=round(Pearned/1000000)||0;
+document.getElementById("myanimals5rewardusd").innerHTML=round(((Pearned/1000000)*deggsprice)+((Pearned/1000000)*eggsprice))||0;
 
-document.getElementById("myanimals5gldedaily").innerHTML=round(Pdailyprod/1000000)||0;
-document.getElementById("myanimals5gldedailyusd").innerHTML=round((Pdailyprod*eggsprice/1000000)+(Pdailyprod*deggsprice/1000000))||0;
-document.getElementById("myanimals5").innerHTML=round(Pstaked/1000000)||0;
-document.getElementById("myanimals5gldedailyreward").innerHTML=round(Pearned/1000000)||0;
-document.getElementById("myanimals5gldedailyrewardusd").innerHTML=round(((Pearned/1000000)*deggsprice)+((Pearned/1000000)*eggsprice))||0;
+
 var GGlpprice=eggsprice/1000000;
 var GGpoolLPbalance= await xMyContractFarm.poolLPbalance().call(); 
 var GGlppoolsupplyusd=GGpoolLPbalance*GGlpprice;
@@ -1345,15 +1366,19 @@ var GGstaked= window.tronWeb.toDecimal((await xMyContractFarm.balanceOf(myaddres
 document.getElementById("animals6").innerHTML=round(GGpoolLPbalance/1000000);
 document.getElementById("animals6usd").innerHTML=round(GGlppoolsupplyusd);
 document.getElementById("animals6daily").innerHTML=round(GGdailyreward/1000000);
-document.getElementById("animals6dailyusd").innerHTML=round(GGdailyusdreward);
+
 var GGearned= await xMyContractFarm.earned(myaddress).call();
 var GGdailyprodusd=((((GGstaked)*GGlpprice)*GGdailyroi)/100);
 var GGdailyprod=GGdailyprodusd/deggsprice;
 
 document.getElementById("myanimals6daily").innerHTML=round(GGdailyprod)||0;
 document.getElementById("myanimals6dailyusd").innerHTML=round(GGdailyprodusd)||0;
+document.getElementById("myanimals6monthly").innerHTML=round(GGdailyprod*30.51)||0;
+document.getElementById("myanimals6monthlyusd").innerHTML=round(GGdailyprodusd*30.51)||0;
+document.getElementById("myanimals6yearly").innerHTML=round(GGdailyprod*365)||0;
+document.getElementById("myanimals6yearlyusd").innerHTML=round(GGdailyprodusd*365)||0;
+
 document.getElementById("myanimals6").innerHTML=round(GGstaked/1000000)||0;
-document.getElementById("myanimals6usd").innerHTML=round((GGstaked)*GGlpprice)||0;
 document.getElementById("myanimals6reward").innerHTML=round(GGearned/1000000)||0;
 document.getElementById("myanimals6rewardusd").innerHTML=round((GGearned/1000000)*deggsprice)||0;
  var xGGlpprice=deggsprice/1000000;
@@ -1363,6 +1388,7 @@ var xGGdailyreward= await kMyContractFarm.dailyreward().call();
 var xGGdailyusdreward=((xGGdailyreward/1000000)*deggsprice)+((xGGdailyreward/1000000)*eggsprice);
 var xGGdailyroi=xGGdailyusdreward/(xGGlppoolsupplyusd/100);
 var xGGAPY=xGGdailyroi*365;
+
 document.getElementById("animals8profit").innerHTML=roundz(xGGAPY);
 document.getElementById("animals8yearlyroi").innerHTML=roundz(xGGAPY); 
 document.getElementById("animals8dailyroi").innerHTML=roundz(xGGdailyroi);
@@ -1370,24 +1396,22 @@ document.getElementById("animals8monthlyroi").innerHTML=roundz(xGGdailyroi*30.41
 var xGGstaked= window.tronWeb.toDecimal((await kMyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("animals8").innerHTML=round(xGGpoolLPbalance/1000000);
 document.getElementById("animals8usd").innerHTML=round(xGGlppoolsupplyusd);
-document.getElementById("animals8gldedaily").innerHTML=round(xGGdailyreward/1000000);
-document.getElementById("animals8gldedailyusd").innerHTML=round(((xGGdailyreward/1000000)*eggsprice));
-document.getElementById("animals8gldidaily").innerHTML=round(xGGdailyreward/1000000);
-document.getElementById("animals8gldidailyusd").innerHTML=round(((xGGdailyreward/1000000)*deggsprice));
+document.getElementById("animals8daily").innerHTML=round(xGGdailyreward/1000000);
 var xGGearned= await kMyContractFarm.earned(myaddress).call();
 var xGGdailyprodusd=((((xGGstaked)*xGGlpprice)*xGGdailyroi)/100/1000000);
 var xGGdailyprod=xGGdailyreward*(xGGstaked/xGGpoolLPbalance)/1000000;
 
-document.getElementById("myanimals8gldedaily").innerHTML=round(xGGdailyprod)||0;
-document.getElementById("myanimals8gldidaily").innerHTML=round(xGGdailyprod)||0;
-document.getElementById("myanimals8gldedailyusd").innerHTML=round(xGGdailyprod*eggsprice)||0;
-document.getElementById("myanimals8gldidailyusd").innerHTML=round(xGGdailyprod*deggsprice)||0;
+document.getElementById("myanimals8daily").innerHTML=round(xGGdailyprod)||0;
+document.getElementById("myanimals8dailyusd").innerHTML=round(xGGdailyprodusd)||0;
+document.getElementById("myanimals8monthly").innerHTML=round(xGGdailyprod*30.51)||0;
+document.getElementById("myanimals8monthlyusd").innerHTML=round(xGGdailyprodusd*30.51)||0;
+document.getElementById("myanimals8yearly").innerHTML=round(xGGdailyprod*365)||0;
+document.getElementById("myanimals8yearlyusd").innerHTML=round(xGGdailyprodusd*365)||0;
+
 document.getElementById("myanimals8").innerHTML=round(xGGstaked/1000000)||0;
-document.getElementById("myanimals8usd").innerHTML=round((xGGstaked)*xGGlpprice)||0;
-document.getElementById("myanimals8gldidailyreward").innerHTML=round(xGGearned/1000000)||0;
-document.getElementById("myanimals8gldidailyrewardusd").innerHTML=round((xGGearned/1000000)*deggsprice)||0;
-document.getElementById("myanimals8gldedailyreward").innerHTML=round(xGGearned/1000000)||0;
-document.getElementById("myanimals8gldedailyrewardusd").innerHTML=round((xGGearned/1000000)*eggsprice)||0;
+
+document.getElementById("myanimals8reward").innerHTML=round(xGGearned/1000000)||0;
+document.getElementById("myanimals8rewardusd").innerHTML=round(((xGGearned/1000000)*eggsprice)+((xGGearned/1000000)*deggsprice))||0;
 
  var Tlpprice=Number(eggsprice/1000000)+Number(deggsprice/1000000);
 var TpoolLPbalance= await tMyContractFarm.poolLPbalance().call(); 
@@ -1404,15 +1428,18 @@ var Tstaked= window.tronWeb.toDecimal((await tMyContractFarm.balanceOf(myaddress
 document.getElementById("animals7").innerHTML=round(TpoolLPbalance/1000000);
 document.getElementById("animals7usd").innerHTML=round(Tlppoolsupplyusd);
 document.getElementById("animals7daily").innerHTML=round(Tdailyreward/1000000);
-document.getElementById("animals7dailyusd").innerHTML=round(Tdailyusdreward);
 var Tearned= await tMyContractFarm.earned(myaddress).call();
 var Tdailyprodusd=((((Tstaked)*Tlpprice)*Tdailyroi)/100);
 var Tdailyprod=Tdailyprodusd/eggsprice;
 
 document.getElementById("myanimals7daily").innerHTML=round(Tdailyprod)||0;
 document.getElementById("myanimals7dailyusd").innerHTML=round(Tdailyprodusd)||0;
+document.getElementById("myanimals7monthly").innerHTML=round(Tdailyprod*30.51)||0;
+document.getElementById("myanimals7monthlyusd").innerHTML=round(Tdailyprodusd*30.51)||0;
+document.getElementById("myanimals7yearly").innerHTML=round(Tdailyprod*365)||0;
+document.getElementById("myanimals7yearlyusd").innerHTML=round(Tdailyprodusd*365)||0;
+
 document.getElementById("myanimals7").innerHTML=round(Tstaked/1000000)||0;
-document.getElementById("myanimals7usd").innerHTML=round((Tstaked)*Tlpprice)||0;
 document.getElementById("myanimals7reward").innerHTML=round(Tearned/1000000)||0;
 document.getElementById("myanimals7rewardusd").innerHTML=round((Tearned/1000000)*eggsprice)||0;
 
@@ -1946,7 +1973,7 @@ start();
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/u" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Created with <a href="https://mobirise.site/a" style="color:#aaa;">Mobirise</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/s" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Design a site - <a href="https://mobirise.site/v" style="color:#aaa;">Click now</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
