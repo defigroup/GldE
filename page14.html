@@ -1222,7 +1222,7 @@ var Cdailyprod=Cdailyprodusd/eggsprice;
 document.getElementById("animals1profit").innerHTML=roundz(CAPY); 
 document.getElementById("animals1yearlyroi").innerHTML=roundz(CAPY); 
 document.getElementById("animals1dailyroi").innerHTML=roundz(Cdailyroi);
-document.getElementById("animals1weeklyroi").innerHTML=roundz(Cdailyroi*7);
+document.getElementById("animals1monthlyroi").innerHTML=roundz(Cdailyroi*30.41);
 document.getElementById("animals1").innerHTML=round(CpoolLPbalance/1000000);
 document.getElementById("animals1usd").innerHTML=round(Clppoolsupplyusd);
 document.getElementById("animals1daily").innerHTML=round(Cdailyreward/1000000);
@@ -1246,7 +1246,7 @@ var Gstaked= window.tronWeb.toDecimal((await dMyContractFarm.balanceOf(myaddress
 document.getElementById("animals2profit").innerHTML=roundz(GAPY); 
 document.getElementById("animals2yearlyroi").innerHTML=roundz(GAPY); 
 document.getElementById("animals2dailyroi").innerHTML=roundz(Gdailyroi);
-document.getElementById("animals2weeklyroi").innerHTML=roundz(Gdailyroi*7);
+document.getElementById("animals2monthlyroi").innerHTML=roundz(Gdailyroi*30.41);
 document.getElementById("animals2").innerHTML=round(GpoolLPbalance/1000000);
 document.getElementById("animals2usd").innerHTML=round(Glppoolsupplyusd);
 document.getElementById("animals2daily").innerHTML=round(Gdailyreward/1000000);
@@ -1274,7 +1274,7 @@ var Zdailyprod=Zdailyprodusd/deggsprice;
 document.getElementById("animals3profit").innerHTML=roundz(ZAPY);
 document.getElementById("animals3yearlyroi").innerHTML=roundz(ZAPY); 
 document.getElementById("animals3dailyroi").innerHTML=roundz(Zdailyroi);
-document.getElementById("animals3weeklyroi").innerHTML=roundz(Zdailyroi*7);
+document.getElementById("animals3monthlyroi").innerHTML=roundz(Zdailyroi*30.41);
 document.getElementById("animals3").innerHTML=round(ZpoolLPbalance/1000000);
 document.getElementById("animals3usd").innerHTML=round(Zlppoolsupplyusd);
 document.getElementById("animals3daily").innerHTML=round(Zdailyreward/1000000);
@@ -1295,7 +1295,7 @@ var fAPY=fdailyroi*365;
 document.getElementById("animals4profit").innerHTML=roundz(fAPY); 
 document.getElementById("animals4yearlyroi").innerHTML=roundz(fAPY); 
 document.getElementById("animals4dailyroi").innerHTML=roundz(fdailyroi);
-document.getElementById("animals4weeklyroi").innerHTML=roundz(fdailyroi*7);
+document.getElementById("animals4monthlyroi").innerHTML=roundz(fdailyroi*30.41);
 var fstaked= window.tronWeb.toDecimal((await fMyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("animals4").innerHTML=round(fpoolLPbalance/1000000);
 document.getElementById("animals4usd").innerHTML=round(flppoolsupplyusd);
@@ -1323,7 +1323,7 @@ var PAPY=Pdailyroi*365;
 document.getElementById("animals5profit").innerHTML=roundz(PAPY);
 document.getElementById("animals5yearlyroi").innerHTML=roundz(PAPY); 
 document.getElementById("animals5dailyroi").innerHTML=roundz(Pdailyroi);
-document.getElementById("animals5weeklyroi").innerHTML=roundz(Pdailyroi*7);
+document.getElementById("animals5monthlyroi").innerHTML=roundz(Pdailyroi*30.41);
 var Pstaked= window.tronWeb.toDecimal((await pMyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("animals5").innerHTML=round((Plppoolsupply+Pdlppoolsupply)/1000000);
 document.getElementById("animals5usd").innerHTML=round(Plppoolsupplyusd);
@@ -1356,7 +1356,7 @@ var GGAPY=GGdailyroi*365;
 document.getElementById("animals6profit").innerHTML=roundz(GGAPY);
 document.getElementById("animals6yearlyroi").innerHTML=roundz(GGAPY); 
 document.getElementById("animals6dailyroi").innerHTML=roundz(GGdailyroi);
-document.getElementById("animals6weeklyroi").innerHTML=roundz(GGdailyroi*7);
+document.getElementById("animals6monthlyroi").innerHTML=roundz(GGdailyroi*30.41);
 var GGstaked= window.tronWeb.toDecimal((await xMyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("animals6").innerHTML=round(GGpoolLPbalance/1000000);
 document.getElementById("animals6usd").innerHTML=round(GGlppoolsupplyusd);
@@ -1382,7 +1382,7 @@ var xGGAPY=xGGdailyroi*365;
 document.getElementById("animals8profit").innerHTML=roundz(xGGAPY);
 document.getElementById("animals8yearlyroi").innerHTML=roundz(xGGAPY); 
 document.getElementById("animals8dailyroi").innerHTML=roundz(xGGdailyroi);
-document.getElementById("animals8weeklyroi").innerHTML=roundz(xGGdailyroi*7);
+document.getElementById("animals8monthlyroi").innerHTML=roundz(xGGdailyroi*30.41);
 var xGGstaked= window.tronWeb.toDecimal((await kMyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("animals8").innerHTML=round(xGGpoolLPbalance/1000000);
 document.getElementById("animals8usd").innerHTML=round(xGGlppoolsupplyusd);
@@ -1415,7 +1415,7 @@ var TAPY=Tdailyroi*365;
 document.getElementById("animals7profit").innerHTML=roundz(TAPY);
 document.getElementById("animals7yearlyroi").innerHTML=roundz(TAPY); 
 document.getElementById("animals7dailyroi").innerHTML=roundz(Tdailyroi);
-document.getElementById("animals7weeklyroi").innerHTML=roundz(Tdailyroi*7);
+document.getElementById("animals7monthlyroi").innerHTML=roundz(Tdailyroi*30.41);
 var Tstaked= window.tronWeb.toDecimal((await tMyContractFarm.balanceOf(myaddress).call())._hex); 
 document.getElementById("animals7").innerHTML=round(TpoolLPbalance/1000000);
 document.getElementById("animals7usd").innerHTML=round(Tlppoolsupplyusd);
@@ -1453,7 +1453,7 @@ var totaldailyroi=totaldailyusd/(totalusd/100);
 /*
 document.getElementById("globalyearlyroi").innerHTML=roundz(totaldailyroi*365); 
 document.getElementById("globaldailyroi").innerHTML=roundz(totaldailyroi);
-document.getElementById("globalweeklyroi").innerHTML=roundz(totaldailyroi*7);
+document.getElementById("globalmonthlyroi").innerHTML=roundz(totaldailyroi*30.41);
 */
 
 var mytotalgldedaily=round(Number(Cdailyprod)+Number(Tdailyprod)+Number(Gdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod/1000000))|| 0;
@@ -1962,7 +1962,7 @@ start();
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/d" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Designed with Mobirise - <a href="https://mobirise.site/k" style="color:#aaa;">Click now</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/h" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Develop a site - <a href="https://mobirise.site/w" style="color:#aaa;">Go here</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
