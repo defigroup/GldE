@@ -2393,6 +2393,91 @@ section.lazy-placeholder:after {
   pointer-events: none;
   box-shadow: inset 0 0 0 3px #ffffff, 0 0 0 4px #ffffff, 3px -3px 30px #1beabd, -3px 3px 30px #10abff;
 }
+.cid-sr6jBOuFyR {
+  padding-top: 0px;
+  padding-bottom: 90px;
+  background-color: #e2ebea;
+}
+.cid-sr6jBOuFyR .mbr-section-subtitle {
+  color: #232323;
+}
+.cid-sr6jBOuFyR .container-table {
+  margin: 0 auto;
+}
+.cid-sr6jBOuFyR .scroll {
+  overflow-x: auto;
+  padding: 0;
+}
+.cid-sr6jBOuFyR .dataTables_wrapper {
+  display: block;
+}
+.cid-sr6jBOuFyR .dataTables_wrapper .search {
+  margin-bottom: .5rem;
+}
+.cid-sr6jBOuFyR .dataTables_wrapper .table {
+  overflow-x: auto;
+}
+.cid-sr6jBOuFyR table {
+  width: 100% !important;
+  margin-top: 6px;
+  border: 1px solid #cccccc;
+  margin-bottom: 0;
+}
+.cid-sr6jBOuFyR table th {
+  border-top: none;
+  transition: all .2s;
+  border-bottom: none;
+}
+.cid-sr6jBOuFyR table th:hover {
+  background: #cccccc;
+  color: #000000;
+}
+.cid-sr6jBOuFyR table td {
+  border-top: 1px solid #cccccc;
+}
+.cid-sr6jBOuFyR table.table {
+  background: #efefef;
+}
+.cid-sr6jBOuFyR .dataTables_filter {
+  text-align: right;
+  margin-bottom: .5rem;
+}
+.cid-sr6jBOuFyR .dataTables_filter label {
+  display: inline;
+  white-space: normal !important;
+}
+.cid-sr6jBOuFyR .dataTables_filter input {
+  display: inline;
+  width: auto;
+  margin-left: .5rem;
+  border-radius: 100px;
+  padding-left: 1rem;
+}
+.cid-sr6jBOuFyR .dataTables_info {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  white-space: normal !important;
+}
+@media (max-width: 992px) {
+  .cid-sr6jBOuFyR .dataTables_filter {
+    text-align: center;
+  }
+}
+@media (max-width: 350px) {
+  .cid-sr6jBOuFyR .dataTables_filter {
+    text-align: center;
+  }
+  .cid-sr6jBOuFyR .dataTables_filter input {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+}
+.cid-sr6jBOuFyR .head-item {
+  text-align: center;
+}
+.cid-sr6jBOuFyR .body-item {
+  text-align: center;
+}
 .cid-sr6fqZxDNC {
   padding-top: 90px;
   padding-bottom: 90px;
