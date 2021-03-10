@@ -141,7 +141,7 @@
                                      <h4 class="card-title mbr-fonts-style display-1">Golden Shells<br>(GLDS)</h4>
                                     <!--Subtitle-->
                                  
-                       <p class="mbr-text mbr-fonts-style col-right mbr-black align-center display-7"><br>Supply:<em> <span id="sgldesupply">-</span> GLDI</em><br>Liquidity:<em> $<span id="sliquidity">-</span></em><br>1 GLDE<em>: <span id="sgldetrx">-</span> TRX ($<span id="seggspriceusd">-</span>)</em><br><br><strong>GLDS STARTS IN<br><span id="countdown">-:-:-</span></strong><br><em><a href="https://justswap.io/?lang=en-US#/scan/detail/trx/TRR2Sztqm64aUDUnT3JAj37koEkYXQ8hpn" class="text-primary" target="_blank"><i>Justswap</i></a><br></em><br><br></p>
+                       <p class="mbr-text mbr-fonts-style col-right mbr-black align-center display-7"><br>Supply:<em> <span id="sgldesupply">-</span> GLDS</em><br>Liquidity:<em> $<span id="sliquidity">-</span></em><br>1 GLDS<em>: <span id="sgldetrx">-</span> TRX ($<span id="seggspriceusd">-</span>)</em><br><br><strong>GLDS STARTS IN<br><span id="countdown">-:-:-</span></strong><br><em><a href="https://justswap.io/?lang=en-US#/scan/detail/trx/TRR2Sztqm64aUDUnT3JAj37koEkYXQ8hpn" class="text-primary" target="_blank"><i>Justswap</i></a><br></em><br><br></p>
                                     <!--Btn-->
                                   
                                  
@@ -209,7 +209,7 @@
                             <h4 class="mbr-element-title align-center mbr-fonts-style pb-2 display-5">
                                 My Wallet</h4>
                             <p class="mbr-section-text align-center mbr-fonts-style display-7">
-                                <span id="mytrx">-</span> TRX ($<span id="mytrxusd">-</span>)<br><span id="mygldi">-</span> GLDI ($<span id="mygldiusd">-</span>)<br><span id="myglde">-</span> GLDE ($<span id="mygldeusd">-</span>)<br><br><a onclick="gnomes()" class="text-primary">REINVEST IN GNOMES</a><br><a onclick="fairies()" class="text-primary">REINVEST IN FAIRIES</a><br><a onclick="dragons()" class="text-primary">REINVEST IN DRAGONS</a><br><br><br></p>
+                                <span id="mytrx">-</span> TRX ($<span id="mytrxusd">-</span>)<br><span id="mygldi">-</span> GLDI ($<span id="mygldiusd">-</span>)<br><span id="myglde">-</span> GLDE ($<span id="mygldeusd">-</span>)<br><span id="myglds">-</span> GLDS ($<span id="mygldsusd">-</span>)<br><br><a onclick="gnomes()" class="text-primary">REINVEST IN GNOMES</a><br><a onclick="fairies()" class="text-primary">REINVEST IN FAIRIES</a><br><a onclick="dragons()" class="text-primary">REINVEST IN DRAGONS</a><br><br><br></p>
                         </div>
 
                        
@@ -1181,7 +1181,8 @@ document.getElementById("sgldesupply").innerHTML=round((seggsupply)/1000000);
 document.getElementById("dgldesupply").innerHTML=round((deggsupply-diamondburned-diamondburned2)/1000000);
 document.getElementById("gldesupply").innerHTML=round((eggsupply-eggburned-eggburned2)/1000000);
 let TokenToTrxInputPrice=await contract1.TokenToTrxInputPrice(1000000).call();
-let sTokenToTrxInputPrice= sexchangetrx/(await sMyContract.balanceOf(sexchangeaddr).call()); 
+let sgldeinexchange=await sMyContract.balanceOf(sexchangeaddr).call();
+let sTokenToTrxInputPrice= sexchangetrx/sgldeinexchange; 
 
 seggsprice=(sTokenToTrxInputPrice/1000000)*trxprice;
 
@@ -1552,11 +1553,13 @@ wupdating=1;
 var mytrx=(await tronWeb.trx.getBalance(myaddress))/1000000;
 var mygldi= (await dMyContract.balanceOf(myaddress).call())/1000000; 
 var myglde= (await MyContract.balanceOf(myaddress).call())/1000000; 
+var myglds= (await sMyContract.balanceOf(myaddress).call())/1000000; 
 
 mydiamonds=mygldi*1000000;
 
 var mygldiusd=mygldi*deggsprice;
 var mygldeusd=myglde*eggsprice;
+var mygldsusd=myglds*seggsprice;
 var mytrxusd=mytrx*trxprice;
 
 
@@ -1567,7 +1570,8 @@ document.getElementById("myglde").innerHTML=round(myglde) || 0;
 document.getElementById("mygldeusd").innerHTML=round(mygldeusd) || 0;
 document.getElementById("mygldi").innerHTML=round(mygldi) || 0;
 document.getElementById("mygldiusd").innerHTML=round(mygldiusd) || 0;
-
+document.getElementById("myglds").innerHTML=round(myglds) || 0;
+document.getElementById("mygldsusd").innerHTML=round(mygldsusd) || 0;
 
 var resources=await tronWeb.trx.getAccountResources('TWYWCSqofuNcE7G14tWSA3PqgSffnq6XZu');
 document.getElementById("farmsenergy").innerHTML=resources.EnergyLimit-resources.EnergyUsed;
@@ -2147,7 +2151,7 @@ start();
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/z" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/d" style="color:#aaa;">This web page</a> was made with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/g" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Develop a <a href="https://mobirise.site/y" style="color:#aaa;">web page</a> with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
