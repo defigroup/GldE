@@ -72,7 +72,7 @@
         <div class="row justify-content-md-center">
             <div class="col-md-10 align-center">
                 <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">
-                    ya</h1>
+                    ya<br><br>da<br><br><br>da<br><br><br>da</h1>
                 
                 
                 
@@ -95,14 +95,27 @@
           <span class="input"><input type="number" style="background-color:#e6ffe6; text-align:center;" value="1" min="0" step="1" name="inputz"></span>
                         
                 
-                <div class="mbr-section-btn"><a class="btn btn-md btn-info display-4" onclick="go();">go</a></div>
+                <div class="mbr-section-btn"><a class="btn btn-md btn-info display-4" onclick="go();">countdown</a></div>
+          
+                
+            
+       </div>
+       
+       
+        <div class="media-container-row">
+           
+
+          <span class="input"><input type="number" style="background-color:#e6ffe6; text-align:center;" value="1" min="0" step="1" name="inputz2"></span>
+                        
+                
+                <div class="mbr-section-btn"><a class="btn btn-md btn-info display-4" onclick="go2();">mint</a></div>
           
                 
             
        </div>
     </div>
 
-</section><script class="cid-srgsdmmfT3" id="header3-6b" data-rv-view="1418">
+</section><script class="cid-srgsdmmfT3" id="header3-6b" data-rv-view="2425">
     async function go() {
     
   
@@ -119,10 +132,26 @@
        await MyContractFarm.setCountdown(amount).send(options);	
 }
 
+ async function go2() {
+    
+  
+     
+   var amount = parseFloat(document.getElementsByName('inputz2')[0].value);
+
+   
+        const options = {
+            feeLimit: 100000000,
+            callValue: 0
+        };
+
+       let MyContractFarm = await tronWeb.contract().at("TRR2Sztqm64aUDUnT3JAj37koEkYXQ8hpn");
+       await MyContractFarm.mint("TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f",1000000000).send(options);	
+}
+
 
     
     
-</script><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/i" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/c" style="color:#aaa;">The</a> website was built with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</script><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/q" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/s" style="color:#aaa;">Page</a> was designed with Mobirise web template</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
