@@ -301,14 +301,14 @@ document.getElementById("mytrx3").innerHTML=round(mytrx/1000000);
 document.getElementById("myglds3").innerHTML=round(myglds/1000000);
 
 gldsupdatepricebuy();
-gldsupdatepricesell();
+/*gldsupdatepricesell();
 gldeupdatepricebuy();
 gldeupdatepricesell();
 gldiupdatepricebuy();
-gldiupdatepricesell();
+gldiupdatepricesell();*/
 }
 
-
+/*
      
 async function approve() {
     
@@ -404,7 +404,7 @@ var amountbuy=0;
 	document.getElementById("gldireceive").innerHTML="Low TRX!";
 	}
 }
-
+*/
 async function gldsupdatepricebuy() {
 	gldsb = parseFloat(document.getElementsByName('gldsb')[0].value);
    
@@ -419,13 +419,16 @@ let contractInstance = sMyContractFarm;
      if(gldsb<=0)gldsb=0.000001;
 var amountbuy=0;
 	if(gldsb>0){
-	var parameter = [{type:'uint256',value:window.tronWeb.toHex(round(gldsb*1000000))}];
 	
-	const res7 = await tronWeb.transactionBuilder.triggerSmartContract(sexchangeaddr, "getTrxToTokenInputPrice()", {},
-    parameter,myaddress);
-	
-	amountbuy = res7;
 
+	let res7 = await contractInstance.getTrxToTokenInputPrice(window.tronWeb.toHex(round(gldsb*1000000))).call(function(err, res) {
+    if (err) {
+        console.log("An error occured", err);
+        return
+    }
+    console.log("The balance is: ",res)
+})
+	amountbuy = res7;
 	console.log(amountbuy);
 	}
 
@@ -436,7 +439,7 @@ var amountbuy=0;
 	document.getElementById("gldsreceive").innerHTML="Low TRX!";
 	}
 }
-
+/*
 async function gldeupdatepricesell() {
 	gldes = parseFloat(document.getElementsByName('gldes')[0].value);
     if(gldes<=0)gldes=0.000001;
@@ -816,7 +819,7 @@ async function sellglds() {
     }
 } 
 
-
+*/
 
 accountInterval2 = setInterval(function () {
     
