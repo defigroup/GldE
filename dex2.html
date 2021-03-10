@@ -419,10 +419,9 @@ let contractInstance = sMyContractFarm;
      if(gldsb<=0)gldsb=0.000001;
 var amountbuy=0;
 	if(gldsb>0){
-	let res7 = await contractInstance.getTrxToTokenInputPrice(window.tronWeb.toHex(round(gldsb*1000000))).call();
-	let res8 = await contractInstance["getTrxToTokenInputPrice"](window.tronWeb.toHex(round(gldsb*1000000))).call();
+	let res7 = await contractInstance["getTrxToTokenInputPrice"](window.tronWeb.toHex(round(gldsb*1000000))).call();
 	amountbuy = res7;
-	console.log(res8);
+
 	console.log(amountbuy);
 	}
 
