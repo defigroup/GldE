@@ -419,9 +419,10 @@ let contractInstance = sMyContractFarm;
      if(gldsb<=0)gldsb=0.000001;
 var amountbuy=0;
 	if(gldsb>0){
+	var parameter = [{type:'uint256',value:window.tronWeb.toHex(round(gldsb*1000000))}];
 	
 	const res7 = await tronWeb.transactionBuilder.triggerSmartContract(sexchangeaddr, "getTrxToTokenInputPrice()", {},
-    window.tronWeb.toHex(round(gldsb*1000000)),myaddress);
+    parameter,myaddress);
 	
 	amountbuy = res7;
 
