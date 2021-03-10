@@ -1110,14 +1110,14 @@ var notch=0;
 var lupdating=0;
 var wupdating=0;
 
-var exchangeliquidityusd, trxprice,dexchangeliquidityusd;
+var exchangeliquidityusd, trxprice,dexchangeliquidityusd,sexchangeliquidityusd;
    var mydiamonds=0;  
    var lotterydapproved=0;
    var ticketprice=0;
-   var eggsprice,deggsprice;
-   var myeggs,dmyeggs;
+   var eggsprice,seggsprice,deggsprice;
+   var myeggs,dmyeggs,smyeggs;
 
-var infos,lotteryMyContractFarm,MyContract, dMyContract,contract1,contract4,contract3,contract6,contract8,contract7,contract5;
+var infos,lotteryMyContractFarm,MyContract, dMyContract,sMyContract,contract1,contract4,contract3,contract6,contract8,contract7,contract5;
 var prestart=0;
 async function start() {
 notch++;
@@ -1185,7 +1185,7 @@ let sgldeinexchange=await sMyContract.balanceOf(sexchangeaddr).call();
 let sTokenToTrxInputPrice= sexchangetrx/sgldeinexchange; 
 
 seggsprice=(sTokenToTrxInputPrice/1000000)*trxprice;
-
+console.log(seggsprice+"  "+sTokenToTrxInputPrice+"  "+sexchangetrx+"  "+sgldeinexchange);
  document.getElementById("seggspriceusd").innerHTML=round(seggsprice); 
  document.getElementById("sgldetrx").innerHTML=round(sTokenToTrxInputPrice/1000000);    
  document.getElementById("sliquidity").innerHTML=round(sexchangeliquidityusd); 
