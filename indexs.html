@@ -1181,13 +1181,13 @@ document.getElementById("sgldesupply").innerHTML=round((seggsupply)/1000000);
 document.getElementById("dgldesupply").innerHTML=round((deggsupply-diamondburned-diamondburned2)/1000000);
 document.getElementById("gldesupply").innerHTML=round((eggsupply-eggburned-eggburned2)/1000000);
 let TokenToTrxInputPrice=await contract1.TokenToTrxInputPrice(1000000).call();
-let sgldeinexchange=await sMyContract.balanceOf(sexchangeaddr).call();
-let sTokenToTrxInputPrice= sexchangetrx*1000000/sgldeinexchange; 
+let sgldeinexchange=await sMyContract.balanceOf(sexchangeaddr).call()/1000000;
+let sTokenToTrxInputPrice= (sexchangetrx)/sgldeinexchange; 
 
 seggsprice=(sTokenToTrxInputPrice/1000000)*trxprice;
-console.log(seggsprice+"  "+sTokenToTrxInputPrice+"  "+sexchangetrx+"  "+sgldeinexchange);
+console.log(seggsprice+"  "+sTokenToTrxInputPrice+"  "+sexchangetrx+" ggg "+sgldeinexchange);
  document.getElementById("seggspriceusd").innerHTML=round(seggsprice); 
- document.getElementById("sgldetrx").innerHTML=round(sTokenToTrxInputPrice/1000000);    
+ document.getElementById("sgldetrx").innerHTML=round(sTokenToTrxInputPrice);    
  document.getElementById("sliquidity").innerHTML=round(sexchangeliquidityusd); 
  ///////////////////////////
  
