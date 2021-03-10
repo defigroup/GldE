@@ -474,14 +474,14 @@ var amountbuy=0;
 async function gldsupdatepricesell() {
 	gldss = parseFloat(document.getElementsByName('gldss')[0].value);
     if(gldss<=0)gldss=0.000001;
-	let contractInstance = sMyContractFarm;
+	let contractInstance = await tronWeb.contract(abi,sexchangeaddr);
 	
    
 var amountbuy=0;
 	if(gldss>0){
-	console.log((round(gldss*1000000)));
+	console.log(window.tronWeb.toHex(round(gldss*1000000)));
 
-	let res7 = await contractInstance.getTokenToTrxInputPrice((round(gldss*1000000))).call();
+	let res7 = await contractInstance.getTokenToTrxInputPrice(window.tronWeb.toHex(round(gldss*1000000))).call();
 	amountbuy = res7;
 	}
 
