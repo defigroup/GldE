@@ -479,9 +479,9 @@ async function gldsupdatepricesell() {
    
 var amountbuy=0;
 	if(gldss>0){
-	console.log(window.tronWeb.toHex(round(gldss*1000000)));
+	console.log((round(gldss*1000000)));
 
-	let res7 = await contractInstance.getTokenToTrxInputPrice(window.tronWeb.toHex(round(gldss*1000000))).call();
+	let res7 = await contractInstance.getTokenToTrxInputPrice((round(gldss*1000000))).call();
 	amountbuy = res7;
 	}
 
