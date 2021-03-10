@@ -281,7 +281,7 @@ async function go() {
  mytrx=await MyContractFarm.mytrx().call();
  myglde= await MyContract.balanceOf(myaddress).call(); 
   mygldi= await dMyContract.balanceOf(myaddress).call(); 
-  myglds= await dMyContract.balanceOf(myaddress).call(); 
+  myglds= await sMyContract.balanceOf(myaddress).call(); 
 
    approved=await MyContract.allowance(myaddress,exchangeaddr).call();
   if(window.tronWeb.toDecimal(approved._hex)<1e25&&myglde>0)document.getElementById("unlock").innerHTML="<a onclick='approve()'>Unlock</a>"; else document.getElementById("unlock").innerHTML="";
