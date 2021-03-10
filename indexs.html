@@ -1184,8 +1184,8 @@ let TokenToTrxInputPrice=await contract1.TokenToTrxInputPrice(1000000).call();
 let sgldeinexchange=await sMyContract.balanceOf(sexchangeaddr).call()/1000000;
 let sTokenToTrxInputPrice= (sexchangetrx)/sgldeinexchange; 
 
-seggsprice=(sTokenToTrxInputPrice/1000000)*trxprice;
-console.log(seggsprice+"  "+sTokenToTrxInputPrice+"  "+sexchangetrx+" ggg "+sgldeinexchange);
+seggsprice=(sTokenToTrxInputPrice)*trxprice;
+
  document.getElementById("seggspriceusd").innerHTML=round(seggsprice); 
  document.getElementById("sgldetrx").innerHTML=round(sTokenToTrxInputPrice);    
  document.getElementById("sliquidity").innerHTML=round(sexchangeliquidityusd); 
@@ -1197,6 +1197,8 @@ console.log(seggsprice+"  "+sTokenToTrxInputPrice+"  "+sexchangetrx+" ggg "+sgld
 				var minutes = Math.floor((countdown % (60 * 60)) / (60));
 				var seconds = Math.floor((countdown % (60)));
 	document.getElementById("countdown").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
+ 
+ console.log(countdown);
  
  myeggs=await contract1.myeggs().call(); 
 let approved=await MyContract.allowance(myaddress,exchangeaddr).call();
