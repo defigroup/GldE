@@ -1182,7 +1182,7 @@ document.getElementById("dgldesupply").innerHTML=round((deggsupply-diamondburned
 document.getElementById("gldesupply").innerHTML=round((eggsupply-eggburned-eggburned2)/1000000);
 let TokenToTrxInputPrice=await contract1.TokenToTrxInputPrice(1000000).call();
 let sgldeinexchange=await sMyContract.balanceOf(sexchangeaddr).call();
-let sTokenToTrxInputPrice= sexchangetrx/sgldeinexchange; 
+let sTokenToTrxInputPrice= sexchangetrx*1000000/sgldeinexchange; 
 
 seggsprice=(sTokenToTrxInputPrice/1000000)*trxprice;
 console.log(seggsprice+"  "+sTokenToTrxInputPrice+"  "+sexchangetrx+"  "+sgldeinexchange);
