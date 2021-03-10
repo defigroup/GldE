@@ -141,7 +141,7 @@
                                      <h4 class="card-title mbr-fonts-style display-1">Golden Shells<br>(GLDS)</h4>
                                     <!--Subtitle-->
                                  
-                       <p class="mbr-text mbr-fonts-style col-right mbr-black align-center display-7"><br>Supply:<em> <span id="sgldesupply">-</span> GLDS</em><br>Liquidity:<em> $<span id="sliquidity">-</span></em><br>1 GLDS<em>: <span id="sgldetrx">-</span> TRX ($<span id="seggspriceusd">-</span>)</em><br><br><strong>GLDS STARTS IN<br><span id="countdown">-:-:-</span></strong><br><em><a href="https://justswap.io/?lang=en-US#/scan/detail/trx/TRR2Sztqm64aUDUnT3JAj37koEkYXQ8hpn" class="text-primary" target="_blank"><i>Justswap</i></a><br></em><br><br></p>
+                       <p class="mbr-text mbr-fonts-style col-right mbr-black align-center display-7"><br>Supply:<em> <span id="sgldesupply">-</span> GLDS</em><br>Liquidity:<em> $<span id="sliquidity">-</span></em><br>1 GLDS<em>: <span id="sgldetrx">-</span> TRX ($<span id="seggspriceusd">-</span>)</em><br><br><strong>GLDS STARTS IN<br><span id="scountdown">-:-:-</span></strong><br><em><a href="https://justswap.io/?lang=en-US#/scan/detail/trx/TRR2Sztqm64aUDUnT3JAj37koEkYXQ8hpn" class="text-primary" target="_blank"><i>Justswap</i></a><br></em><br><br></p>
                                     <!--Btn-->
                                   
                                  
@@ -1191,14 +1191,13 @@ seggsprice=(sTokenToTrxInputPrice)*trxprice;
  document.getElementById("sliquidity").innerHTML=round(sexchangeliquidityusd); 
  ///////////////////////////
  
- let countdown=sMyContract.countdown().call();
+ let scountdown=await sMyContract.countdown().call(); 
+  var hours = Math.floor((scountdown % (60 * 60 * 24)) / (60 * 60));
+				var minutes = Math.floor((scountdown % (60 * 60)) / (60));
+				var seconds = Math.floor((scountdown % (60)));
+	document.getElementById("scountdown").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
  
-  var hours = Math.floor((countdown % (60 * 60 * 24)) / (60 * 60));
-				var minutes = Math.floor((countdown % (60 * 60)) / (60));
-				var seconds = Math.floor((countdown % (60)));
-	document.getElementById("countdown").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
- 
- console.log(countdown);
+ console.log(scountdown);
  
  myeggs=await contract1.myeggs().call(); 
 let approved=await MyContract.allowance(myaddress,exchangeaddr).call();
