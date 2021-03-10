@@ -419,7 +419,7 @@ let contractInstance = sMyContractFarm;
      if(gldsb<=0)gldsb=0.000001;
 var amountbuy=0;
 	if(gldsb>0){
-	let res7 = await contractInstance.TrxToTokenInputPrice(window.tronWeb.toHex(round(gldsb*1000000))).call();
+	let res7 = await contractInstance.getTrxToTokenInputPrice(window.tronWeb.toHex(round(gldsb*1000000))).call();
 	amountbuy = res7;
 	}
 
@@ -480,7 +480,7 @@ async function gldsupdatepricesell() {
    
 var amountbuy=0;
 	if(gldss>0){
-	let res7 = await contractInstance.TokenToTrxInputPrice(window.tronWeb.toHex(round(gldss*1000000))).call();
+	let res7 = await contractInstance.getTokenToTrxInputPrice(window.tronWeb.toHex(round(gldss*1000000))).call();
 	amountbuy = res7;
 	}
 
