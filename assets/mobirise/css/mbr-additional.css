@@ -5816,6 +5816,39 @@ section.lazy-placeholder:after {
 .cid-snkTNmEWQI .mbr-section-btn {
   color: #073b4c;
 }
+.cid-srsniRveQv {
+  padding-top: 15px;
+  padding-bottom: 60px;
+  background-image: url("../../../assets/images/shellbig-600x600.png");
+}
+@media (min-width: 992px) {
+  .cid-srsniRveQv .mbr-figure {
+    padding-right: 4rem;
+  }
+}
+@media (max-width: 991px) {
+  .cid-srsniRveQv .mbr-figure {
+    padding-bottom: 3rem;
+  }
+}
+@media (max-width: 767px) {
+  .cid-srsniRveQv .mbr-text {
+    text-align: center;
+  }
+}
+.cid-srsniRveQv H1 {
+  text-align: center;
+  color: #212529;
+}
+.cid-srsniRveQv .mbr-text,
+.cid-srsniRveQv .mbr-section-btn {
+  text-align: center;
+  color: #212529;
+}
+.cid-srsniRveQv .mbr-text1,
+.cid-srsniRveQv .mbr-section-btn {
+  color: #073b4c;
+}
 .cid-snjBCJBsrN {
   padding-top: 90px;
   padding-bottom: 90px;
