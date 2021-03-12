@@ -62,30 +62,6 @@
     </nav>
 </section>
 
-<section class="header1 cid-snjNe5s24s" id="header16-2x">
-
-    
-
-    
-
-    <div class="container">
-        <div class="row justify-content-md-center">
-            <div class="col-md-10 align-center">
-                <h1 class="mbr-section-title mbr-bold pb-3 mbr-fonts-style display-1">
-                    Golden DEX</h1>
-                
-                <p class="mbr-text pb-3 mbr-fonts-style display-7">
-                    Buy and Sell GLDE and GLDI with one click!</p>
-                
-            </div>
-            <div id="installmetamask" style="color:Red; display:block;">  <h3 class="card-title mbr-fonts-style display-5"><br><br><center>
-               <a style="color:Red; " href="https://www.tronlink.org/" target="_new"><em>Please unlock your Tron wallet to start interacting</em></a><br></center></h3></div>
-                                </div>
-        </div>
-    
-
-</section>
-
 <section class="header3 cid-snjBGQhFPg mbr-parallax-background" id="header3-2u">
 
     
@@ -94,8 +70,10 @@
     </div>
 
     <div class="container">
-        
+         <div id="installmetamask" style="color:Red; display:block;">  <h3 class="card-title mbr-fonts-style display-5"><br><br><center>
+               <a style="color:Red; " href="https://www.tronlink.org/" target="_new"><em>Please unlock your Tron wallet to start interacting</em></a></center><br><center><a style="color:Red; " href="https://www.tronlink.org/" target="_new"><em><br></em></a><br></center></h3></div>
         <div class="media-container-row">
+              
             <div class="media-content">
                 <h1 class="mbr-section-title mbr-white pb-3 mbr-fonts-style display-5"><br>Buy GLDE</h1>
                 
@@ -121,8 +99,7 @@
                             
                             &nbsp;</span><span class="mbr-text1 mbr-fonts-style1"><span onclick="sellgldemax();"><em>Max</em></span></span><br>Will Receive: <span id="gldereceivetrx">-</span> TRX</p>
                 </div>
-                <div class="mbr-section-btn"><a class="btn btn-md btn-success display-4" onclick="sellglde();">SELL GLDE</a>
-                </div> <center><span id="unlock"></span></center>
+                <div class="mbr-section-btn"><a class="btn btn-md btn-success display-4" onclick="sellglde();">SELL GLDE</a></div> <center><span id="unlock"></span></center>
                
             </div>
 
@@ -168,7 +145,51 @@
                             
                             &nbsp;</span><span class="mbr-text1 mbr-fonts-style1"><span onclick="sellgldimax();"><em>Max</em></span></span><br>Will Receive: <span id="gldireceivetrx">-</span> TRX</p>
                 </div>
-                <div class="mbr-section-btn"><a class="btn btn-md btn-danger display-4" onclick="sellgldi();">SELL GLDI</a></div> <center><span id="unlockd"></span></center>
+                <div class="mbr-section-btn"><a class="btn btn-md btn-success display-4" onclick="sellgldi();">SELL GLDI</a></div> <center><span id="unlockd"></span></center>
+                
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="header3 cid-srsniRveQv mbr-parallax-background" id="header3-6g">
+
+    
+
+    <div class="mbr-overlay" style="opacity: 0.8; background-color: rgb(255, 255, 255);">
+    </div>
+
+    <div class="container">
+        <div class="media-container-row">
+           
+
+            <div class="media-content">
+                <h1 class="mbr-section-title mbr-white pb-3 mbr-fonts-style display-5">
+                    <br>Buy GLDS</h1>
+               
+                <div class="mbr-section-text mbr-white pb-3 ">
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        My TRX: <span id="mytrx3">-</span><br>GLDS Price: <span id="gldspriceb">-</span> TRX<br>TRX&nbsp;<span class="input"><input type="number" style="background-color:#e6ffe6; text-align:center;" value="1" min="0" step="1" name="gldsb" onchange="gldsupdatepricebuy()" onkeydown="gldsupdatepricebuy()" onkeyup="gldsupdatepricebuy()" onkeypress="gldsupdatepricebuy()">
+                        
+                        &nbsp;</span><span class="mbr-text1 mbr-fonts-style1"><span onclick="buygldsmax();"><em>Max</em></span></span><br>Will Receive: <span id="gldsreceive">-</span> GLDS</p>
+                </div>
+                <div class="mbr-section-btn"><a class="btn btn-md btn-info display-4" onclick="buyglds();">BUY GLDS</a></div>
+            </div>
+             <center><p class="mbr-text3 mbr-fonts-style display-7"><br><br><a href="https://justswap.io/?lang=en-US#/scan/detail/trx/TRR2Sztqm64aUDUnT3JAj37koEkYXQ8hpn" class="text-primary" target="_blank"><em>JustSwap</em></a></p></center> 
+             <div class="media-content">
+                <h1 class="mbr-section-title mbr-white pb-3 mbr-fonts-style display-5">
+                    <br>Sell GLDS</h1>
+                
+                <div class="mbr-section-text mbr-white pb-3 ">
+                    <p class="mbr-text mbr-fonts-style display-7">
+                        My GLDS: <span id="myglds3">-</span><br>GLDS Price: <span id="gldsprices">-</span> TRX<br>GLDS&nbsp;<span class="input">
+                            
+                          <input type="number" style="background-color:#ffe6e6; text-align:center;" value="0.001" min="0" step="0.1" name="gldss" onchange="gldsupdatepricesell()" onkeydown="gldsupdatepricesell()" onkeyup="gldsupdatepricesell()" onkeypress="gldsupdatepricesell()">
+                            
+                            &nbsp;</span><span class="mbr-text1 mbr-fonts-style1"><span onclick="sellgldsmax();"><em>Max</em></span></span><br>Will Receive: <span id="gldsreceivetrx">-</span> TRX</p>
+                </div>
+                <div class="mbr-section-btn"><a class="btn btn-md btn-success display-4" onclick="sellglds();">SELL GLDS</a></div> <center><span id="unlocks"></span></center>
                 
             </div>
         </div>
@@ -185,7 +206,7 @@
     <div class="container">
         <div class="row main justify-content-center">
             <div class="media-container-column col-12 col-lg-3 col-md-4">
-                <div class="mbr-section-btn align-left py-4"><a class="btn btn-success-outline display-4" href="https://tronscan.org/#/token20/TQXhxDPNKVsgxYbJatMnkRZsgTcTzxC5Fc/holders" target="_blank">GLDE Tronscan</a> <a class="btn btn-danger-outline display-4" href="https://tronscan.org/#/token20/TQx2dDDHv8xVr5HEYRygjWizYdzDmdUHNp/holders" target="_blank">GLDI Tronscan</a></div>
+                <div class="mbr-section-btn align-left py-4"><a class="btn btn-success-outline display-4" href="https://tronscan.org/#/token20/TQXhxDPNKVsgxYbJatMnkRZsgTcTzxC5Fc/holders" target="_blank">GLDE Tronscan</a> <a class="btn btn-danger-outline display-4" href="https://tronscan.org/#/token20/TQx2dDDHv8xVr5HEYRygjWizYdzDmdUHNp/holders" target="_blank">GLDI Tronscan</a> <a class="btn btn-secondary-outline display-4" href="https://tronscan.org/#/token20/TRR2Sztqm64aUDUnT3JAj37koEkYXQ8hpn" target="_blank">GLDS Tronscan</a></div>
             </div>
             <div class="media-container-column title col-12 col-lg-7 col-md-6">
                 <h2 class="align-right mbr-bold mbr-white pb-3 mbr-fonts-style display-2">
@@ -195,11 +216,620 @@
         </div>
       
        <script>
-var _0x2ab7=['toHex','balanceOf','value','gldiprices','Unknown\x20error:\x20','gldes','send','gldib','toDecimal','348144arZEMo','gldireceivetrx','triggerSmartContract','tronWeb','contract','1951799yvNJuh','Low\x20TRX!','28746SgKaiH','bind','apply','Transaction\x20was\x20not\x20signed\x20properly','TD4s6KNeD9FpDhPRq8SJqfa6ZVLAgwRbVw','e-0','broadcast:\x20','unlockd','display','transaction','base58','floor','myglde1','uint256','TQRJL3JLLq1PNE4sr7YvQFiuR1JYE9Zcgw','30759nNbUIO','e-2','started','__proto__','trxToTokenSwapInput(uint256,uint256)','transactionBuilder','mygldi2','e+2','test','sendRawTransaction','mytrx2','getElementsByName','TQXhxDPNKVsgxYbJatMnkRZsgTcTzxC5Fc','trace','sign','length','toString','console','call','defaultAddress','mytrx1','address','gldereceivetrx','getElementById','approve','constructor','gldeb','result','128502FMbnmm','log','return\x20(function()\x20','error','TH5LBFAZQDxydmxocY3oUwCD4UaGKgNU4T','TrxToTokenInputPrice','tokenToTrxSwapInput(uint256,uint256,uint256)','gldireceive','trx','installmetamask','_hex','signature','e-4','info','mytrx','176394UFhncG','return\x20/\x22\x20+\x20this\x20+\x20\x22/','588041QyvADW','TokenToTrxInputPrice','unlock','<a\x20onclick=\x27approve()\x27>Unlock</a>','TF9nPCv7NkTMLSbyuohaQjmCNkiCbJpLy1','style','gldis','21DyDxOn','gldereceive','gldeprices','exception','{}.constructor(\x22return\x20this\x22)(\x20)','none','1QUjVpA','allowance','innerHTML','^([^\x20]+(\x20+[^\x20]+)+)+[^\x20]}'];var _0x1213=function(_0x579e08,_0x50d290){_0x579e08=_0x579e08-0xe9;var _0x4f80c5=_0x2ab7[_0x579e08];return _0x4f80c5;};var _0xd8583c=_0x1213;(function(_0x10b01f,_0x81d176){var _0xf9bad3=_0x1213;while(!![]){try{var _0x427a83=-parseInt(_0xf9bad3(0xf3))+-parseInt(_0xf9bad3(0x10d))+-parseInt(_0xf9bad3(0xf1))+parseInt(_0xf9bad3(0x114))*-parseInt(_0xf9bad3(0xfa))+-parseInt(_0xf9bad3(0x100))*-parseInt(_0xf9bad3(0x123))+parseInt(_0xf9bad3(0x13f))+parseInt(_0xf9bad3(0x112));if(_0x427a83===_0x81d176)break;else _0x10b01f['push'](_0x10b01f['shift']());}catch(_0x138586){_0x10b01f['push'](_0x10b01f['shift']());}}}(_0x2ab7,0x6063f));var _0x27aef8=function(){var _0x4ea4e0=!![];return function(_0xc1331b,_0x28f6a6){var _0x494f28=_0x4ea4e0?function(){if(_0x28f6a6){var _0x4fde47=_0x28f6a6['apply'](_0xc1331b,arguments);return _0x28f6a6=null,_0x4fde47;}}:function(){};return _0x4ea4e0=![],_0x494f28;};}(),_0x382b65=_0x27aef8(this,function(){var _0x3781bc=function(){var _0x4c7d9a=_0x1213,_0xdf577=_0x3781bc[_0x4c7d9a(0x13c)](_0x4c7d9a(0xf2))()[_0x4c7d9a(0x13c)](_0x4c7d9a(0x103));return!_0xdf577[_0x4c7d9a(0x12b)](_0x382b65);};return _0x3781bc();});_0x382b65();var _0x40103f=function(){var _0x8383b4=!![];return function(_0x539dab,_0x2efc2b){var _0x4607e2=_0x8383b4?function(){var _0x1d64de=_0x1213;if(_0x2efc2b){var _0x45d180=_0x2efc2b[_0x1d64de(0x116)](_0x539dab,arguments);return _0x2efc2b=null,_0x45d180;}}:function(){};return _0x8383b4=![],_0x4607e2;};}(),_0x3f4ba3=_0x40103f(this,function(){var _0x4f6fce=_0x1213,_0x5d962e=function(){var _0x699d95=_0x1213,_0x256102;try{_0x256102=Function(_0x699d95(0x141)+_0x699d95(0xfe)+');')();}catch(_0x27822a){_0x256102=window;}return _0x256102;},_0x3a90a9=_0x5d962e(),_0x3f430c=_0x3a90a9['console']=_0x3a90a9[_0x4f6fce(0x134)]||{},_0x6ead2d=[_0x4f6fce(0x140),'warn',_0x4f6fce(0xef),_0x4f6fce(0x142),_0x4f6fce(0xfd),'table',_0x4f6fce(0x130)];for(var _0x288b93=0x0;_0x288b93<_0x6ead2d[_0x4f6fce(0x132)];_0x288b93++){var _0x18a835=_0x40103f[_0x4f6fce(0x13c)]['prototype'][_0x4f6fce(0x115)](_0x40103f),_0x16046b=_0x6ead2d[_0x288b93],_0x3d265d=_0x3f430c[_0x16046b]||_0x18a835;_0x18a835[_0x4f6fce(0x126)]=_0x40103f[_0x4f6fce(0x115)](_0x40103f),_0x18a835[_0x4f6fce(0x133)]=_0x3d265d[_0x4f6fce(0x133)]['bind'](_0x3d265d),_0x3f430c[_0x16046b]=_0x18a835;}});_0x3f4ba3();var started=0x0;function round(_0x715fe){var _0x15cb53=_0x1213;if(_0x715fe>0x3e8)return+(Math[_0x15cb53(0x11f)](_0x715fe+'e+0')+_0x15cb53(0x119));if(_0x715fe>0xa)return+(Math[_0x15cb53(0x11f)](_0x715fe+_0x15cb53(0x12a))+_0x15cb53(0x124));if(_0x715fe>0x0)return+(Math[_0x15cb53(0x11f)](_0x715fe+'e+4')+_0x15cb53(0xee));}var tokenaddr=_0xd8583c(0x12f),exchangeaddr=_0xd8583c(0x143),contractAddressFarm=_0xd8583c(0xf7),dexchangeaddr=_0xd8583c(0x122),dtokenaddr='TQx2dDDHv8xVr5HEYRygjWizYdzDmdUHNp',dcontractAddressFarm=_0xd8583c(0x118),myaddress,notch=0x0,MyContract,MyContractFarm,dMyContract,dMyContractFarm;async function start(){var _0x26e397=_0xd8583c;started==0x0&&(started=0x1,MyContract=await tronWeb[_0x26e397(0x111)]()['at'](tokenaddr),MyContractFarm=await tronWeb[_0x26e397(0x111)]()['at'](contractAddressFarm),dMyContract=await tronWeb[_0x26e397(0x111)]()['at'](dtokenaddr),dMyContractFarm=await tronWeb[_0x26e397(0x111)]()['at'](dcontractAddressFarm),notch=0x1),started>0x0&&notch>0x0&&go();}var mytrx=0x0,myglde=0x0,mygldi=0x0,approved=0x0,dapproved=0x0;async function go(){var _0x492a4c=_0xd8583c;let _0x4cbae4=await MyContractFarm[_0x492a4c(0xf0)]()[_0x492a4c(0x135)]();mytrx=_0x4cbae4;let _0x4ae01b=await MyContract[_0x492a4c(0x105)](myaddress)['call']();myglde=_0x4ae01b;let _0x3557b2=await dMyContract[_0x492a4c(0x105)](myaddress)[_0x492a4c(0x135)]();mygldi=_0x3557b2;let _0x38be01=await MyContract[_0x492a4c(0x101)](myaddress,exchangeaddr)[_0x492a4c(0x135)]();approved=_0x38be01;if(window[_0x492a4c(0x110)]['toDecimal'](approved['_hex'])<0x845951614014880000000&&myglde>0x0)document[_0x492a4c(0x13a)](_0x492a4c(0xf5))[_0x492a4c(0x102)]=_0x492a4c(0xf6);else document[_0x492a4c(0x13a)](_0x492a4c(0xf5))[_0x492a4c(0x102)]='';let _0x483f01=await dMyContract[_0x492a4c(0x101)](myaddress,dexchangeaddr)[_0x492a4c(0x135)]();dapproved=_0x483f01;if(window[_0x492a4c(0x110)][_0x492a4c(0x10c)](dapproved[_0x492a4c(0xec)])<0x845951614014880000000&&mygldi>0x0)document[_0x492a4c(0x13a)]('unlockd')[_0x492a4c(0x102)]='<a\x20onclick=\x27dapprove()\x27>Unlock</a>';else document['getElementById'](_0x492a4c(0x11b))[_0x492a4c(0x102)]='';document['getElementById'](_0x492a4c(0x137))[_0x492a4c(0x102)]=round(mytrx/0xf4240),document[_0x492a4c(0x13a)](_0x492a4c(0x120))[_0x492a4c(0x102)]=round(myglde/0xf4240),document[_0x492a4c(0x13a)](_0x492a4c(0x12d))[_0x492a4c(0x102)]=round(mytrx/0xf4240),document[_0x492a4c(0x13a)](_0x492a4c(0x129))['innerHTML']=round(mygldi/0xf4240),gldeupdatepricebuy(),gldeupdatepricesell(),gldiupdatepricebuy(),gldiupdatepricesell();}async function approve(){var _0x9d8932=_0xd8583c;let _0x75840a=await tronWeb[_0x9d8932(0x111)]()['at'](tokenaddr),_0x176a27={'callValue':0x0,'feeLimit':0x5f5e100,'shouldPollResponse':!![]},_0x14aa9a=await _0x75840a[_0x9d8932(0x13b)](exchangeaddr,window[_0x9d8932(0x110)][_0x9d8932(0x104)](0x52b7d2dcc80cd400000000))[_0x9d8932(0x10a)](_0x176a27);}async function dapprove(){var _0x5726a5=_0xd8583c;let _0x3405ff=await tronWeb[_0x5726a5(0x111)]()['at'](dtokenaddr),_0x162265={'callValue':0x0,'feeLimit':0x5f5e100,'shouldPollResponse':!![]},_0xa1a8d6=await _0x3405ff['approve'](dexchangeaddr,window[_0x5726a5(0x110)][_0x5726a5(0x104)](0x52b7d2dcc80cd400000000))[_0x5726a5(0x10a)](_0x162265);}async function gldeupdatepricebuy(){var _0x327054=_0xd8583c;gldeb=parseFloat(document[_0x327054(0x12e)]('gldeb')[0x0][_0x327054(0x106)]);let _0x44b4db=MyContractFarm,_0x1743fa=MyContract;if(gldeb*0xf4240>mytrx-0x4c4b40){gldeb=mytrx/0xf4240-0x5;if(gldeb<0x0)gldeb=0x0;document[_0x327054(0x12e)](_0x327054(0x13d))[0x0][_0x327054(0x106)]=gldeb;}if(gldeb<=0x0)gldeb=0.000001;var _0x18c8c6=0x0;if(gldeb>0x0){let _0x15d02e=await _0x44b4db[_0x327054(0x144)](window[_0x327054(0x110)]['toHex'](round(gldeb*0xf4240)))[_0x327054(0x135)]();_0x18c8c6=_0x15d02e;}document[_0x327054(0x13a)]('gldepriceb')[_0x327054(0x102)]=round(gldeb*0xf4240/_0x18c8c6),document[_0x327054(0x13a)](_0x327054(0xfb))[_0x327054(0x102)]=round(_0x18c8c6/0xf4240),mytrx<=0x4c4b40&&(document['getElementById'](_0x327054(0xfb))[_0x327054(0x102)]='Low\x20TRX!');}async function gldiupdatepricebuy(){var _0x5df6c9=_0xd8583c;gldib=parseFloat(document[_0x5df6c9(0x12e)](_0x5df6c9(0x10b))[0x0][_0x5df6c9(0x106)]);let _0x2f3d9c=dMyContractFarm,_0x350a7c=dMyContract;if(gldib*0xf4240>mytrx-0x4c4b40){gldib=mytrx/0xf4240-0x5;if(gldib<0x0)gldib=0x0;document[_0x5df6c9(0x12e)](_0x5df6c9(0x10b))[0x0][_0x5df6c9(0x106)]=gldib;}if(gldib<=0x0)gldib=0.000001;var _0xd82b36=0x0;if(gldib>0x0){let _0x57cedb=await _0x2f3d9c[_0x5df6c9(0x144)](window[_0x5df6c9(0x110)]['toHex'](round(gldib*0xf4240)))[_0x5df6c9(0x135)]();_0xd82b36=_0x57cedb;}document[_0x5df6c9(0x13a)]('gldipriceb')[_0x5df6c9(0x102)]=round(gldib*0xf4240/_0xd82b36),document[_0x5df6c9(0x13a)](_0x5df6c9(0xe9))['innerHTML']=round(_0xd82b36/0xf4240),mytrx<=0x4c4b40&&(document[_0x5df6c9(0x13a)](_0x5df6c9(0xe9))[_0x5df6c9(0x102)]=_0x5df6c9(0x113));}async function gldeupdatepricesell(){var _0x118cd2=_0xd8583c;gldes=parseFloat(document['getElementsByName'](_0x118cd2(0x109))[0x0]['value']);if(gldes<=0x0)gldes=0.000001;let _0x38ed38=MyContractFarm,_0x25ee3e=MyContract;var _0x1c63c3=0x0;if(gldes>0x0){let _0x206704=await _0x38ed38[_0x118cd2(0xf4)](window[_0x118cd2(0x110)]['toHex'](round(gldes*0xf4240)))[_0x118cd2(0x135)]();_0x1c63c3=_0x206704;}document[_0x118cd2(0x13a)](_0x118cd2(0xfc))[_0x118cd2(0x102)]=round(_0x1c63c3/0xf4240/gldes),document['getElementById'](_0x118cd2(0x139))['innerHTML']=round(_0x1c63c3/0xf4240);}async function gldiupdatepricesell(){var _0x214517=_0xd8583c;gldis=parseFloat(document['getElementsByName'](_0x214517(0xf9))[0x0][_0x214517(0x106)]);if(gldis<=0x0)gldis=0.000001;let _0x15003f=dMyContractFarm,_0x2ce117=dMyContract;var _0x19959c=0x0;if(gldis>0x0){let _0x228195=await _0x15003f[_0x214517(0xf4)](window[_0x214517(0x110)]['toHex'](round(gldis*0xf4240)))[_0x214517(0x135)]();_0x19959c=_0x228195;}document['getElementById'](_0x214517(0x107))[_0x214517(0x102)]=round(_0x19959c/0xf4240/gldis),document[_0x214517(0x13a)](_0x214517(0x10e))[_0x214517(0x102)]=round(_0x19959c/0xf4240);}async function buygldemax(){var _0x117509=_0xd8583c,_0x3a59d2=Number(mytrx)-0x1;if(_0x3a59d2<0x0)_0x3a59d2=0x0;document['getElementsByName']('gldeb')[0x0][_0x117509(0x106)]=_0x3a59d2/0xf4240,gldeupdatepricebuy();}async function sellgldemax(){var _0x29c89c=_0xd8583c,_0x1e9f8a=Number(myglde)-0x1;if(_0x1e9f8a<0x0)_0x1e9f8a=0x0;document['getElementsByName'](_0x29c89c(0x109))[0x0][_0x29c89c(0x106)]=_0x1e9f8a/0xf4240,gldeupdatepricesell();}async function buygldimax(){var _0x33e200=Number(mytrx)-0x1;if(_0x33e200<0x0)_0x33e200=0x0;document['getElementsByName']('gldib')[0x0]['value']=_0x33e200/0xf4240,gldiupdatepricebuy();}async function sellgldimax(){var _0x5a3d55=_0xd8583c,_0x4a815a=Number(mygldi)-0x1;if(_0x4a815a<0x0)_0x4a815a=0x0;document[_0x5a3d55(0x12e)]('gldis')[0x0][_0x5a3d55(0x106)]=_0x4a815a/0xf4240,gldiupdatepricesell();}async function buyglde(){var _0x359ff9=_0xd8583c,_0x114e00=parseFloat(document[_0x359ff9(0x12e)](_0x359ff9(0x13d))[0x0][_0x359ff9(0x106)])*0xf4240;try{const _0xab73c6={'feeLimit':0x5f5e100,'callValue':window[_0x359ff9(0x110)][_0x359ff9(0x104)](_0x114e00)},_0x514fce=[{'type':'uint256','value':0x1},{'type':'uint256','value':window['tronWeb'][_0x359ff9(0x104)](0x52b7d2dcc80cd400000000)}],_0x4f5f34=tronWeb[_0x359ff9(0x136)][_0x359ff9(0x11e)],_0x426f35=_0x359ff9(0x127);let _0x468cb1=await tronWeb[_0x359ff9(0x128)][_0x359ff9(0x10f)](exchangeaddr,_0x426f35,_0xab73c6,_0x514fce,tronWeb[_0x359ff9(0x138)]['toHex'](_0x4f5f34));if(!_0x468cb1[_0x359ff9(0x13e)]||!_0x468cb1[_0x359ff9(0x13e)][_0x359ff9(0x13e)])return console[_0x359ff9(0x142)]('Unknown\x20error:\x20'+txJson,null,0x2);const _0x2e1fe3=await tronWeb[_0x359ff9(0xea)][_0x359ff9(0x131)](_0x468cb1[_0x359ff9(0x11d)]);if(!_0x2e1fe3[_0x359ff9(0xed)])return console[_0x359ff9(0x142)](_0x359ff9(0x117));const _0x194fe6=await tronWeb['trx'][_0x359ff9(0x12c)](_0x2e1fe3);console[_0x359ff9(0x140)](_0x359ff9(0x11a)+_0x194fe6);}catch(_0x444185){return console[_0x359ff9(0x142)](_0x444185);}}async function sellglde(){var _0xccba89=_0xd8583c;if(window[_0xccba89(0x110)][_0xccba89(0x10c)](approved[_0xccba89(0xec)])<0x845951614014880000000&&myglde>0x0){approve();return;}var _0x235dbb=parseFloat(document[_0xccba89(0x12e)](_0xccba89(0x109))[0x0][_0xccba89(0x106)])*0xf4240;try{const _0x4fe772={'feeLimit':0x5f5e100,'callValue':0x0},_0xef9d86=[{'type':_0xccba89(0x121),'value':window[_0xccba89(0x110)][_0xccba89(0x104)](_0x235dbb)},{'type':'uint256','value':0x1},{'type':'uint256','value':window['tronWeb'][_0xccba89(0x104)](0x52b7d2dcc80cd400000000)}],_0x4eb119=tronWeb[_0xccba89(0x136)]['base58'],_0x5e4ee1=_0xccba89(0x145);let _0x4aed7a=await tronWeb[_0xccba89(0x128)][_0xccba89(0x10f)](exchangeaddr,_0x5e4ee1,_0x4fe772,_0xef9d86,tronWeb[_0xccba89(0x138)][_0xccba89(0x104)](_0x4eb119));if(!_0x4aed7a[_0xccba89(0x13e)]||!_0x4aed7a[_0xccba89(0x13e)][_0xccba89(0x13e)])return console[_0xccba89(0x142)](_0xccba89(0x108)+txJson,null,0x2);const _0x2753c6=await tronWeb[_0xccba89(0xea)][_0xccba89(0x131)](_0x4aed7a['transaction']);if(!_0x2753c6[_0xccba89(0xed)])return console[_0xccba89(0x142)](_0xccba89(0x117));const _0x3e8f6a=await tronWeb['trx'][_0xccba89(0x12c)](_0x2753c6);console[_0xccba89(0x140)](_0xccba89(0x11a)+_0x3e8f6a);}catch(_0x48a975){return console['error'](_0x48a975);}}async function buygldi(){var _0xf9283d=_0xd8583c,_0x1424de=parseFloat(document['getElementsByName'](_0xf9283d(0x10b))[0x0][_0xf9283d(0x106)])*0xf4240;try{const _0x365a8e={'feeLimit':0x5f5e100,'callValue':window[_0xf9283d(0x110)][_0xf9283d(0x104)](_0x1424de)},_0x164d5e=[{'type':_0xf9283d(0x121),'value':0x1},{'type':_0xf9283d(0x121),'value':window[_0xf9283d(0x110)][_0xf9283d(0x104)](0x52b7d2dcc80cd400000000)}],_0x3a02f6=tronWeb[_0xf9283d(0x136)][_0xf9283d(0x11e)],_0x332885=_0xf9283d(0x127);let _0x345c6f=await tronWeb['transactionBuilder']['triggerSmartContract'](dexchangeaddr,_0x332885,_0x365a8e,_0x164d5e,tronWeb[_0xf9283d(0x138)][_0xf9283d(0x104)](_0x3a02f6));if(!_0x345c6f[_0xf9283d(0x13e)]||!_0x345c6f[_0xf9283d(0x13e)][_0xf9283d(0x13e)])return console[_0xf9283d(0x142)](_0xf9283d(0x108)+txJson,null,0x2);const _0x1d4666=await tronWeb[_0xf9283d(0xea)][_0xf9283d(0x131)](_0x345c6f[_0xf9283d(0x11d)]);if(!_0x1d4666[_0xf9283d(0xed)])return console['error'](_0xf9283d(0x117));const _0x8c9433=await tronWeb[_0xf9283d(0xea)][_0xf9283d(0x12c)](_0x1d4666);console[_0xf9283d(0x140)](_0xf9283d(0x11a)+_0x8c9433);}catch(_0x2a4e0d){return console['error'](_0x2a4e0d);}}async function sellgldi(){var _0xf7ca19=_0xd8583c;if(window[_0xf7ca19(0x110)][_0xf7ca19(0x10c)](dapproved['_hex'])<0x845951614014880000000&&mygldi>0x0){dapprove();return;}var _0x1fd5fe=parseFloat(document[_0xf7ca19(0x12e)](_0xf7ca19(0xf9))[0x0][_0xf7ca19(0x106)])*0xf4240;try{const _0x2a289f={'feeLimit':0x5f5e100,'callValue':0x0},_0x4d55ab=[{'type':'uint256','value':window['tronWeb'][_0xf7ca19(0x104)](_0x1fd5fe)},{'type':_0xf7ca19(0x121),'value':0x1},{'type':'uint256','value':window[_0xf7ca19(0x110)]['toHex'](0x52b7d2dcc80cd400000000)}],_0x4085f1=tronWeb[_0xf7ca19(0x136)][_0xf7ca19(0x11e)],_0x3875cb=_0xf7ca19(0x145);let _0xdf492=await tronWeb['transactionBuilder']['triggerSmartContract'](dexchangeaddr,_0x3875cb,_0x2a289f,_0x4d55ab,tronWeb[_0xf7ca19(0x138)][_0xf7ca19(0x104)](_0x4085f1));if(!_0xdf492['result']||!_0xdf492[_0xf7ca19(0x13e)][_0xf7ca19(0x13e)])return console['error'](_0xf7ca19(0x108)+txJson,null,0x2);const _0x24cdd5=await tronWeb[_0xf7ca19(0xea)][_0xf7ca19(0x131)](_0xdf492[_0xf7ca19(0x11d)]);if(!_0x24cdd5[_0xf7ca19(0xed)])return console[_0xf7ca19(0x142)](_0xf7ca19(0x117));const _0xec1110=await tronWeb[_0xf7ca19(0xea)]['sendRawTransaction'](_0x24cdd5);console[_0xf7ca19(0x140)]('broadcast:\x20'+_0xec1110);}catch(_0x36ed35){return console[_0xf7ca19(0x142)](_0x36ed35);}}accountInterval2=setInterval(function(){var _0x48df4b=_0xd8583c;myaddress!=tronWeb['defaultAddress'][_0x48df4b(0x11e)]&&(myaddress=tronWeb[_0x48df4b(0x136)]['base58'],start()),typeof window[_0x48df4b(0x110)]!=='undefined'&&(tronWeb[_0x48df4b(0x136)][_0x48df4b(0x11e)]!=![]&&(document[_0x48df4b(0x13a)](_0x48df4b(0xeb))[_0x48df4b(0xf8)][_0x48df4b(0x11c)]=_0x48df4b(0xff),console[_0x48df4b(0x140)](_0x48df4b(0x125)),start()));},0x7d0);
+var started=0;	
+
+
+	
+
+function round(num) {
+  if(num>1000)return +(Math.floor(num + "e+0") + "e-0");
+  if(num>10)return +(Math.floor(num + "e+2") + "e-2");
+  if(num>0)return +(Math.floor(num + "e+4") + "e-4");
+}
+
+var tokenaddr='TQXhxDPNKVsgxYbJatMnkRZsgTcTzxC5Fc';
+var exchangeaddr='TH5LBFAZQDxydmxocY3oUwCD4UaGKgNU4T';
+var contractAddressFarm='TF9nPCv7NkTMLSbyuohaQjmCNkiCbJpLy1';
+    
+
+var dexchangeaddr='TQRJL3JLLq1PNE4sr7YvQFiuR1JYE9Zcgw'
+var dtokenaddr='TQx2dDDHv8xVr5HEYRygjWizYdzDmdUHNp';
+var dcontractAddressFarm='TD4s6KNeD9FpDhPRq8SJqfa6ZVLAgwRbVw';
+
+var myaddress;
+
+var sexchangeaddr='TDobB9m4ALG2HVB669Mk1prRPUB9rs47NK'
+var stokenaddr='TRR2Sztqm64aUDUnT3JAj37koEkYXQ8hpn';
+var scontractAddressFarm='TXVrsKuAAREPJcrtT3Ay5BhTrhZwhD81oa';
+
+var notch=0;
+
+   
+var MyContract,MyContractFarm,sMyContract,sMyContractFarm,dMyContract,dMyContractFarm;
+
+async function start() {
+if(started==0){
+started=1;
+ MyContract = await tronWeb.contract().at(tokenaddr);    
+ MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
+ dMyContract = await tronWeb.contract().at(dtokenaddr);    
+ dMyContractFarm = await tronWeb.contract().at(dcontractAddressFarm);
+  sMyContract = await tronWeb.contract().at(stokenaddr);    
+ sMyContractFarm = await tronWeb.contract().at(scontractAddressFarm);
+ notch=1;
+} 
+if(started>0&&notch>0){
+go();
+}
+    
+}
+    
+  var mytrx=0;
+  var myglde=0; 
+   var mygldi=0; 
+      var myglds=0; 
+   var approved=0; 
+    var dapproved=0; 
+    var sapproved=0;  
+    
+async function go() {
+       
+
+
+
+ mytrx=await MyContractFarm.mytrx().call();
+ myglde= await MyContract.balanceOf(myaddress).call(); 
+  mygldi= await dMyContract.balanceOf(myaddress).call(); 
+  myglds= await sMyContract.balanceOf(myaddress).call(); 
+
+   approved=await MyContract.allowance(myaddress,exchangeaddr).call();
+  if(window.tronWeb.toDecimal(approved._hex)<1e25&&myglde>0)document.getElementById("unlock").innerHTML="<a onclick='approve()'>Unlock</a>"; else document.getElementById("unlock").innerHTML="";
+  
+    dapproved=await dMyContract.allowance(myaddress,dexchangeaddr).call();
+  if(window.tronWeb.toDecimal(dapproved._hex)<1e25&&mygldi>0)document.getElementById("unlockd").innerHTML="<a onclick='dapprove()'>Unlock</a>"; else document.getElementById("unlockd").innerHTML="";
+  
+     sapproved=await sMyContract.allowance(myaddress,sexchangeaddr).call();
+  if(window.tronWeb.toDecimal(sapproved._hex)<1e25&&myglds>0)document.getElementById("unlocks").innerHTML="<a onclick='sapprove()'>Unlock</a>"; else document.getElementById("unlocks").innerHTML="";
+  
+   
+document.getElementById("mytrx1").innerHTML=round(mytrx/1000000);
+document.getElementById("myglde1").innerHTML=round(myglde/1000000);
+document.getElementById("mytrx2").innerHTML=round(mytrx/1000000);
+document.getElementById("mygldi2").innerHTML=round(mygldi/1000000);
+document.getElementById("mytrx3").innerHTML=round(mytrx/1000000);
+document.getElementById("myglds3").innerHTML=round(myglds/1000000);
+
+gldsupdatepricebuy();
+gldsupdatepricesell();
+gldeupdatepricebuy();
+gldeupdatepricesell();
+gldiupdatepricebuy();
+gldiupdatepricesell();
+}
+
+
+     
+async function approve() {
+    
+  let contractInstance = await tronWeb.contract().at(tokenaddr);
+	
+	let args = {
+		callValue: 0,
+      	feeLimit: 100000000,
+		shouldPollResponse: true
+	};
+      
+let result = await contractInstance.approve(exchangeaddr,window.tronWeb.toHex(1e26)).send(args);
+
+}
+
+async function dapprove() {
+    
+  let contractInstance = await tronWeb.contract().at(dtokenaddr);
+	
+	let args = {
+		callValue: 0,
+      	feeLimit: 100000000,
+		shouldPollResponse: true
+	};
+      
+let result = await contractInstance.approve(dexchangeaddr,window.tronWeb.toHex(1e26)).send(args);
+
+}
+
+async function sapprove() {
+    
+  let contractInstance = await tronWeb.contract().at(stokenaddr);
+	
+	let args = {
+		callValue: 0,
+      	feeLimit: 100000000,
+		shouldPollResponse: true
+	};
+      
+let result = await contractInstance.approve(sexchangeaddr,window.tronWeb.toHex(1e26)).send(args);
+
+}
+    
+ 
+async function gldeupdatepricebuy() {
+	gldeb = parseFloat(document.getElementsByName('gldeb')[0].value);
+    
+	let contractInstance = MyContractFarm;
+	let tokenInstance = MyContract;
+	
+    if(gldeb*1000000>(mytrx-5000000)){
+        gldeb=(mytrx/1000000)-5;
+        if(gldeb<0)gldeb=0;
+        document.getElementsByName('gldeb')[0].value=gldeb;
+    }
+    if(gldeb<=0)gldeb=0.000001;
+var amountbuy=0;
+	if(gldeb>0){
+	let res7 = await contractInstance.TrxToTokenInputPrice(window.tronWeb.toHex(round(gldeb*1000000))).call();
+	amountbuy = res7;
+	}
+
+	document.getElementById("gldepriceb").innerHTML =round(gldeb*1000000/amountbuy);
+	document.getElementById("gldereceive").innerHTML=round(amountbuy / 1000000);
+
+    if(mytrx<=5000000){
+	document.getElementById("gldereceive").innerHTML="Low TRX!";
+	}
+}
+
+async function gldiupdatepricebuy() {
+	gldib = parseFloat(document.getElementsByName('gldib')[0].value);
+   
+let contractInstance = dMyContractFarm;
+	let tokenInstance = dMyContract;
+	
+    if(gldib*1000000>(mytrx-5000000)){
+        gldib=(mytrx/1000000)-5;
+        if(gldib<0)gldib=0;
+        document.getElementsByName('gldib')[0].value=gldib;
+    }
+     if(gldib<=0)gldib=0.000001;
+var amountbuy=0;
+	if(gldib>0){
+	let res7 = await contractInstance.TrxToTokenInputPrice(window.tronWeb.toHex(round(gldib*1000000))).call();
+	amountbuy = res7;
+	}
+
+	document.getElementById("gldipriceb").innerHTML =round(gldib*1000000/amountbuy);
+	document.getElementById("gldireceive").innerHTML=round(amountbuy / 1000000);
+
+    if(mytrx<=5000000){
+	document.getElementById("gldireceive").innerHTML="Low TRX!";
+	}
+}
+
+async function gldsupdatepricebuy() {
+	gldsb = parseFloat(document.getElementsByName('gldsb')[0].value);
+   
+let contractInstance = sMyContractFarm;
+	let tokenInstance = sMyContract;
+	
+    if(gldsb*1000000>(mytrx-5000000)){
+        gldsb=(mytrx/1000000)-5;
+        if(gldsb<0)gldib=0;
+        document.getElementsByName('gldsb')[0].value=gldsb;
+    }
+     if(gldsb<=0)gldsb=0.000001;
+var amountbuy=0;
+	if(gldsb>0){
+	let res7 = await contractInstance.sTrxToTokenInputPrice(window.tronWeb.toHex(round(gldsb*1000000))).call();
+	amountbuy = res7;
+	}
+
+	document.getElementById("gldspriceb").innerHTML =round(gldsb*1000000/amountbuy);
+	document.getElementById("gldsreceive").innerHTML=round(amountbuy / 1000000);
+
+    if(mytrx<=5000000){
+	document.getElementById("gldsreceive").innerHTML="Low TRX!";
+	}
+}
+
+async function gldeupdatepricesell() {
+	gldes = parseFloat(document.getElementsByName('gldes')[0].value);
+    if(gldes<=0)gldes=0.000001;
+	let contractInstance = MyContractFarm;
+	let tokenInstance = MyContract;
+	
+   
+var amountbuy=0;
+	if(gldes>0){
+	let res7 = await contractInstance.TokenToTrxInputPrice(window.tronWeb.toHex(round(gldes*1000000))).call();
+	amountbuy = res7;
+	}
+
+	
+	document.getElementById("gldeprices").innerHTML =round((amountbuy/1000000)/gldes);
+	document.getElementById("gldereceivetrx").innerHTML=round(amountbuy / 1000000);
+
+    
+}
+
+async function gldiupdatepricesell() {
+	gldis = parseFloat(document.getElementsByName('gldis')[0].value);
+    if(gldis<=0)gldis=0.000001;
+	let contractInstance = dMyContractFarm;
+	let tokenInstance = dMyContract;
+	
+   
+var amountbuy=0;
+	if(gldis>0){
+	let res7 = await contractInstance.TokenToTrxInputPrice(window.tronWeb.toHex(round(gldis*1000000))).call();
+	amountbuy = res7;
+	}
+
+	
+	document.getElementById("gldiprices").innerHTML =round((amountbuy/1000000)/gldis);
+	document.getElementById("gldireceivetrx").innerHTML=round(amountbuy / 1000000);
+
+    
+}
+
+async function gldsupdatepricesell() {
+	gldss = parseFloat(document.getElementsByName('gldss')[0].value);
+    if(gldss<=0)gldss=0.000001;
+	let contractInstance = sMyContractFarm;
+	let tokenInstance = sMyContract;
+	
+   
+var amountbuy=0;
+	if(gldss>0){
+	let res7 = await contractInstance.sTokenToTrxInputPrice(window.tronWeb.toHex(round(gldss*1000000))).call();
+	amountbuy = res7;
+	}
+
+	
+	document.getElementById("gldsprices").innerHTML =round((amountbuy/1000000)/gldss);
+	document.getElementById("gldsreceivetrx").innerHTML=round(amountbuy / 1000000);
+
+    
+}
+
+async function buygldemax() {
+    var _value=Number(mytrx)-1;
+    if(_value<0)_value=0;
+      document.getElementsByName('gldeb')[0].value=_value/1000000;
+       gldeupdatepricebuy();
+   
+}
+
+async function sellgldemax() {
+    var _value=Number(myglde)-1;
+    if(_value<0)_value=0;
+        document.getElementsByName('gldes')[0].value=_value/1000000;
+        gldeupdatepricesell();
+   
+}
+
+async function buygldsmax() {
+    var _value=Number(mytrx)-1;
+    if(_value<0)_value=0;
+      document.getElementsByName('gldsb')[0].value=_value/1000000;
+       gldsupdatepricebuy();
+   
+}
+
+async function sellgldsmax() {
+    var _value=Number(myglds)-1;
+    if(_value<0)_value=0;
+        document.getElementsByName('gldss')[0].value=_value/1000000;
+        gldsupdatepricesell();
+   
+}
+
+async function buygldimax() {
+ var _value=Number(mytrx)-1;
+    if(_value<0)_value=0;
+      document.getElementsByName('gldib')[0].value=_value/1000000;
+        gldiupdatepricebuy();
+   
+}
+
+async function sellgldimax() {
+ var _value=Number(mygldi)-1;
+    if(_value<0)_value=0;
+        document.getElementsByName('gldis')[0].value=_value/1000000;
+        gldiupdatepricesell();
+   
+}
+	   
+async function buyglde() {
+    
+   var amount = parseFloat(document.getElementsByName('gldeb')[0].value)*1000000;
+
+    try {
+
+        const options = {
+            feeLimit: 100000000,
+            callValue: window.tronWeb.toHex(amount)
+        };
+
+        const parameters = [{type: 'uint256', value: 1}, {type: 'uint256', value: window.tronWeb.toHex(1e26)}];
+        const issuerAddress = tronWeb.defaultAddress.base58;
+        const functionSelector = 'trxToTokenSwapInput(uint256,uint256)';
+
+        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
+            exchangeaddr,
+            functionSelector,
+            options,
+            parameters,
+            tronWeb.address.toHex(issuerAddress)
+        );
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
+
+        // Signing the transaction
+        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+
+        if (!signedTransaction.signature) {
+            return console.error('Transaction was not signed properly');
+        }
+
+        // Broadcasting the transaction
+        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
+        console.log(`broadcast: ${broadcast}`);
+    } catch (e) {
+        return console.error(e);
+    }
+}  
+
+async function sellglde() {
+    
+     if(window.tronWeb.toDecimal(approved._hex)<1e25&&myglde>0){
+         approve();
+    
+     return;
+     }
+     
+   var amount = parseFloat(document.getElementsByName('gldes')[0].value)*1000000;
+
+    try {
+
+        const options = {
+            feeLimit: 100000000,
+            callValue: 0
+        };
+
+        const parameters = [{type: 'uint256', value: window.tronWeb.toHex(amount)},{type: 'uint256', value: 1}, {type: 'uint256', value: window.tronWeb.toHex(1e26)}];
+        const issuerAddress = tronWeb.defaultAddress.base58;
+        const functionSelector = 'tokenToTrxSwapInput(uint256,uint256,uint256)';
+
+        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
+            exchangeaddr,
+            functionSelector,
+            options,
+            parameters,
+            tronWeb.address.toHex(issuerAddress)
+        );
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
+
+        // Signing the transaction
+        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+
+        if (!signedTransaction.signature) {
+            return console.error('Transaction was not signed properly');
+        }
+
+        // Broadcasting the transaction
+        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
+        console.log(`broadcast: ${broadcast}`);
+    } catch (e) {
+        return console.error(e);
+    }
+}  
+  
+  
+  
+  async function buygldi() {
+    
+   var amount = parseFloat(document.getElementsByName('gldib')[0].value)*1000000;
+
+    try {
+
+        const options = {
+            feeLimit: 100000000,
+            callValue: window.tronWeb.toHex(amount)
+        };
+
+        const parameters = [{type: 'uint256', value: 1}, {type: 'uint256', value: window.tronWeb.toHex(1e26)}];
+        const issuerAddress = tronWeb.defaultAddress.base58;
+        const functionSelector = 'trxToTokenSwapInput(uint256,uint256)';
+
+        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
+            dexchangeaddr,
+            functionSelector,
+            options,
+            parameters,
+            tronWeb.address.toHex(issuerAddress)
+        );
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
+
+        // Signing the transaction
+        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+
+        if (!signedTransaction.signature) {
+            return console.error('Transaction was not signed properly');
+        }
+
+        // Broadcasting the transaction
+        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
+        console.log(`broadcast: ${broadcast}`);
+    } catch (e) {
+        return console.error(e);
+    }
+}  
+
+async function sellgldi() {
+    
+     if(window.tronWeb.toDecimal(dapproved._hex)<1e25&&mygldi>0){
+         dapprove();
+    
+     return;
+     }
+     
+   var amount = parseFloat(document.getElementsByName('gldis')[0].value)*1000000;
+
+    try {
+
+        const options = {
+            feeLimit: 100000000,
+            callValue: 0
+        };
+
+        const parameters = [{type: 'uint256', value: window.tronWeb.toHex(amount)},{type: 'uint256', value: 1}, {type: 'uint256', value: window.tronWeb.toHex(1e26)}];
+        const issuerAddress = tronWeb.defaultAddress.base58;
+        const functionSelector = 'tokenToTrxSwapInput(uint256,uint256,uint256)';
+
+        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
+            dexchangeaddr,
+            functionSelector,
+            options,
+            parameters,
+            tronWeb.address.toHex(issuerAddress)
+        );
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
+
+        // Signing the transaction
+        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+
+        if (!signedTransaction.signature) {
+            return console.error('Transaction was not signed properly');
+        }
+
+        // Broadcasting the transaction
+        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
+        console.log(`broadcast: ${broadcast}`);
+    } catch (e) {
+        return console.error(e);
+    }
+}   
+
+
+
+  
+  
+  async function buyglds() {
+    
+   var amount = parseFloat(document.getElementsByName('gldsb')[0].value)*1000000;
+
+    try {
+
+        const options = {
+            feeLimit: 100000000,
+            callValue: window.tronWeb.toHex(amount)
+        };
+
+        const parameters = [{type: 'uint256', value: 1}, {type: 'uint256', value: window.tronWeb.toHex(1e26)}];
+        const issuerAddress = tronWeb.defaultAddress.base58;
+        const functionSelector = 'trxToTokenSwapInput(uint256,uint256)';
+
+        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
+            sexchangeaddr,
+            functionSelector,
+            options,
+            parameters,
+            tronWeb.address.toHex(issuerAddress)
+        );
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
+
+        // Signing the transaction
+        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+
+        if (!signedTransaction.signature) {
+            return console.error('Transaction was not signed properly');
+        }
+
+        // Broadcasting the transaction
+        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
+        console.log(`broadcast: ${broadcast}`);
+    } catch (e) {
+        return console.error(e);
+    }
+}  
+
+async function sellglds() {
+    
+     if(window.tronWeb.toDecimal(sapproved._hex)<1e25&&myglds>0){
+         sapprove();
+    
+     return;
+     }
+     
+   var amount = parseFloat(document.getElementsByName('gldss')[0].value)*1000000;
+
+    try {
+
+        const options = {
+            feeLimit: 100000000,
+            callValue: 0
+        };
+
+        const parameters = [{type: 'uint256', value: window.tronWeb.toHex(amount)},{type: 'uint256', value: 1}, {type: 'uint256', value: window.tronWeb.toHex(1e26)}];
+        const issuerAddress = tronWeb.defaultAddress.base58;
+        const functionSelector = 'tokenToTrxSwapInput(uint256,uint256,uint256)';
+
+        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
+            sexchangeaddr,
+            functionSelector,
+            options,
+            parameters,
+            tronWeb.address.toHex(issuerAddress)
+        );
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
+
+        // Signing the transaction
+        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+
+        if (!signedTransaction.signature) {
+            return console.error('Transaction was not signed properly');
+        }
+
+        // Broadcasting the transaction
+        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
+        console.log(`broadcast: ${broadcast}`);
+    } catch (e) {
+        return console.error(e);
+    }
+} 
+
+
+
+accountInterval2 = setInterval(function () {
+    
+    if(myaddress!=tronWeb.defaultAddress.base58){
+      myaddress = tronWeb.defaultAddress.base58;
+    
+      start();
+}
+  
+	if (typeof window.tronWeb !== 'undefined'){		
+
+  if(tronWeb.defaultAddress.base58 != false){
+document.getElementById("installmetamask").style.display = "none";
+  console.log('started');
+   start();
+}}
+}, 2000);
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/h" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site" style="color:#aaa;">https://mobirise.com</a> free website software</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/g" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/r" style="color:#aaa;">The web page</a> was built with Mobirise themes</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
