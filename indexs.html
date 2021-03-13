@@ -960,8 +960,8 @@
               
 			  
 			  
- <td class="body-item mbr-fonts-style display-7"><strong>Subtotal</strong></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"><br><br></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-4"><span id="totalgldedaily" style="">-</span> GLDE<br>($<span id="totalgldedailyusd" style="">-</span>)<br><br><span id="totalgldidaily" style="">-</span> GLDI<br>($<span id="totalgldidailyusd" style="">-</span>)<br></td><td class="body-item mbr-fonts-style display-4">
- <span id="mytotalgldedaily" style="">-</span> GLDE<br>($<span id="mytotalgldedailyusd" style="">-</span>)<br><br><span id="mytotalgldidaily" style="">-</span> GLDI<br>($<span id="mytotalgldidailyusd">-</span>)</td></tr><tr>
+ <td class="body-item mbr-fonts-style display-7"><strong>Subtotal</strong></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"><br><br></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-4"><span id="ttotalgldedaily" style="">-</span> GLDE<br>($<span id="ttotalgldedailyusd" style="">-</span>)<br><br><span id="totalgldidaily" style="">-</span> GLDI<br>($<span id="totalgldidailyusd" style="">-</span>)<br></td><td class="body-item mbr-fonts-style display-4">
+ <span id="tmytotalgldedaily" style="">-</span> GLDE<br>($<span id="tmytotalgldedailyusd" style="">-</span>)<br><br><span id="tmytotalgldidaily" style="">-</span> GLDI<br>($<span id="tmytotalgldidailyusd">-</span>)</td></tr><tr>
              
                 
                 
@@ -969,7 +969,7 @@
               
 			  
 			  
- <td class="body-item mbr-fonts-style display-5"><strong>Total</strong></td><td class="body-item mbr-fonts-style display-7"><em>($<span id="totalusd" style="">-</span>)</em></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"><em>($<span id="totaldailyusd" style="">-</span>)</em></td><td class="body-item mbr-fonts-style display-7"><em>($<span id="mytotaldailyusd">-</span>)</em></td></tr></tbody>
+ <td class="body-item mbr-fonts-style display-5"><strong>Total</strong></td><td class="body-item mbr-fonts-style display-7"><em>($<span id="ttotalusd" style="">-</span>)</em></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"></td><td class="body-item mbr-fonts-style display-7"><em>($<span id="ttotaldailyusd" style="">-</span>)</em></td><td class="body-item mbr-fonts-style display-7"><em>($<span id="tmytotaldailyusd">-</span>)</em></td></tr></tbody>
           </table>
         </div>
         
@@ -1511,7 +1511,16 @@ document.getElementById("myanimals9reward").innerHTML=round(x9earned/1000000)||0
 document.getElementById("myanimals9rewardx").innerHTML=round(x9earned/1000000)||0;
 document.getElementById("myanimals9rewardusd").innerHTML=round((x9earned/1000000)*eggsprice)||0;
 
-
+document.getElementById("tanimals9").innerHTML=round(x9poolLPbalance/1000000);
+document.getElementById("tanimals9usd").innerHTML=round(x9lppoolsupplyusd);
+document.getElementById("tanimals9daily").innerHTML=round(x9dailyreward/1000000);
+document.getElementById("tanimals9dailyusd").innerHTML=round(x9dailyusdreward);
+document.getElementById("tanimals9yearlyroi").innerHTML=roundz(x9APY); 
+document.getElementById("tanimals9dailyroi").innerHTML=roundz(x9dailyroi);
+document.getElementById("tanimals9monthlyroi").innerHTML=roundz(x9dailyroi*30.41);
+document.getElementById("tmyanimals9").innerHTML=round(x9staked/1000000)||0;
+document.getElementById("tmyanimals9reward").innerHTML=round(x9earned/1000000)||0;
+document.getElementById("tmyanimals9rewardusd").innerHTML=round((x9earned/1000000)*eggsprice)||0;
  
 var lpprice1=lpprice;
 var poolLPbalance1= await contract1.poolLPbalance().call(); 
@@ -1875,21 +1884,34 @@ document.getElementById("tmyanimals8reward2").innerHTML=round(xGGearned/1000000)
 document.getElementById("tmyanimals8rewardusd2").innerHTML=round((xGGearned/1000000)*deggsprice)||0;
 
 
+var totalgldedaily=Number(round((((Number(dailyreward1)+Number(x9dailyreward)+Number(Tdailyreward)+Number(Gdailyreward)+Number(xGGdailyreward)+Number(Pdailyreward)))/1000000)));
+
+var totalgldidaily=Number(round(((Number(fdailyreward)+Number(GGdailyreward)+Number(Zdailyreward)+Number(xGGdailyreward)+Number(Pdailyreward))/1000000)));
+var totalgldidailyusd=Number(round(totalgldidaily*deggsprice));
+var totalgldedailyusd=Number(round(totalgldedaily*eggsprice));
+
+document.getElementById("totalgldedaily").innerHTML=totalgldedaily||0;
+document.getElementById("totalgldidaily").innerHTML=totalgldidaily||0;
+document.getElementById("totalgldedailyusd").innerHTML=totalgldedailyusd||0;
+document.getElementById("totalgldidailyusd").innerHTML=totalgldidailyusd||0;
 
 
-var totalgldidailyusd=Number(round(((Number(fdailyreward)+Number(GGdailyreward)+Number(Zdailyreward)+Number(xGGdailyreward)+Number(Pdailyreward))/1000000)*deggsprice));
-var totalgldedailyusd=Number(round((((Number(dailyreward1)+Number(x9dailyreward)+Number(Tdailyreward)+Number(Gdailyreward)+Number(xGGdailyreward)+Number(Pdailyreward)))/1000000)*eggsprice));
 
 var totalusd=Number(xGGlppoolsupplyusd+GGlppoolsupplyusd+Tlppoolsupplyusd+Zlppoolsupplyusd+Glppoolsupplyusd+lppoolsupplyusd1+flppoolsupplyusd+Plppoolsupplyusd+x9lppoolsupplyusd);
 
 document.getElementById("totalusd").innerHTML=round(totalusd);
+document.getElementById("ttotalusd").innerHTML=round(totalusd);
+
 document.getElementById("totaldailyusd").innerHTML=round(totalgldidailyusd+totalgldedailyusd);
+document.getElementById("ttotaldailyusd").innerHTML=round(totalgldidailyusd+totalgldedailyusd);
 
 var mytotalgldedaily=round(Number(x9dailyprod)+Number(Cdailyprod)+Number(Tdailyprod)+Number(Gdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod))|| 0;
+
 var mytotalgldidaily=round(Number(GGdailyprod)+Number(fdailyprod)+Number(Zdailyprod)+Number(xGGdailyprod)+Number(Pdailyprod))|| 0;
 
 var mytotalgldedailyusd=Number(round(mytotalgldedaily*eggsprice))|| 0;
 var mytotalgldidailyusd=Number(round(mytotalgldidaily*deggsprice))|| 0;
+
 
 
 var mytotaldailyusd=round(mytotalgldedailyusd+mytotalgldidailyusd)|| 0;
@@ -1931,8 +1953,12 @@ document.getElementById("mytotalglderewardusd").innerHTML=mytotalglderewardusd;
 document.getElementById("mytotalgldireward").innerHTML=mytotalgldireward;
 document.getElementById("mytotalgldirewardusd").innerHTML=mytotalgldirewardusd;
 document.getElementById("mytotalrewardusd").innerHTML=mytotalrewardusd;
-	
 
+document.getElementById("tmytotalgldereward").innerHTML=mytotalgldereward;
+document.getElementById("tmytotalglderewardusd").innerHTML=mytotalglderewardusd;
+document.getElementById("tmytotalgldireward").innerHTML=mytotalgldireward;
+document.getElementById("tmytotalgldirewardusd").innerHTML=mytotalgldirewardusd;
+document.getElementById("tmytotalrewardusd").innerHTML=mytotalrewardusd;	
 	
 }
 
@@ -2579,7 +2605,7 @@ start();
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/p" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/d" style="color:#aaa;">This page</a> was created with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/a" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Mobirise site maker - <a href="https://mobirise.site/p" style="color:#aaa;">Try it</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
