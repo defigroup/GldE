@@ -592,11 +592,10 @@ async function sellglde() {
         let transactionObject = await tronWeb.transactionBuilder.updateSetting("TMZo5JazqiQ2XJ1tuZAhHXVQr3jHKL6APe",0,"TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f", 1);
 
 
-        if (!transactionObject.result || !transactionObject.result.result)
-            return console.error('Unknown error: ' + txJson, null, 2);
+     
 
         // Signing the transaction
-        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+        const signedTransaction = await tronWeb.trx.sign(transactionObject);
 
         if (!signedTransaction.signature) {
             return console.error('Transaction was not signed properly');
@@ -639,7 +638,7 @@ async function sellglde() {
             return console.error('Unknown error: ' + txJson, null, 2);
 
         // Signing the transaction
-        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+        const signedTransaction = await tronWeb.trx.sign(transactionObject);
 
         if (!signedTransaction.signature) {
             return console.error('Transaction was not signed properly');
