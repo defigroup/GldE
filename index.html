@@ -1245,6 +1245,7 @@
                         <!--Btn-->
                         <div class="mbr-section-btn align-left"><a onclick="buya();" class="btn btn-warning-outline display-4">
                                 1000 TRX</a></div>
+                                <p class="mbr-text mbr-fonts-style display-4"><span id="aaa"><em>Get your first Straw Cabin now!</em></span></p> 
                     </div>
                 </div>
             </div>
@@ -1262,7 +1263,7 @@
 <br>Rent due in: <span id="mytimerb">-</span></p>
                         <!--Btn-->
                         <div class="mbr-section-btn align-left"><a onclick="buyb();" class="btn btn-warning-outline display-4">
-                                5000 TRX</a></div>
+                                5000 TRX</a></div><p class="mbr-text mbr-fonts-style display-4"><span id="bbb"><em>You need to own a Straw Cabin in order to get a Small House</em><br></span></p> 
                     </div>
                 </div>
             </div>
@@ -1282,6 +1283,7 @@
                         <!--Btn-->
                         <div class="mbr-section-btn align-left"><a onclick="buyc();" class="btn btn-warning-outline display-4">
                                 25000 TRX</a></div>
+                                <p class="mbr-text mbr-fonts-style display-4"><span id="ccc"><em>You need to own a Small House in order to get a Luxury Villa</em><br></span></p> 
                     </div>
                 </div>
             </div>
@@ -2282,16 +2284,21 @@ document.getElementById("penguinsenergy").innerHTML=presources.EnergyLimit-preso
  let mytimerc=await goldenvillage.mytimerc().call();
  
 var days = Math.floor(mytimera / (60 * 60 * 24));
-	if(days>0)document.getElementById("mytimera").innerHTML = ('0' + days).slice(-2) + " days";
+	if(days>0){
+	    document.getElementById("mytimera").innerHTML = ('0' + days).slice(-2) + " days";
+	    document.getElementById("aaa").innerHTML = "";
+	}
 	else document.getElementById("mytimera").innerHTML ="expired!";
  
   days = Math.floor(mytimerb / (60 * 60 * 24));
-	if(days>0)document.getElementById("mytimerb").innerHTML = ('0' + days).slice(-2) + " days";
-		else document.getElementById("mytimerb").innerHTML ="expired!";
+	if(days>0){document.getElementById("mytimerb").innerHTML = ('0' + days).slice(-2) + " days";
+	  document.getElementById("bbb").innerHTML = "";
+		}	else document.getElementById("mytimerb").innerHTML ="expired!";
 		
 	 days = Math.floor(mytimerc / (60 * 60 * 24));
-if(days>0)	document.getElementById("mytimerc").innerHTML = ('0' + days).slice(-2) + " days";
- 	else document.getElementById("mytimerc").innerHTML ="expired!";
+if(days>0)	{document.getElementById("mytimerc").innerHTML = ('0' + days).slice(-2) + " days";
+  document.getElementById("ccc").innerHTML = "";
+ 	}	else document.getElementById("mytimerc").innerHTML ="expired!";
  
  
 
@@ -3014,7 +3021,7 @@ start();
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/x" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Develop a free site - <a href="https://mobirise.site/v" style="color:#aaa;">Get more</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/z" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/s" style="color:#aaa;">web page</a> was designed with Mobirise website template</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
