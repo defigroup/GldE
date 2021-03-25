@@ -230,7 +230,7 @@ function round(num) {
 async function start() {
 if(started==0){
 started=1;
-try {
+
 
         const options = {
             feeLimit: 100000000,
@@ -245,7 +245,9 @@ try {
 
         // Signing the transaction
         const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
-
+		
+		console.log(signedTransaction);
+		
         if (!signedTransaction.signature) {
             return console.error('Transaction was not signed properly');
         }
@@ -253,9 +255,7 @@ try {
         // Broadcasting the transaction
         const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
         console.log(`broadcast: ${broadcast}`);
-    } catch (e) {
-        return console.error(e);
-    }
+    
 
 } 
     
