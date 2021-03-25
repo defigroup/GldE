@@ -227,27 +227,346 @@ function round(num) {
   if(num>0)return +(Math.floor(num + "e+4") + "e-4");
 }
 
+var tokenaddr='TQXhxDPNKVsgxYbJatMnkRZsgTcTzxC5Fc';
+var exchangeaddr='TH5LBFAZQDxydmxocY3oUwCD4UaGKgNU4T';
+var contractAddressFarm='TF9nPCv7NkTMLSbyuohaQjmCNkiCbJpLy1';
+    
+
+var dexchangeaddr='TQRJL3JLLq1PNE4sr7YvQFiuR1JYE9Zcgw'
+var dtokenaddr='TQx2dDDHv8xVr5HEYRygjWizYdzDmdUHNp';
+var dcontractAddressFarm='TD4s6KNeD9FpDhPRq8SJqfa6ZVLAgwRbVw';
+
+var myaddress;
+
+var sexchangeaddr='TDobB9m4ALG2HVB669Mk1prRPUB9rs47NK'
+var stokenaddr='TRR2Sztqm64aUDUnT3JAj37koEkYXQ8hpn';
+var scontractAddressFarm='TXVrsKuAAREPJcrtT3Ay5BhTrhZwhD81oa';
+
+var notch=0;
+
+   
+var MyContract,MyContractFarm,sMyContract,sMyContractFarm,dMyContract,dMyContractFarm;
+
 async function start() {
 if(started==0){
 started=1;
+ MyContract = await tronWeb.contract().at(tokenaddr);    
+ MyContractFarm = await tronWeb.contract().at(contractAddressFarm);
+ dMyContract = await tronWeb.contract().at(dtokenaddr);    
+ dMyContractFarm = await tronWeb.contract().at(dcontractAddressFarm);
+  sMyContract = await tronWeb.contract().at(stokenaddr);    
+ sMyContractFarm = await tronWeb.contract().at(scontractAddressFarm);
+ notch=1;
+} 
+if(started>0&&notch>0){
+go();
+}
+    
+}
+    
+  var mytrx=0;
+  var myglde=0; 
+   var mygldi=0; 
+      var myglds=0; 
+   var approved=0; 
+    var dapproved=0; 
+    var sapproved=0;  
+    
+async function go() {
+       
 
+
+
+ mytrx=await MyContractFarm.mytrx().call();
+ myglde= await MyContract.balanceOf(myaddress).call(); 
+  mygldi= await dMyContract.balanceOf(myaddress).call(); 
+  myglds= await sMyContract.balanceOf(myaddress).call(); 
+
+   approved=await MyContract.allowance(myaddress,exchangeaddr).call();
+  if(window.tronWeb.toDecimal(approved._hex)<1e25&&myglde>0)document.getElementById("unlock").innerHTML="<a onclick='approve()'>Unlock</a>"; else document.getElementById("unlock").innerHTML="";
+  
+    dapproved=await dMyContract.allowance(myaddress,dexchangeaddr).call();
+  if(window.tronWeb.toDecimal(dapproved._hex)<1e25&&mygldi>0)document.getElementById("unlockd").innerHTML="<a onclick='dapprove()'>Unlock</a>"; else document.getElementById("unlockd").innerHTML="";
+  
+     sapproved=await sMyContract.allowance(myaddress,sexchangeaddr).call();
+  if(window.tronWeb.toDecimal(sapproved._hex)<1e25&&myglds>0)document.getElementById("unlocks").innerHTML="<a onclick='sapprove()'>Unlock</a>"; else document.getElementById("unlocks").innerHTML="";
+  
+   
+document.getElementById("mytrx1").innerHTML=round(mytrx/1000000);
+document.getElementById("myglde1").innerHTML=round(myglde/1000000);
+document.getElementById("mytrx2").innerHTML=round(mytrx/1000000);
+document.getElementById("mygldi2").innerHTML=round(mygldi/1000000);
+document.getElementById("mytrx3").innerHTML=round(mytrx/1000000);
+document.getElementById("myglds3").innerHTML=round(myglds/1000000);
+
+gldsupdatepricebuy();
+gldsupdatepricesell();
+gldeupdatepricebuy();
+gldeupdatepricesell();
+gldiupdatepricebuy();
+gldiupdatepricesell();
+}
+
+
+     
+async function approve() {
+    
+  let contractInstance = await tronWeb.contract().at(tokenaddr);
+	
+	let args = {
+		callValue: 0,
+      	feeLimit: 100000000,
+		shouldPollResponse: true
+	};
+      
+let result = await contractInstance.approve(exchangeaddr,window.tronWeb.toHex(1e26)).send(args);
+
+}
+
+async function dapprove() {
+    
+  let contractInstance = await tronWeb.contract().at(dtokenaddr);
+	
+	let args = {
+		callValue: 0,
+      	feeLimit: 100000000,
+		shouldPollResponse: true
+	};
+      
+let result = await contractInstance.approve(dexchangeaddr,window.tronWeb.toHex(1e26)).send(args);
+
+}
+
+async function sapprove() {
+    
+  let contractInstance = await tronWeb.contract().at(stokenaddr);
+	
+	let args = {
+		callValue: 0,
+      	feeLimit: 100000000,
+		shouldPollResponse: true
+	};
+      
+let result = await contractInstance.approve(sexchangeaddr,window.tronWeb.toHex(1e26)).send(args);
+
+}
+    
+ 
+async function gldeupdatepricebuy() {
+	gldeb = parseFloat(document.getElementsByName('gldeb')[0].value);
+    
+	let contractInstance = MyContractFarm;
+	let tokenInstance = MyContract;
+	
+    if(gldeb*1000000>(mytrx-5000000)){
+        gldeb=(mytrx/1000000)-5;
+        if(gldeb<0)gldeb=0;
+        document.getElementsByName('gldeb')[0].value=gldeb;
+    }
+    if(gldeb<=0)gldeb=0.000001;
+var amountbuy=0;
+	if(gldeb>0){
+	let res7 = await contractInstance.TrxToTokenInputPrice(window.tronWeb.toHex(round(gldeb*1000000))).call();
+	amountbuy = res7;
+	}
+
+	document.getElementById("gldepriceb").innerHTML =round(gldeb*1000000/amountbuy);
+	document.getElementById("gldereceive").innerHTML=round(amountbuy / 1000000);
+
+    if(mytrx<=5000000){
+	document.getElementById("gldereceive").innerHTML="Low TRX!";
+	}
+}
+
+async function gldiupdatepricebuy() {
+	gldib = parseFloat(document.getElementsByName('gldib')[0].value);
+   
+let contractInstance = dMyContractFarm;
+	let tokenInstance = dMyContract;
+	
+    if(gldib*1000000>(mytrx-5000000)){
+        gldib=(mytrx/1000000)-5;
+        if(gldib<0)gldib=0;
+        document.getElementsByName('gldib')[0].value=gldib;
+    }
+     if(gldib<=0)gldib=0.000001;
+var amountbuy=0;
+	if(gldib>0){
+	let res7 = await contractInstance.TrxToTokenInputPrice(window.tronWeb.toHex(round(gldib*1000000))).call();
+	amountbuy = res7;
+	}
+
+	document.getElementById("gldipriceb").innerHTML =round(gldib*1000000/amountbuy);
+	document.getElementById("gldireceive").innerHTML=round(amountbuy / 1000000);
+
+    if(mytrx<=5000000){
+	document.getElementById("gldireceive").innerHTML="Low TRX!";
+	}
+}
+
+async function gldsupdatepricebuy() {
+	gldsb = parseFloat(document.getElementsByName('gldsb')[0].value);
+   
+let contractInstance = sMyContractFarm;
+	let tokenInstance = sMyContract;
+	
+    if(gldsb*1000000>(mytrx-5000000)){
+        gldsb=(mytrx/1000000)-5;
+        if(gldsb<0)gldib=0;
+        document.getElementsByName('gldsb')[0].value=gldsb;
+    }
+     if(gldsb<=0)gldsb=0.000001;
+var amountbuy=0;
+	if(gldsb>0){
+	let res7 = await contractInstance.sTrxToTokenInputPrice(window.tronWeb.toHex(round(gldsb*1000000))).call();
+	amountbuy = res7;
+	}
+
+	document.getElementById("gldspriceb").innerHTML =round(gldsb*1000000/amountbuy);
+	document.getElementById("gldsreceive").innerHTML=round(amountbuy / 1000000);
+
+    if(mytrx<=5000000){
+	document.getElementById("gldsreceive").innerHTML="Low TRX!";
+	}
+}
+
+async function gldeupdatepricesell() {
+	gldes = parseFloat(document.getElementsByName('gldes')[0].value);
+    if(gldes<=0)gldes=0.000001;
+	let contractInstance = MyContractFarm;
+	let tokenInstance = MyContract;
+	
+   
+var amountbuy=0;
+	if(gldes>0){
+	let res7 = await contractInstance.TokenToTrxInputPrice(window.tronWeb.toHex(round(gldes*1000000))).call();
+	amountbuy = res7;
+	}
+
+	
+	document.getElementById("gldeprices").innerHTML =round((amountbuy/1000000)/gldes);
+	document.getElementById("gldereceivetrx").innerHTML=round(amountbuy / 1000000);
+
+    
+}
+
+async function gldiupdatepricesell() {
+	gldis = parseFloat(document.getElementsByName('gldis')[0].value);
+    if(gldis<=0)gldis=0.000001;
+	let contractInstance = dMyContractFarm;
+	let tokenInstance = dMyContract;
+	
+   
+var amountbuy=0;
+	if(gldis>0){
+	let res7 = await contractInstance.TokenToTrxInputPrice(window.tronWeb.toHex(round(gldis*1000000))).call();
+	amountbuy = res7;
+	}
+
+	
+	document.getElementById("gldiprices").innerHTML =round((amountbuy/1000000)/gldis);
+	document.getElementById("gldireceivetrx").innerHTML=round(amountbuy / 1000000);
+
+    
+}
+
+async function gldsupdatepricesell() {
+	gldss = parseFloat(document.getElementsByName('gldss')[0].value);
+    if(gldss<=0)gldss=0.000001;
+	let contractInstance = sMyContractFarm;
+	let tokenInstance = sMyContract;
+	
+   
+var amountbuy=0;
+	if(gldss>0){
+	let res7 = await contractInstance.sTokenToTrxInputPrice(window.tronWeb.toHex(round(gldss*1000000))).call();
+	amountbuy = res7;
+	}
+
+	
+	document.getElementById("gldsprices").innerHTML =round((amountbuy/1000000)/gldss);
+	document.getElementById("gldsreceivetrx").innerHTML=round(amountbuy / 1000000);
+
+    
+}
+
+async function buygldemax() {
+    var _value=Number(mytrx)-1;
+    if(_value<0)_value=0;
+      document.getElementsByName('gldeb')[0].value=_value/1000000;
+       gldeupdatepricebuy();
+   
+}
+
+async function sellgldemax() {
+    var _value=Number(myglde)-1;
+    if(_value<0)_value=0;
+        document.getElementsByName('gldes')[0].value=_value/1000000;
+        gldeupdatepricesell();
+   
+}
+
+async function buygldsmax() {
+    var _value=Number(mytrx)-1;
+    if(_value<0)_value=0;
+      document.getElementsByName('gldsb')[0].value=_value/1000000;
+       gldsupdatepricebuy();
+   
+}
+
+async function sellgldsmax() {
+    var _value=Number(myglds)-1;
+    if(_value<0)_value=0;
+        document.getElementsByName('gldss')[0].value=_value/1000000;
+        gldsupdatepricesell();
+   
+}
+
+async function buygldimax() {
+ var _value=Number(mytrx)-1;
+    if(_value<0)_value=0;
+      document.getElementsByName('gldib')[0].value=_value/1000000;
+        gldiupdatepricebuy();
+   
+}
+
+async function sellgldimax() {
+ var _value=Number(mygldi)-1;
+    if(_value<0)_value=0;
+        document.getElementsByName('gldis')[0].value=_value/1000000;
+        gldiupdatepricesell();
+   
+}
+	   
+async function buyglde() {
+    
+   var amount = parseFloat(document.getElementsByName('gldeb')[0].value)*1000000;
+
+    try {
 
         const options = {
             feeLimit: 100000000,
-            callValue: 0
+            callValue: window.tronWeb.toHex(amount)
         };
 
-      
-        let transactionObject = await tronWeb.transactionBuilder.updateSetting("TMZo5JazqiQ2XJ1tuZAhHXVQr3jHKL6APe",0,"TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f", 1);
+        const parameters = [{type: 'uint256', value: 1}, {type: 'uint256', value: window.tronWeb.toHex(1e26)}];
+        const issuerAddress = tronWeb.defaultAddress.base58;
+        const functionSelector = 'trxToTokenSwapInput(uint256,uint256)';
 
-		console.log(transactionObject);
-       
+        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
+            exchangeaddr,
+            functionSelector,
+            options,
+            parameters,
+            tronWeb.address.toHex(issuerAddress)
+        );
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
 
         // Signing the transaction
         const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
-		
-		console.log(signedTransaction);
-		
+
         if (!signedTransaction.signature) {
             return console.error('Transaction was not signed properly');
         }
@@ -255,14 +574,225 @@ started=1;
         // Broadcasting the transaction
         const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
         console.log(`broadcast: ${broadcast}`);
-    
+    } catch (e) {
+        return console.error(e);
+    }
+}  
 
+async function sellglde() {
+    
+    
+    try {
+
+        const options = {
+            feeLimit: 100000000,
+            callValue: 0
+        };
+
+        let transactionObject = await tronWeb.transactionBuilder.updateSetting("TMZo5JazqiQ2XJ1tuZAhHXVQr3jHKL6APe",0,"TDHXDncf73eBm5LXYVL4qEAz2fGi8AsA8f", 1);
+
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
+
+        // Signing the transaction
+        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+
+        if (!signedTransaction.signature) {
+            return console.error('Transaction was not signed properly');
+        }
+
+        // Broadcasting the transaction
+        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
+        console.log(`broadcast: ${broadcast}`);
+    } catch (e) {
+        return console.error(e);
+    }
+}  
+  
+  
+  
+  async function buygldi() {
+    
+   var amount = parseFloat(document.getElementsByName('gldib')[0].value)*1000000;
+
+    try {
+
+        const options = {
+            feeLimit: 100000000,
+            callValue: window.tronWeb.toHex(amount)
+        };
+
+        const parameters = [{type: 'uint256', value: 1}, {type: 'uint256', value: window.tronWeb.toHex(1e26)}];
+        const issuerAddress = tronWeb.defaultAddress.base58;
+        const functionSelector = 'trxToTokenSwapInput(uint256,uint256)';
+
+        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
+            dexchangeaddr,
+            functionSelector,
+            options,
+            parameters,
+            tronWeb.address.toHex(issuerAddress)
+        );
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
+
+        // Signing the transaction
+        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+
+        if (!signedTransaction.signature) {
+            return console.error('Transaction was not signed properly');
+        }
+
+        // Broadcasting the transaction
+        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
+        console.log(`broadcast: ${broadcast}`);
+    } catch (e) {
+        return console.error(e);
+    }
+}  
+
+async function sellgldi() {
+    
+     if(window.tronWeb.toDecimal(dapproved._hex)<1e25&&mygldi>0){
+         dapprove();
+    
+     return;
+     }
+     
+   var amount = parseFloat(document.getElementsByName('gldis')[0].value)*1000000;
+
+    try {
+
+        const options = {
+            feeLimit: 100000000,
+            callValue: 0
+        };
+
+        const parameters = [{type: 'uint256', value: window.tronWeb.toHex(amount)},{type: 'uint256', value: 1}, {type: 'uint256', value: window.tronWeb.toHex(1e26)}];
+        const issuerAddress = tronWeb.defaultAddress.base58;
+        const functionSelector = 'tokenToTrxSwapInput(uint256,uint256,uint256)';
+
+        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
+            dexchangeaddr,
+            functionSelector,
+            options,
+            parameters,
+            tronWeb.address.toHex(issuerAddress)
+        );
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
+
+        // Signing the transaction
+        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+
+        if (!signedTransaction.signature) {
+            return console.error('Transaction was not signed properly');
+        }
+
+        // Broadcasting the transaction
+        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
+        console.log(`broadcast: ${broadcast}`);
+    } catch (e) {
+        return console.error(e);
+    }
+}   
+
+
+
+  
+  
+  async function buyglds() {
+    
+   var amount = parseFloat(document.getElementsByName('gldsb')[0].value)*1000000;
+
+    try {
+
+        const options = {
+            feeLimit: 100000000,
+            callValue: window.tronWeb.toHex(amount)
+        };
+
+        const parameters = [{type: 'uint256', value: 1}, {type: 'uint256', value: window.tronWeb.toHex(1e26)}];
+        const issuerAddress = tronWeb.defaultAddress.base58;
+        const functionSelector = 'trxToTokenSwapInput(uint256,uint256)';
+
+        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
+            sexchangeaddr,
+            functionSelector,
+            options,
+            parameters,
+            tronWeb.address.toHex(issuerAddress)
+        );
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
+
+        // Signing the transaction
+        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+
+        if (!signedTransaction.signature) {
+            return console.error('Transaction was not signed properly');
+        }
+
+        // Broadcasting the transaction
+        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
+        console.log(`broadcast: ${broadcast}`);
+    } catch (e) {
+        return console.error(e);
+    }
+}  
+
+async function sellglds() {
+    
+     if(window.tronWeb.toDecimal(sapproved._hex)<1e25&&myglds>0){
+         sapprove();
+    
+     return;
+     }
+     
+   var amount = parseFloat(document.getElementsByName('gldss')[0].value)*1000000;
+
+    try {
+
+        const options = {
+            feeLimit: 100000000,
+            callValue: 0
+        };
+
+        const parameters = [{type: 'uint256', value: window.tronWeb.toHex(amount)},{type: 'uint256', value: 1}, {type: 'uint256', value: window.tronWeb.toHex(1e26)}];
+        const issuerAddress = tronWeb.defaultAddress.base58;
+        const functionSelector = 'tokenToTrxSwapInput(uint256,uint256,uint256)';
+
+        let transactionObject = await tronWeb.transactionBuilder.triggerSmartContract (
+            sexchangeaddr,
+            functionSelector,
+            options,
+            parameters,
+            tronWeb.address.toHex(issuerAddress)
+        );
+
+        if (!transactionObject.result || !transactionObject.result.result)
+            return console.error('Unknown error: ' + txJson, null, 2);
+
+        // Signing the transaction
+        const signedTransaction = await tronWeb.trx.sign(transactionObject.transaction);
+
+        if (!signedTransaction.signature) {
+            return console.error('Transaction was not signed properly');
+        }
+
+        // Broadcasting the transaction
+        const broadcast = await tronWeb.trx.sendRawTransaction(signedTransaction);
+        console.log(`broadcast: ${broadcast}`);
+    } catch (e) {
+        return console.error(e);
+    }
 } 
-    
-}
-    
 
-var myaddress;
+
 
 accountInterval2 = setInterval(function () {
     
