@@ -1822,14 +1822,14 @@ document.getElementById("myanimals11yearlyusd").innerHTML=round(x11dailyprodusd*
 document.getElementById("myanimals11").innerHTML=round(x11staked/1000000)||0;
 document.getElementById("myanimals11reward").innerHTML=round(x11earned/1000000)||0;
 document.getElementById("myanimals11rewardx").innerHTML=round(x11earned/1000000)||0;
-document.getElementById("myanimals11rewardusd").innerHTML=round((x11earned/1000000)*deggsprice)||0;
+document.getElementById("myanimals11rewardusd").innerHTML=round(((x11earned*deggsprice)+(x11earned*eggsprice))/1000000)||0;
 
 document.getElementById("tanimals11").innerHTML=round(x11poolLPbalanceX/1000000);
 document.getElementById("tanimals11usd").innerHTML=round(x11lppoolsupplyusd);
 document.getElementById("tanimals11daily").innerHTML=round(x11dailyreward/1000000);
 document.getElementById("tanimals11dailyusd").innerHTML=round(x11dailyreward*eggsprice/1000000);
 document.getElementById("tanimals11daily2").innerHTML=round(x11dailyreward/1000000);
-document.getElementById("tanimals11dailyusd2").innerHTML=round(x11dailyusdreward*deggsprice/1000000);
+document.getElementById("tanimals11dailyusd2").innerHTML=round(x11dailyreward*deggsprice/1000000);
 document.getElementById("tanimals11yearlyroi").innerHTML=roundz(x11APY); 
 document.getElementById("tanimals11dailyroi").innerHTML=roundz(x11dailyroi);
 document.getElementById("tanimals11monthlyroi").innerHTML=roundz(x11dailyroi*30.41);
