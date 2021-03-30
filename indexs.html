@@ -1788,7 +1788,7 @@ var x11poolLPbalance2= await MyContract.balanceOf(contractaddress11).call();
 var lpprice11=((x11poolLPbalance*deggsprice)+(x11poolLPbalance2*eggsprice))/(x11poolLPbalance+x11poolLPbalance2);
 var x11poolLPbalanceX=await contract11.totalSupply().call();
 
-var x11lppoolsupplyusd=(x11poolLPbalance*deggsprice)+(x11poolLPbalance2*eggsprice);
+var x11lppoolsupplyusd=((x11poolLPbalance*deggsprice)+(x11poolLPbalance2*eggsprice))/1000000;
 
 var x11dailyreward= await contract11.dailyreward().call();
 var x11dailyusdreward=(x11dailyreward/1000000)*deggsprice+(x11dailyreward/1000000)*eggsprice;
@@ -1800,7 +1800,7 @@ document.getElementById("animals11dailyroi").innerHTML=roundz(x11dailyroi);
 document.getElementById("animals11monthlyroi").innerHTML=roundz(x11dailyroi*30.41);
 
 var x11staked= window.tronWeb.toDecimal((await contract11.balanceOf(myaddress).call())._hex); 
-document.getElementById("animals11").innerHTML=round(x11poolLPbalance/1000000);
+document.getElementById("animals11").innerHTML=round(x11poolLPbalanceX/1000000);
 document.getElementById("animals11usd").innerHTML=round(x11lppoolsupplyusd);
 document.getElementById("animals11daily").innerHTML=round(x11dailyreward/1000000);
 
