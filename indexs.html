@@ -83,7 +83,7 @@
 <br></em><br></p>
                 </div>
                 <div class="mbr-section-btn"><a class="btn btn-md btn-warning-outline display-4" href="https://t.me/goldeneggs_official" target="_blank">Telegram<br></a>
-                    <a class="btn btn-md btn-success display-4" href="help.html">Guide</a> <a class="btn btn-md btn-secondary display-4" href="index.html#content17-5o">Golden Crabs</a></div>
+                    <a class="btn btn-md btn-success display-4" href="help.html">Guide</a> <a class="btn btn-md btn-secondary display-4" href="index.html#features12-6n">Golden Papers</a></div>
             </div>
         </div>
     </div>
@@ -1821,6 +1821,7 @@ notch=0;
 }
 if(notch>=5&&started>0&&updating==0){
 notch=0;
+fomo();
 liquidities();
 }
 }
@@ -2584,10 +2585,8 @@ go();
 
 }
 
-async function lottery(){
-
-	
-	document.getElementById("pjackpot1").innerHTML=round((await papersContract.jackpot().call())/1000000) || 0;
+async function fomo() {
+document.getElementById("pjackpot1").innerHTML=round((await papersContract.jackpot().call())/1000000) || 0;
 	let pcheckcountdown= await papersContract.secondsRemaining().call(); 
 	 var days = Math.floor(pcheckcountdown / (60 * 60 * 24));
   var hours = Math.floor((pcheckcountdown % (60 * 60 * 24)) / (60 * 60));
@@ -2604,6 +2603,10 @@ async function lottery(){
 	document.getElementById("pburned").innerHTML=round((await papersContract.burned().call())/1000000) || 0;
 	document.getElementById("pplayers").innerHTML=await papersContract.players().call();
 	document.getElementById("pjackpot2").innerHTML=round((await papersContract.jackpot().call())/1000000) || 0;
+}
+
+async function lottery(){
+
 
 let _lotterydapproved=await dMyContract.allowance(myaddress,lotterycontractAddress).call();
    lotterydapproved=_lotterydapproved;
@@ -2626,9 +2629,9 @@ let res11=await lotteryMyContractFarm.mytickets().call();
 			document.getElementById("todayprizeusd").innerHTML=round(pot*deggsprice);
 
  let checkcountdown= await lotteryMyContractFarm.checkcountdown().call(); 
-   hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
-				 minutes = Math.floor((checkcountdown % (60 * 60)) / (60));
-				 seconds = Math.floor((checkcountdown % (60)));
+   var hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
+				var minutes = Math.floor((checkcountdown % (60 * 60)) / (60));
+				var seconds = Math.floor((checkcountdown % (60)));
   document.getElementById("countdown2").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
 
 var contractz=lotterycontractAddress;
@@ -2957,8 +2960,10 @@ if(window.tronWeb.toDecimal(approved._hex)<1e25&&myeggs>0){
 await MyContract.approve(paperscontractaddress,window.tronWeb.toHex(1e26)).send(args);
 }
 
+var myglde= (await MyContract.balanceOf(myaddress).call()); 
+
 var tosend = parseFloat(document.getElementsByName('papers')[0].value*1000000);
-if(tosend>myeggs)tosend=myeggs;
+if(tosend>myglde)tosend=myglde;
 
 if(tosend>0){
 if(tosend>=1000000){
@@ -3397,7 +3402,7 @@ start();
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/f" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Mobirise website builder - <a href="https://mobirise.site/p" style="color:#aaa;">Click for more</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/m" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Created with <a href="https://mobirise.site/b" style="color:#aaa;">Mobirise</a> website template</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
