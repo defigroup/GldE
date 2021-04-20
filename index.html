@@ -1848,6 +1848,7 @@ let eggburned= await MyContract.balanceOf(contractaddress6).call();
 let eggburned2= await MyContract.balanceOf(contractaddress7).call(); 
 let eggburned3= await MyContract.balanceOf(contractaddress9).call(); 
 let eggburned4= await MyContract.balanceOf(goldenvillageaddr).call(); 
+let eggburned5= await papersContract.burned().call() 
 let diamondburned= await dMyContract.balanceOf(contractaddress8).call(); 
 let diamondburned2= await dMyContract.balanceOf(contractaddress7).call(); 
 let diamondburned3= await dMyContract.balanceOf(goldenvillageaddr).call(); 
@@ -1855,7 +1856,7 @@ let diamondburned3= await dMyContract.balanceOf(goldenvillageaddr).call();
 document.getElementById("sgldesupply").innerHTML=round((seggsupply)/1000000);  
 
 document.getElementById("dgldesupply").innerHTML=round((deggsupply-diamondburned-diamondburned2-diamondburned3)/1000000);
-document.getElementById("gldesupply").innerHTML=round((eggsupply-eggburned-eggburned2-eggburned3-eggburned4)/1000000);
+document.getElementById("gldesupply").innerHTML=round((eggsupply-eggburned-eggburned2-eggburned3-eggburned4-eggburned5)/1000000);
 let TokenToTrxInputPrice=await contract1.TokenToTrxInputPrice(1000000).call();
 let sgldeinexchange=await sMyContract.balanceOf(sexchangeaddr).call()/1000000;
 let sTokenToTrxInputPrice= (sexchangetrx)/sgldeinexchange; 
@@ -3397,7 +3398,7 @@ start();
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/m" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Created with <a href="https://mobirise.site/b" style="color:#aaa;">Mobirise</a> website template</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/n" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Make a free website - <a href="https://mobirise.site/w" style="color:#aaa;">Check this</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
