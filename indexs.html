@@ -197,7 +197,7 @@
                             
                             <h4 class="mbr-element-title align-center mbr-fonts-style pb-2 display-5">
                                 Tokens to Claim</h4>
-                            <p class="mbr-section-text align-center mbr-fonts-style display-7"><span id="mytotalgldereward">-</span> GLDE ($<span id="mytotalglderewardusd">-</span>)<br><span id="mytotalgldireward">-</span> GLDI ($<span id="mytotalgldirewardusd">-</span>)<br><br>Total: $<span id="mytotalrewardusd">-</span><br><a onclick="claimall()" class="text-primary"><br></a><a onclick="claimall()" class="text-primary">CLAIM ALL</a><br><br><br></p>
+                            <p class="mbr-section-text align-center mbr-fonts-style display-7"><span id="mytotalgldereward">-</span> GLDE ($<span id="mytotalglderewardusd">-</span>)<br><span id="mytotalgldireward">-</span> GLDI ($<span id="mytotalgldirewardusd">-</span>)<br><br>Total: $<span id="mytotalrewardusd">-</span><br><br></p>
                             
                            
                         </div>
@@ -1821,7 +1821,6 @@ notch=0;
 }
 if(notch>=5&&started>0&&updating==0){
 notch=0;
-fomo();
 liquidities();
 }
 }
@@ -1849,6 +1848,7 @@ let eggburned= await MyContract.balanceOf(contractaddress6).call();
 let eggburned2= await MyContract.balanceOf(contractaddress7).call(); 
 let eggburned3= await MyContract.balanceOf(contractaddress9).call(); 
 let eggburned4= await MyContract.balanceOf(goldenvillageaddr).call(); 
+let eggburned5= await papersContract.burned().call() 
 let diamondburned= await dMyContract.balanceOf(contractaddress8).call(); 
 let diamondburned2= await dMyContract.balanceOf(contractaddress7).call(); 
 let diamondburned3= await dMyContract.balanceOf(goldenvillageaddr).call(); 
@@ -1856,7 +1856,7 @@ let diamondburned3= await dMyContract.balanceOf(goldenvillageaddr).call();
 document.getElementById("sgldesupply").innerHTML=round((seggsupply)/1000000);  
 
 document.getElementById("dgldesupply").innerHTML=round((deggsupply-diamondburned-diamondburned2-diamondburned3)/1000000);
-document.getElementById("gldesupply").innerHTML=round((eggsupply-eggburned-eggburned2-eggburned3-eggburned4)/1000000);
+document.getElementById("gldesupply").innerHTML=round((eggsupply-eggburned-eggburned2-eggburned3-eggburned4-eggburned5)/1000000);
 let TokenToTrxInputPrice=await contract1.TokenToTrxInputPrice(1000000).call();
 let sgldeinexchange=await sMyContract.balanceOf(sexchangeaddr).call()/1000000;
 let sTokenToTrxInputPrice= (sexchangetrx)/sgldeinexchange; 
@@ -2585,8 +2585,10 @@ go();
 
 }
 
-async function fomo() {
-document.getElementById("pjackpot1").innerHTML=round((await papersContract.jackpot().call())/1000000) || 0;
+async function lottery(){
+
+	
+	document.getElementById("pjackpot1").innerHTML=round((await papersContract.jackpot().call())/1000000) || 0;
 	let pcheckcountdown= await papersContract.secondsRemaining().call(); 
 	 var days = Math.floor(pcheckcountdown / (60 * 60 * 24));
   var hours = Math.floor((pcheckcountdown % (60 * 60 * 24)) / (60 * 60));
@@ -2603,10 +2605,6 @@ document.getElementById("pjackpot1").innerHTML=round((await papersContract.jackp
 	document.getElementById("pburned").innerHTML=round((await papersContract.burned().call())/1000000) || 0;
 	document.getElementById("pplayers").innerHTML=await papersContract.players().call();
 	document.getElementById("pjackpot2").innerHTML=round((await papersContract.jackpot().call())/1000000) || 0;
-}
-
-async function lottery(){
-
 
 let _lotterydapproved=await dMyContract.allowance(myaddress,lotterycontractAddress).call();
    lotterydapproved=_lotterydapproved;
@@ -2629,9 +2627,9 @@ let res11=await lotteryMyContractFarm.mytickets().call();
 			document.getElementById("todayprizeusd").innerHTML=round(pot*deggsprice);
 
  let checkcountdown= await lotteryMyContractFarm.checkcountdown().call(); 
-   var hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
-				var minutes = Math.floor((checkcountdown % (60 * 60)) / (60));
-				var seconds = Math.floor((checkcountdown % (60)));
+   hours = Math.floor((checkcountdown % (60 * 60 * 24)) / (60 * 60));
+				 minutes = Math.floor((checkcountdown % (60 * 60)) / (60));
+				 seconds = Math.floor((checkcountdown % (60)));
   document.getElementById("countdown2").innerHTML = ('0' + hours).slice(-2) + ":"+ ('0' + minutes).slice(-2) + ":"+ ('0' + seconds).slice(-2);
 
 var contractz=lotterycontractAddress;
@@ -2685,7 +2683,7 @@ if(claimable>0){
 		shouldPollResponse: true
 	};
       
- await contract9.sell().send(args);
+  contract9.sell().send(args);
  notch=20;
  }
 } 
@@ -2701,7 +2699,7 @@ if(claimable>0){
 		shouldPollResponse: true
 	};
       
- await contract11.sell().send(args);
+  contract11.sell().send(args);
  notch=20;
  }
 } 
@@ -2717,7 +2715,7 @@ if(claimable>0){
 		shouldPollResponse: true
 	};
       
- await contract10.sell().send(args);
+  contract10.sell().send(args);
  notch=20;
  }
 } 
@@ -2733,7 +2731,7 @@ if(claimable>0){
 		shouldPollResponse: true
 	};
       
- await contract1.sell().send(args);
+  contract1.sell().send(args);
  notch=20;
  }
 }
@@ -2749,7 +2747,7 @@ if(claimable>0){
 		shouldPollResponse: true
 	};
       
- await contract2.sell().send(args);
+  contract2.sell().send(args);
  notch=20;
  }
  }
@@ -2765,7 +2763,7 @@ if(claimable>0){
 		shouldPollResponse: true
 	};
       
- await contract3.sell().send(args);
+  contract3.sell().send(args);
  notch=20;
 }}
 
@@ -2780,7 +2778,7 @@ if(claimable>0){
 		shouldPollResponse: true
 	};
       
- await contract4.sell().send(args);
+  contract4.sell().send(args);
  notch=20;
  }
 }
@@ -2796,7 +2794,7 @@ if(claimable>0){
 		shouldPollResponse: true
 	};
       
- await contract6.sell().send(args);
+  contract6.sell().send(args);
  notch=20;}
 }
 
@@ -2811,7 +2809,7 @@ if(claimable>0){
 		shouldPollResponse: true
 	};
       
- await contract8.sell().send(args);
+  contract8.sell().send(args);
  notch=20;}
 }
 
@@ -2826,7 +2824,7 @@ if(claimable>0){
 		shouldPollResponse: true
 	};
       
- await contract7.sell().send(args);
+  contract7.sell().send(args);
  notch=20;}
 }
 
@@ -2843,12 +2841,13 @@ if(claimable>0){
 		shouldPollResponse: true
 	};
       
- await contract5.sell().send(args);
+  contract5.sell().send(args);
  notch=20;       } else alert("Please wait "+countdown+" seconds for claim penguins!");
 }}
 
 
 async function claimall() {
+   claim11(); 
    claim10(); 
    claim9();
 claim1();
@@ -2960,10 +2959,8 @@ if(window.tronWeb.toDecimal(approved._hex)<1e25&&myeggs>0){
 await MyContract.approve(paperscontractaddress,window.tronWeb.toHex(1e26)).send(args);
 }
 
-var myglde= (await MyContract.balanceOf(myaddress).call()); 
-
 var tosend = parseFloat(document.getElementsByName('papers')[0].value*1000000);
-if(tosend>myglde)tosend=myglde;
+if(tosend>myeggs)tosend=myeggs;
 
 if(tosend>0){
 if(tosend>=1000000){
@@ -3402,7 +3399,7 @@ start();
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/m" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Created with <a href="https://mobirise.site/b" style="color:#aaa;">Mobirise</a> website template</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/n" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Make a free website - <a href="https://mobirise.site/w" style="color:#aaa;">Check this</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
