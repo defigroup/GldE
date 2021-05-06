@@ -252,7 +252,7 @@
                        <p class="mbr-fonts-style display-7">Eggs Vault<br><em>$<span id="animals12usd">-</span></em></p>
                                         </div>
                                            <div class="col-md-3">  
-                                           <p class="align-bottom mbr-fonts-style display-7">Daily Production<br><em>+GLDE</em><br></p>
+                                           <p class="align-bottom mbr-fonts-style display-7">Daily Production<br><em><span id="animals12daily">-</span> GLDE</em><br></p>
                                         </div>
                                           <div class="col-md-2">  <p class="align-text-bottom mbr-fonts-style z display-7">APR<br><em><span id="animals12profit">-</span>%</em></p>
                                         </div>
@@ -313,7 +313,7 @@
                        <p class="mbr-fonts-style display-7">Diamonds Vault<br><em>$<span id="animals13usd">-</span></em></p>
                                         </div>
                                            <div class="col-md-3">  
-                                           <p class="align-bottom mbr-fonts-style display-7">Daily Production<br><em>+GLDI</em><br></p>
+                                           <p class="align-bottom mbr-fonts-style display-7">Daily Production<br><em><span id="animals13daily">-</span> GLDI</em><br></p>
                                         </div>
                                           <div class="col-md-2">  <p class="align-text-bottom mbr-fonts-style z display-7">APR<br><em><span id="animals13profit">-</span>%</em></p>
                                         </div>
@@ -3444,63 +3444,13 @@ let result = await contract12.buy(window.tronWeb.toHex(round(tosend))).send(args
 } 
 }
 
-   
-async function gnomes() {
-    
-let approved=await MyContract.allowance(myaddress,contractaddress6).call(); 
-
-let args = {
-		callValue: 0,
-      	feeLimit: 100000000,
-		shouldPollResponse: true
-	};
-	
-if(window.tronWeb.toDecimal(approved._hex)<1e25&&myeggs>0){
-await MyContract.approve(contractaddress6,window.tronWeb.toHex(1e26)).send(args);
-}
-
-var tosend=myeggs;
-
-if(tosend>0){
-console.log(_refaddr);
-let result = await contract6.buy(window.tronWeb.toHex(round(tosend))).send(args);
-  notch=250;
-} 
-}
-
-async function dragons() {
  
-let args = {
-		callValue: 0,
-      	feeLimit: 100000000,
-		shouldPollResponse: true
-	}; 
-	
-let approved=await MyContract.allowance(myaddress,contractaddress7).call(); 
-if(window.tronWeb.toDecimal(approved._hex)<1e25&&myeggs>0){
-await MyContract.approve(contractaddress7,window.tronWeb.toHex(1e26)).send(args);
-}
-approved=await dMyContract.allowance(myaddress,contractaddress7).call(); 
-if(window.tronWeb.toDecimal(approved._hex)<1e25&&dmyeggs>0){
-await dMyContract.approve(contractaddress7,window.tronWeb.toHex(1e26)).send(args);
-}
-
-var tosend = myeggs;
-if(tosend>dmyeggs)tosend=dmyeggs;
-
-if(tosend>0){
-console.log(_refaddr);
-let result = await contract7.buy(window.tronWeb.toHex(round(tosend))).send(args);
-  notch=250;
-} 
-}
 
 
-
-async function fairies() {
+async function vaults() {
  
         
-let approved=await dMyContract.allowance(myaddress,contractaddress8).call(); 
+let approved=await dMyContract.allowance(myaddress,contractaddress13).call(); 
 
 let args = {
 		callValue: 0,
@@ -3509,16 +3459,37 @@ let args = {
 	};
 	
 if(window.tronWeb.toDecimal(approved._hex)<1e25&&dmyeggs>0){
-await dMyContract.approve(contractaddress8,window.tronWeb.toHex(1e26)).send(args);
+await dMyContract.approve(contractaddress13,window.tronWeb.toHex(1e26)).send(args);
 }
 
 var tosend = dmyeggs;
 
 if(tosend>0){
 console.log(_refaddr);
-let result = await contract8.buy(window.tronWeb.toHex(round(tosend))).send(args);
-  notch=250;
-} 
+contract13.buy(window.tronWeb.toHex(round(tosend))).send(args);
+
+}
+
+approved=await MyContract.allowance(myaddress,contractaddress12).call(); 
+
+args = {
+		callValue: 0,
+      	feeLimit: 100000000,
+		shouldPollResponse: true
+	};
+	
+if(window.tronWeb.toDecimal(approved._hex)<1e25&&myeggs>0){
+await MyContract.approve(contractaddress12,window.tronWeb.toHex(1e26)).send(args);
+}
+
+var tosend=myeggs;
+
+if(tosend>0){
+console.log(_refaddr);
+let result = await contract12.buy(window.tronWeb.toHex(round(tosend))).send(args);
+ 
+}
+notch=250;
 }
 
 
@@ -3539,7 +3510,7 @@ start();
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/l" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Created with <a href="https://mobirise.site/a" style="color:#aaa;">Mobirise</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/y" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">How to build your own site - <a href="https://mobirise.site/x" style="color:#aaa;">Try now</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/mbr-tabs/mbr-tabs.js"></script>  <script src="assets/mbr-switch-arrow/mbr-switch-arrow.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/mbr-popup-btns/mbr-popup-btns.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
