@@ -99,7 +99,7 @@
                             Get Ticket
                   </a></div>
                    <div class="mbr-section-text">
-                        <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4"><em>You have:&nbsp;<span id="mytickets">-</span> Tickets</em><br><em>Max Tickets:&nbsp;</em>∞</p>
+                        <p class="mbr-text text3 pt-2 mbr-light mbr-fonts-style display-4"><em>You have:&nbsp;<span id="mytickets">-</span> Tickets</em><br><em>GLDI in wallet: <span id="mydiamonds">-</span></em></p>
                     </div>
                 </div>
             </div>
@@ -276,7 +276,7 @@ var lupdating=0;
 var wupdating=0;
 
 var exchangeliquidityusd, trxprice,dexchangeliquidityusd,sexchangeliquidityusd;
-   var mydiamonds=0;  
+  
    var lotterydapproved=0;
    var ticketprice=0;
    var eggsprice,seggsprice,deggsprice;
@@ -306,7 +306,7 @@ lottery();
 }
  
 
- 
+ var mydiamonds;
 
 async function lottery(){
 
@@ -315,6 +315,9 @@ async function lottery(){
 let _lotterydapproved=await dMyContract.allowance(myaddress,lotterycontractAddress).call();
    lotterydapproved=_lotterydapproved;
    
+   mydiamonds=await dMyContract.balanceOf(myaddress).call();
+   	document.getElementById("mydiamonds").innerHTML=round(mydiamonds/1000000);
+   	
  	let res10=await lotteryMyContractFarm.soldtickets().call();
 			document.getElementById("todaytickets").innerHTML=res10;
 
@@ -442,7 +445,7 @@ start();
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/n" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Made with <a href="https://mobirise.site/b" style="color:#aaa;">Mobirise</a> website template</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/y" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Make your own website with <a href="https://mobirise.site/z" style="color:#aaa;">Mobirise</a></p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/datatables/jquery.data-tables.min.js"></script>  <script src="assets/datatables/data-tables.bootstrap4.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
