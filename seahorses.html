@@ -101,14 +101,14 @@
                                 <div class="wrapper border_wrapper">
                                     <!--Cost-->
                                     <p class="mbr-text mbr-fonts-style col-right mbr-black align-center display-5"><strong><br></strong><strong>Ends In<br></strong><span id="countdown">-</span><br><br><br></p>
-                                          <p class="mbr-text1 mbr-fonts-style col-right mbr-black align-center display-7"><strong>My Wallet<br></strong><span id="mywalletLP">-</span> GLDS = $<span id="mywalletLPusd">-</span><br></p>
+                                          <p class="mbr-text1 mbr-fonts-style col-right mbr-black align-center display-7"><strong>My Wallet<br></strong><span id="mywalletLP">-</span> <a href="dex.html" class="text-primary">GLDS </a>= $<span id="mywalletLPusd">-</span><br></p>
                                   <div id="approvedyes" style="display:none;"><div class="mbr-section-btn col-right align-center"><a onclick="stake()" class="btn m-0 btn-warning display-4">
                                     Stake</a></div></div>
                                   
                                  <div id="approvedno" style="display:block;"><div class="mbr-section-btn col-right align-center"><a onclick="approve()" class="btn m-0 btn-warning display-4">
                                     Unlock</a></div></div>
                                    
-                                  <p class="mbr-text1 mbr-fonts-style col-right mbr-black align-center display-7"><strong><br></strong><br><strong>My Claimable Rewards<br></strong><span id="myreward">-</span> GLDS = $<span id="myrewardusd">-</span><br></p>
+                                  <p class="mbr-text1 mbr-fonts-style col-right mbr-black align-center display-7"><strong><br></strong><br><strong>My Claimable Rewards<br></strong><span id="myreward">-</span> <a href="dex.html" class="text-primary">GLDS </a>= $<span id="myrewardusd">-</span><br></p>
                                   <div class="mbr-section-btn col-right align-center"><a onclick="harvest()" class="btn m-0 btn-secondary display-4">
                                     Harvest</a></div>
                                   
@@ -149,8 +149,8 @@
                         <div class="card-text">
                             <h3 class="pt-3 pb-3 mbr-fonts-style display-2"><em>per Day</em></h3>
                             <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-5">
-                                <span id="prodday">-</span> GLDS</h4>
-                            <p class="mbr-content-text mbr-fonts-style display-5"><em>$<span id="proddayusd">-</span></em></p>
+                                <span id="dailyprod">-</span> GLDS</h4>
+                            <p class="mbr-content-text mbr-fonts-style display-5"><em>$<span id="dailyprodusd">-</span></em></p>
                         </div>
                     </div>
                 </div>
@@ -162,9 +162,9 @@
                         <div class="card-text">
                             <h3 class="pt-3 pb-3 mbr-fonts-style display-2"><em>per Week</em></h3>
                             <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-5">
-                                <span id="prodweek">-</span> GLDS</h4>
+                                <span id="weeklyprod">-</span> GLDS</h4>
                             <p class="mbr-content-text mbr-fonts-style display-5"><em>
-                                    $<span id="prodweekusd">-</span>
+                                    $<span id="weeklyprodusd">-</span>
                             </em></p>
                         </div>
                     </div>
@@ -176,9 +176,9 @@
                         <div class="card-text">
                             <h3 class="pt-3 pb-3 mbr-fonts-style display-2"><em>per Year</em></h3>
                             <h4 class="mbr-content-title mbr-bold mbr-fonts-style display-5">
-                                <span id="prodyear">-</span> GLDS</h4>
+                                <span id="yearlyprod">-</span> GLDS</h4>
                             <p class="mbr-content-text mbr-fonts-style display-5"><em>
-                                    $<span id="prodyearusd">-</span>
+                                    $<span id="yearlyprodusd">-</span>
                             </em></p>
                         </div>
                     </div>
@@ -289,7 +289,7 @@ async function go() {
 	else approvedno();
   
   
-   var lpprice=seggsprice;
+   var lpprice=seggsprice/1000000;
  
   
    let poolLPbalance= await MyContractFarm.totalSupply().call(); 
@@ -489,7 +489,7 @@ document.getElementById("installmetamask").style.display = "none";
   </script>
       
     </div>
-</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/m" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;">Start a <a href="https://mobirise.site/y" style="color:#aaa;">website</a> with Mobirise</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
+</section><section style="background-color: #fff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif; color:#aaa; font-size:12px; padding: 0; align-items: center; display: flex;"><a href="https://mobirise.site/h" style="flex: 1 1; height: 3rem; padding-left: 1rem;"></a><p style="flex: 0 0 auto; margin:0; padding-right:1rem;"><a href="https://mobirise.site/i" style="color:#aaa;">Made with Mobirise</a> creator</p></section><script src="assets/web/assets/jquery/jquery.min.js"></script>  <script src="assets/popper/popper.min.js"></script>  <script src="assets/bootstrap/js/bootstrap.min.js"></script>  <script src="assets/tether/tether.min.js"></script>  <script src="assets/smoothscroll/smooth-scroll.js"></script>  <script src="assets/dropdown/js/nav-dropdown.js"></script>  <script src="assets/dropdown/js/navbar-dropdown.js"></script>  <script src="assets/touchswipe/jquery.touch-swipe.min.js"></script>  <script src="assets/viewportchecker/jquery.viewportchecker.js"></script>  <script src="assets/parallax/jarallax.min.js"></script>  <script src="assets/theme/js/script.js"></script>  
   
   
 
