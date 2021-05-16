@@ -68,7 +68,9 @@
     "uniqCompNum": 292,
     "versionPublish": "5.2.0",
     "screenshot": "screenshot.png",
-    "footer_custom": "\n"
+    "footer_custom": "\n",
+    "publishType": "local",
+    "publishPath": "@PROJECT_PATH@/"
   },
   "pages": {
     "chickens.html": {
