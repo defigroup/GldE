@@ -311,7 +311,7 @@ async function go() {
   
   
   
-   let LPmybalance= await MyContractFarm.LPmyBalance().call(); 
+   let LPmybalance= await MyContractFarm.gldsmyBalance().call(); 
  
  lpinwallet=(LPmybalance);
   if(lpinwallet>0){
